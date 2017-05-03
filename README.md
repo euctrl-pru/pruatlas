@@ -19,7 +19,7 @@ Lower level functions or datasets include for example `ctrys50m`, the Simple Fea
 Installation
 ============
 
-`Pruatlas` is still in early development and it is only available on GitHub. It relies and uses the functionality from the `sf` package and this relies on a working installation of GDAL, see the `sf` installation instructions for directions. Also note that support for Simple Feature is still in development in `ggplot2`: you need to install from GitHub untill officially released (sometine in May 2017.)
+`Pruatlas` is still in early development and it is only available on GitHub. It relies and uses the functionality from the `sf` package and this relies on a working installation of GDAL, see the `sf` installation instructions for directions. Also note that support for Simple Feature is still in development in `ggplot2`: you need to install from GitHub untill officially released (sometimes in May 2017.)
 
 In order to install `pruatlas` you need to run:
 

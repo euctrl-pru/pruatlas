@@ -37,7 +37,7 @@ It relies and uses the functionality from the `sf` package and this relies
 on a working installation of GDAL, see the `sf` installation instructions
 for directions.
 Also note that support for Simple Feature is still in development in `ggplot2`:
-you need to install from GitHub untill officially released (sometine in May 2017.)
+you need to install from GitHub untill officially released (sometimes in May 2017.)
 
 In order to install `pruatlas` you need to run:
 
