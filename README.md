@@ -27,7 +27,3 @@ In order to install `pruatlas` you need to run:
 library(devtools)
 install_github("euctrl-pru/pruatlas")
 ```
-
-Installation instructions, giving code that can be copied and pasted into R.
-
-An overview that describes the main components of the package. For more complex packages, this will point to vignettes for more details.
