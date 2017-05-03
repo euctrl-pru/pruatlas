@@ -3,7 +3,7 @@
 #' @return The colours for the various elements of a map, i.e. see, land, fir, ...
 #' @export
 #'
-colours <- function() {
+pru_colours <- function() {
   tibble::tribble(
     ~what, ~name,
     "colour_sea", "#D8F4FF",
