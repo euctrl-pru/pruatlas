@@ -1,5 +1,6 @@
 ---
 output: github_document
+published: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -15,6 +16,8 @@ knitr::opts_chunk$set(
 # PRU Atlas
 
 The `pruatlas` package provides helpers for generating maps of interest for PRU pubblications.
+
+This is still WIP.
 
 There are both high and low level facilities.
 For an example of a high level helper, the code for plotting a map of the
