@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # PRU Atlas
 
-The `pruatlas` package provides helpers for generating maps of interest for PRU pubblications.
+The `pruatlas` package provides helpers for generating maps of interest for PRU publications.
 
 This is still WIP.
 
@@ -28,8 +28,8 @@ library(pruatlas)
 plot_country_fir("LF", "France")
 ```
 
-Lower level functions or datasets include for example `ctrys50m`, the Simple Feature
-for the whole wolrd countries or `extent_fir()` to calculate the bounding box of
+Lower level functions or datasets include for example `countries50m`, the Simple Feature
+for the whole world countries or `extent_fir()` to calculate the bounding box of
 a country FIR.
 
 

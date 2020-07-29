@@ -14,7 +14,7 @@ plot_country_fir("LF", "France")
 
 ![](README-lf-fir-1.png)
 
-Lower level functions or datasets include for example `ctrys50m`, the Simple Feature for the whole wolrd countries or `extent_fir()` to calculate the bounding box of a country FIR.
+Lower level functions or datasets include for example `countries50m`, the Simple Feature for the whole wolrd countries or `extent_fir()` to calculate the bounding box of a country FIR.
 
 Installation
 ============
