@@ -34,7 +34,7 @@
 #'   \item{geometry}{the Simple Feature describing the country}
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
-"ctrys50m"
+"countries50m"
 
 #' A special object to represent the spherical Earth in a given projection.
 #'
