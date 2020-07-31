@@ -34,7 +34,7 @@ shapefiles <- gsub(".shp", "", shapefiles)
 shapefiles <- gsub("data-raw/firs/", "", shapefiles)
 
 l_ply(shapefiles, function(x) {
-  shp <- read_sf("data-raw/firs/firs_nm_406shp") %>%
+  shp <- read_sf(here::here("data-raw", "firs", paste0(x, ".shp"))) %>%
     st_zm() %>%
     transmute(airacnm = AC_ID,
               firid = AV_AIRSPAC,
