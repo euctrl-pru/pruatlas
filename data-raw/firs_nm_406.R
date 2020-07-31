@@ -8,19 +8,33 @@ zipfiles <- c(
   "firs_nm_406.zip"
 )
 
-
 l_ply(zipfiles, function(x) {
   file <- paste0("data-raw/", x)
   message("Unzipping ", x)
-  unzip(file, exdir = "data-raw")
+  unzip(file, exdir = "data-raw/firs")
 })
 
-shapefiles <- Sys.glob("data-raw/*.shp")
+
+# fs::dir_ls(path = "data-raw/firs/", glob = "*.shp") %>%
+#   sf::st_read() %>%
+#   st_zm() %>%
+#   transmute(airacnm = AC_ID,
+#             firid = AV_AIRSPAC,
+#             icao = AV_ICAO_ST,
+#             minfl = MIN_FLIGHT,
+#             maxfl = MAX_FLIGHT,
+#             firname = AV_NAME,
+#             objid = OBJECTID,
+#             SHAPE_LEN = SHAPE_LEN,
+#             geometry)
+
+
+shapefiles <- Sys.glob("data-raw/firs/*.shp")
 shapefiles <- gsub(".shp", "", shapefiles)
-shapefiles <- gsub("data-raw/", "", shapefiles)
+shapefiles <- gsub("data-raw/firs/", "", shapefiles)
 
 l_ply(shapefiles, function(x) {
-  shp <- read_sf("data-raw","firs_nm_406") %>%
+  shp <- read_sf("data-raw/firs/firs_nm_406shp") %>%
     st_zm() %>%
     transmute(airacnm = AC_ID,
               firid = AV_AIRSPAC,
@@ -34,5 +48,7 @@ l_ply(shapefiles, function(x) {
   assign(x, shp, envir = globalenv())
 })
 
-devtools::use_data(firs_nm_406,
-         compress = "bzip2", overwrite = TRUE)
+usethis::use_data(
+  firs_nm_406,
+  compress = "bzip2",
+  overwrite = TRUE)

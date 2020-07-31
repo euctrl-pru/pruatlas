@@ -4,12 +4,16 @@
 \alias{plot_country_fir}
 \title{Plot country and relevant FIR.}
 \usage{
-plot_country_fir(icao, name)
+plot_country_fir(icao, name, fl = 0, buffer = 100)
 }
 \arguments{
 \item{icao}{the ICAO code for the country, "LI" for Italy.}
 
 \item{name}{The name used to title the plot.}
+
+\item{fl}{Flight level at which to plot the map}
+
+\item{buffer}{buffer around FIR (km)}
 }
 \value{
 A ggplot object with country and relevant FIR.

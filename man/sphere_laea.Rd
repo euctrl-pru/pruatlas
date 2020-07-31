@@ -4,7 +4,9 @@
 \name{sphere_laea}
 \alias{sphere_laea}
 \title{A special object to represent the spherical Earth in a given projection.}
-\format{An object of class \code{sf} (inherits from \code{data.frame}) with 1 rows and 2 columns.}
+\format{
+An object of class \code{sf} (inherits from \code{data.frame}) with 1 rows and 2 columns.
+}
 \source{
 \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 }

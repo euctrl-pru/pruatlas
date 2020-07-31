@@ -4,7 +4,7 @@
 \alias{sphere}
 \title{Return the polygon represent the spherical Earth.}
 \usage{
-sphere(crs = pru_laea_proj)
+sphere(crs = pruatlas::pru_laea_proj)
 }
 \arguments{
 \item{crs}{a `proj` projection string}

@@ -3,7 +3,6 @@
 \docType{package}
 \name{pruatlas}
 \alias{pruatlas}
-\alias{pruatlas-package}
 \title{pruatlas: A package for PRU maps generation.}
 \description{
 The pruatlas package provides function to plot country FIRs,

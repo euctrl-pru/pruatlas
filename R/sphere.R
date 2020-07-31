@@ -4,7 +4,7 @@
 #'
 #' @return A Simple Feature representing the spherical contour of the Earch in the relevant projection.
 #' @export
-sphere <- function(crs = pru_laea_proj) {
+sphere <- function(crs = pruatlas::pru_laea_proj) {
   sf::st_graticule(ndiscr = 10000, margin = 10e-6) %>%
   sf::st_transform(crs = crs) %>%
   sf::st_convex_hull() %>%

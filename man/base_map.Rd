@@ -13,6 +13,9 @@ a ggplot2 object with world countries in LAEA projection.
 Provide base country layer for PRU maps.
 }
 \examples{
+\dontrun{
+library(pruatlas)
 # Plot a world map in LAEA projection.
 bm <- base_map()
+}
 }

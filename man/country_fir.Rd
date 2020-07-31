@@ -4,12 +4,14 @@
 \alias{country_fir}
 \title{Return the country FIR for a EUROCONTROL's Member State.}
 \usage{
-country_fir(firs, icaoid = "LI")
+country_fir(firs, icaoid = "LI", fl = 0)
 }
 \arguments{
 \item{firs}{the relevant NM FIRs.}
 
 \item{icaoid}{optional, the ICAO ID of the relevant country, "LI" otherwise.}
+
+\item{fl}{flight level at which assemble the composing polygons.}
 }
 \value{
 An Simple Feature for the relevant country FIR.
@@ -18,5 +20,7 @@ An Simple Feature for the relevant country FIR.
 Return the country FIR for a EUROCONTROL's Member State.
 }
 \examples{
-country_fir(firs_nm_406, "LF")
+\dontrun{
+country_fir(pruatlas::firs_nm_406, "LF")
+}
 }

@@ -4,7 +4,8 @@
 \name{firs_nm_406}
 \alias{firs_nm_406}
 \title{NM FIRs for AIRCA 406.}
-\format{A Simple Feature dataset with 111 FIRs and 9 variables:
+\format{
+A Simple Feature dataset with 111 FIRs and 9 variables:
 \describe{
   \item{airacnm}{the AIRAC cycle number in CFMU format}
   \item{firid}{the code name for the FIR}
@@ -15,7 +16,8 @@
   \item{objid}{unique numerical id for the FIR}
   \item{SHAPE_LEN}{the leangth of the perimeter of the polygon of the FIR}
   \item{geometry}{the Simple Feature describing the FIR}
-}}
+}
+}
 \source{
 \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 }

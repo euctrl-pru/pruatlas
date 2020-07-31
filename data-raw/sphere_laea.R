@@ -10,5 +10,5 @@ sphere_laea <- st_graticule(ndiscr = 10000, margin = 10e-6) %>%
   sf::st_union() %>%
   sf::st_sf(geometry = ., name = 'sphere')
 
-devtools::use_data(sphere_laea,
+usethis::use_data(sphere_laea,
                    compress = "bzip2", overwrite = TRUE)
