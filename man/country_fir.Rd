@@ -4,12 +4,12 @@
 \alias{country_fir}
 \title{Return the country FIR for a EUROCONTROL's Member State.}
 \usage{
-country_fir(firs, icaoid = "LI", fl = 0)
+country_fir(firs, icao_id = "LI", fl = 0)
 }
 \arguments{
 \item{firs}{the relevant NM FIRs.}
 
-\item{icaoid}{optional, the ICAO ID of the relevant country, "LI" otherwise.}
+\item{icao_id}{optional, the ICAO ID of the relevant country, "LI" otherwise.}
 
 \item{fl}{flight level at which assemble the composing polygons.}
 }
