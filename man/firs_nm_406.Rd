@@ -7,14 +7,13 @@
 \format{
 A Simple Feature dataset with 111 FIRs and 9 variables:
 \describe{
-  \item{airacnm}{the AIRAC cycle number in CFMU format}
-  \item{firid}{the code name for the FIR}
-  \item{firid}{the ICAO country code for the FIR}
-  \item{minfl}{the minimum flight level of the FIR}
-  \item{maxfl}{the maximum flight level of the FIR}
-  \item{firname}{the name of the FIR}
-  \item{objid}{unique numerical id for the FIR}
-  \item{SHAPE_LEN}{the leangth of the perimeter of the polygon of the FIR}
+  \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+  \item{icao}{the ICAO region code for the FIR}
+  \item{id}{the ID for the FIR}
+  \item{min_fl}{the minimum flight level of the FIR}
+  \item{max_fl}{the maximum flight level of the FIR}
+  \item{name}{the name of the FIR}
+  \item{airspace_type}{the type of the airspace (FIR)}
   \item{geometry}{the Simple Feature describing the FIR}
 }
 }
