@@ -10,7 +10,16 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' plot_country_fir("LI", "Italy")
+#' # UK and Portugal have oceanic part...
+#' plot_country_fir("EG", "United Kingdom (oceanic)")
+#' # decoupling oceanic, manually
+#' uk_continental <- firs_nm_406 %>%
+#' dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) %>%
+#'   dplyr::filter(!(id %in% c("EGGXFIR", "EGGX")))
+#' plot_country_fir("EG", "United Kingdom (continental)", firs = uk_continental)
+#' }
 plot_country_fir <- function(icao_id,
                              name,
                              fl = 0,
@@ -18,14 +27,14 @@ plot_country_fir <- function(icao_id,
                              firs = pruatlas::firs_nm_406) {
 
   # TODO: avoid hardcoding the colours
-  colour_fir <- "blue"
+  colour_fir        <- "blue"
   colour_fir_border <- "red"
-  buffer_m <- buffer * 1e3 # 100 km
+  buffer_m          <- buffer * 1e3 # 100 km
 
-  p <- pruatlas::pru_laea_proj
+  p        <- pruatlas::pru_laea_proj
   fir_ctry <- country_fir(firs, icao_id = icao_id)
 
-  utm <- sf::st_centroid(fir_ctry) %>%
+  utm <- suppressWarnings(sf::st_centroid(fir_ctry)) %>%
     sf::st_coordinates() %>%
     lonlat2UTM()
   # get buffered bounding box (pick right UTM)

@@ -30,5 +30,14 @@ A ggplot object with country and relevant FIR.
 Plot country and relevant FIR.
 }
 \examples{
+\dontrun{
 plot_country_fir("LI", "Italy")
+# UK and Portugal have oceanic part...
+plot_country_fir("EG", "United Kingdom (oceanic)")
+# decoupling oceanic, manually
+uk_continental <- firs_nm_406 \%>\%
+dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) \%>\%
+  dplyr::filter(!(id \%in\% c("EGGXFIR", "EGGX")))
+plot_country_fir("EG", "United Kingdom (continental)", firs = uk_continental)
+}
 }
