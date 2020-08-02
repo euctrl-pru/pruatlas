@@ -3,7 +3,7 @@
 \docType{data}
 \name{firs_nm_406}
 \alias{firs_nm_406}
-\title{NM FIRs for AIRCA 406.}
+\title{NM FIRs for AIRAC 406.}
 \format{
 A Simple Feature dataset with 111 FIRs and 9 variables:
 \describe{
@@ -16,9 +16,6 @@ A Simple Feature dataset with 111 FIRs and 9 variables:
   \item{airspace_type}{the type of the airspace (FIR)}
   \item{geometry}{the Simple Feature describing the FIR}
 }
-}
-\source{
-\url{https://github.com/euctrl-pru/eurocontrol-atlas}
 }
 \usage{
 firs_nm_406

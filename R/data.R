@@ -1,4 +1,4 @@
-#' NM FIRs for AIRCA 406.
+#' NM FIRs for AIRAC 406.
 #'
 #' A dataset containing the definition of the FIRs as used by the
 #' \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
@@ -15,8 +15,29 @@
 #'   \item{airspace_type}{the type of the airspace (FIR)}
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
-#' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "firs_nm_406"
+
+#' ACE ANSPs for AIRAC 406.
+#'
+#' A dataset containing the definition of the
+#' \href{https://ansperformance.eu/acronym/ansp/}{ANSP}s as
+#' used in the \href{https://ansperformance.eu/acronym/ace/}{ACE}
+#' Benchmarking Report.
+#'
+#'
+#' @format A Simple Feature dataset with airspace definitions for ANSPs:
+#' \describe{
+#'   \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+#'   \item{id}{the ID for the ANSP}
+#'   \item{name}{the name of the ANSP}
+#'   \item{ace_code}{the code of the ANSP used in ACE}
+#'   \item{min_fl}{the minimum flight level of the ANSP}
+#'   \item{max_fl}{the maximum flight level of the ANSP}
+#'   \item{airspace_type}{the type of the airspace (ANSP)}
+#'   \item{geometry}{the Simple Feature describing the ANSP}
+#' }
+#' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+"ansps_ace_406"
 
 #' World countries at 50m scale.
 #'

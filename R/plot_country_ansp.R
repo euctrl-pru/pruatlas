@@ -1,0 +1,33 @@
+plot_country_ansp <- function(ansp_id,
+                             name,
+                             fl = 300,
+                             buffer = 100,
+                             ansps = pruatlas::ansps_ace_406) {
+
+  # TODO: avoid hardcoding the colours
+  colour_fir        <- "blue"
+  colour_fir_border <- "red"
+  buffer_m          <- buffer * 1e3 # 100 km
+
+  p        <- pruatlas::pru_laea_proj
+  ansp_ctry <- country_ansp(ansps, ansp_id = ansp_id)
+
+  utm <- suppressWarnings(sf::st_centroid(ansp_ctry)) %>%
+    sf::st_coordinates() %>%
+    lonlat2UTM()
+  # get buffered bounding box (pick right UTM)
+  bbox <- ansp_ctry %>%
+    sf::st_transform(crs = utm) %>%
+    sf::st_buffer(buffer_m) %>%
+    sf::st_transform(crs = sf::st_crs(ansp_ctry)) %>%
+    sf::st_bbox()
+
+  base_map() +
+    ggplot2::geom_sf(data = ansp_ctry, fill = colour_fir, alpha = 0.15, colour = colour_fir_border) +
+    ggplot2::coord_sf(crs = p, xlim = bbox[c(1, 3)], ylim = bbox[c(2, 4)]) +
+    ggplot2::ggtitle(
+      label = stringr::str_c("Country ANSP for", name, sep = " "),
+      subtitle = paste0("at altitude FL", formatC(as.integer(fl), width = 3, flag = "0"))
+    ) +
+    theme_map()
+}
