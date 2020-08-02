@@ -123,13 +123,14 @@ retrieve_data <- function(usr, pwd, dbn, cfmu_airac) {
 data <- retrieve_data(usr, pwd, dbn, cfmu_airac)
 data <- data %>%
   dplyr::first() %>%
+  dplyr::as_tibble() %>%
   read_sf(quiet = TRUE) %>%
   rename(
-    airac_cfmu = AC_ID,
-    id     = AV_AIRSPACE_ID,
-    min_fl     = MIN_FLIGHT_LEVEL,
-    max_fl     = MAX_FLIGHT_LEVEL,
-    name   = NAME,
+    airac_cfmu    = AC_ID,
+    id            = CODE,
+    min_fl        = MIN_FLIGHT_LEVEL,
+    max_fl        = MAX_FLIGHT_LEVEL,
+    name          = NAME,
     airspace_type = AIRSPACE_TYPE,
     NULL
   ) %>%
