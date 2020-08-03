@@ -2,8 +2,10 @@
 
 export("%>%")
 export(base_map)
+export(country_ansp)
 export(country_fir)
 export(extent_fir)
+export(plot_country_ansp)
 export(plot_country_fir)
 export(pru_colours)
 export(sphere)

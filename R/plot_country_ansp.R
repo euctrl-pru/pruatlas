@@ -1,3 +1,25 @@
+#' Plot country and relevant ANSP.
+#'
+#' @param ansp_id the ANSP ID for the country, "ENAV" for Italy.
+#' @param name    The name used to title the plot.
+#' @param fl      Flight level at which to plot the map
+#' @param buffer  Buffer around ANSP (km)
+#' @param ansps    ANSP polygons to be used (sf object)
+#'
+#' @return A ggplot object with country and relevant ANSP.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' plot_country_ansp("DFS", "Germany")
+#' # Italy'ENAV has a hole above Rome...
+#' plot_country_ansp("ENAV", "Italy (hole over Rome)")
+#' # ...filling the hole, manually
+#' enav <- pruatlas::ansps_ace_406 %>%
+#'   country_ansp(ansp_id = "ENAV", fl = 355) %>%
+#'   smoothr::fill_holes(units::set_units(10000, km^2))
+#' plot_country_ansp("ENAV", "Italy", firs = enav)
+#' }
 plot_country_ansp <- function(ansp_id,
                              name,
                              fl = 300,
