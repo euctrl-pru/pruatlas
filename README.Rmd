@@ -31,10 +31,12 @@ There are both high and low level facilities.
 For an example of a high level helper, the code for plotting a map of the
 French country FIR is just a one-liner:
 
-```{r lf-fir, message=FALSE}
+```{r lf-fir, message=FALSE,fig.show="hold", out.width="50%"}
 library(sf)
 library(pruatlas)
-plot_country_fir("LF", "France")
+fl <- 300
+plot_country_fir("ED", "Germany", fl = fl)
+plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 ```
 
 Lower level functions or datasets include for example `countries50m`, the Simple Feature
