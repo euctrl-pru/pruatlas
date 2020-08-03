@@ -2,10 +2,14 @@ Package: pruatlas
 Title: The Atlas and Utilities for PRU Maps
 Version: 0.0.1.9000
 Authors@R: 
-    person(given = "Enrico",
-           family = "Spinielli",
-           role = c("aut", "cre"),
-           email = "enrico.spinielli@eurocontrol.int")
+    c(person(given = "Enrico",
+             family = "Spinielli",
+             role = c("aut", "cre"),
+             email = "enrico.spinielli@eurocontrol.int",
+             comment = c(ORCID = "0000-0001-8584-9131")),
+      person(given = "EUROCONTROL",
+             role = c("cph", "fnd")))
+Maintainer: Enrico Spinielli <enrico.spinielli@eurocontrol.int>
 Description: A set of utilities for creation of map as used in
     PRU documents and portal.
 License: GPL-2 | MIT + file LICENSE
@@ -21,6 +25,15 @@ Imports:
     sf,
     stringr,
     tibble
+Suggests: 
+    bookdown,
+    here,
+    knitr,
+    testthat
+VignetteBuilder: 
+    knitr
+RdMacros: 
+    lifecycle
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
