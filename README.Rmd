@@ -14,6 +14,12 @@ knitr::opts_chunk$set(
 
 # PRU Atlas
 
+<!-- badges: start -->
+[![R build status](https://github.com/euctrl-pru/pruatlas/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
+[![R build status](https://github.com/euctrl-pru/pruatlas/workflows/pkgdown/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
+<!-- badges: end -->
+
+
 The `pruatlas` package provides helpers for generating maps of interest for PRU publications.
 
 This is still Work In Progress.
