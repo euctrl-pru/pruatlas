@@ -19,7 +19,7 @@ library(pruatlas)
 plot_country_fir("LF", "France")
 ```
 
-![](README-lf-fir-1.png)<!-- -->
+![](man/figures/README-lf-fir-1.png)<!-- -->
 
 Lower level functions or datasets include for example `countries50m`,
 the Simple Feature for the whole world countries or `extent_fir()` to
@@ -64,8 +64,8 @@ install_github("euctrl-pru/pruatlas")
 
 # To Do’s
 
-  - implement similar facilities as FIR’s/ANSP’s for Elementaty Sectors
-    (ES’s) in order to be able to plot ACC’s
-  - include `export_<airspace_type>` in the package API rather than as
-    scripts for the package datasets
-  - extract style from plot functions and make it a better theme
+  - [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
+    Sectors (ES’s) in order to be able to plot ACC’s
+  - \[ \]include `export_<airspace_type>` in the package API rather than
+    as scripts for the package datasets
+  - [ ] extract style from plot functions and make it a better theme
