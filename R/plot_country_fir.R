@@ -32,7 +32,7 @@ plot_country_fir <- function(icao_id,
   buffer_m          <- buffer * 1e3 # 100 km
 
   p        <- pruatlas::pru_laea_proj
-  fir_ctry <- country_fir(firs, icao_id = icao_id)
+  fir_ctry <- country_fir(firs, icao_id = icao_id, fl = fl)
 
   utm <- suppressWarnings(sf::st_centroid(fir_ctry)) %>%
     sf::st_coordinates() %>%

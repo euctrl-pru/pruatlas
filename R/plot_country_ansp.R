@@ -32,7 +32,7 @@ plot_country_ansp <- function(ansp_id,
   buffer_m          <- buffer * 1e3 # 100 km
 
   p        <- pruatlas::pru_laea_proj
-  ansp_ctry <- country_ansp(ansps, ansp_id = ansp_id)
+  ansp_ctry <- country_ansp(ansps, ansp_id = ansp_id, fl = fl)
 
   utm <- suppressWarnings(sf::st_centroid(ansp_ctry)) %>%
     sf::st_coordinates() %>%
