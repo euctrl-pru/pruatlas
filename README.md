@@ -1,29 +1,71 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-PRU Atlas
-=========
 
-The `pruatlas` package provides helpers for generating maps of interest for PRU pubblications.
+# PRU Atlas
 
-There are both high and low level facilities. For an example of a high level helper, the code for plotting a map of the French country FIR is just a one-liner:
+The `pruatlas` package provides helpers for generating maps of interest
+for PRU publications.
+
+This is still Work In Progress.
+
+There are both high and low level facilities. For an example of a high
+level helper, the code for plotting a map of the French country FIR is
+just a one-liner:
 
 ``` r
+library(sf)
+#> Warning: package 'sf' was built under R version 3.6.3
 library(pruatlas)
 plot_country_fir("LF", "France")
 ```
 
-![](README-lf-fir-1.png)
+![](README-lf-fir-1.png)<!-- -->
 
-Lower level functions or datasets include for example `countries50m`, the Simple Feature for the whole wolrd countries or `extent_fir()` to calculate the bounding box of a country FIR.
+Lower level functions or datasets include for example `countries50m`,
+the Simple Feature for the whole world countries or `extent_fir()` to
+calculate the bounding box of a country FIR.
 
-Installation
-============
+Useful functions are:
 
-`Pruatlas` is still in early development and it is only available on GitHub. It relies and uses the functionality from the `sf` package and this relies on a working installation of GDAL, see the `sf` installation instructions for directions. Also note that support for Simple Feature is still in development in `ggplot2`: you need to install from GitHub untill officially released (sometimes in May 2017.)
+  - `plot_country_fir()`
+  - `plot_country_ansp()`
+
+The package contains the following aviation GIS datasets (for CFMU AIRAC
+406, see below):
+
+  - `firs_nm_406`: the FIR’s as defined/used by EUROCONTROL’s Network
+    Manager
+  - `ansps_ace_406`: the ANSP’s as defined/used in ACE Benchmarking
+    Report
+
+(CFMU) AIRAC 406, a.k.a.
+[AIRAC](https://ansperformance.eu/acronym/airac/) `1512`, spans the
+28-day interval 2015-11-12 UTC–2015-12-10 UTC.
+
+If you need polygons in different AIRAC’s that the one in the package
+and have access to EUROCONTROL DB, you can have a look at the scripts in
+the `data-raw` directory. For example `export_nm_fir_geojson.R` or
+`export_ace_ansp_geojson.R` allow for exporting FIR’s or ANSP’s to
+GeoJSON which can be read as {`sf`} features via `sf::read_sf()`.
+
+# Installation
+
+`Pruatlas` is still in early development and it is only available on
+GitHub. It relies and uses the functionality from the `sf` package and
+this relies on a working installation of GDAL, see the `sf` installation
+instructions for directions.
 
 In order to install `pruatlas` you need to run:
 
 ``` r
-library(devtools)
+library(remotes)
 install_github("euctrl-pru/pruatlas")
 ```
+
+# To Do’s
+
+  - implement similar facilities as FIR’s/ANSP’s for Elementaty Sectors
+    (ES’s) in order to be able to plot ACC’s
+  - include `export_<airspace_type>` in the package API rather than as
+    scripts for the package datasets
+  - extract style from plot functions and make it a better theme

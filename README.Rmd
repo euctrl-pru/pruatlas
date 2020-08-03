@@ -23,6 +23,7 @@ For an example of a high level helper, the code for plotting a map of the
 French country FIR is just a one-liner:
 
 ```{r lf-fir, message=FALSE}
+library(sf)
 library(pruatlas)
 plot_country_fir("LF", "France")
 ```
@@ -32,14 +33,17 @@ for the whole world countries or `extent_fir()` to calculate the bounding box of
 a country FIR.
 
 Useful functions are:
+
 * `plot_country_fir()`
 * `plot_country_ansp()`
 
-The package contains the following aviation GIS datasets:
+The package contains the following aviation GIS datasets (for CFMU AIRAC 406, see below):
+
 * `firs_nm_406`: the FIR's as defined/used by EUROCONTROL's Network Manager
-  for (CFMU) AIRAC 406, a.k.a. AIRAC 1512 (2015-11-12 UTC--2015-12-10 UTC)
 * `ansps_ace_406`: the ANSP's as defined/used in ACE Benchmarking Report
-  for (CFMU) AIRAC 406, a.k.a. AIRAC 1512 (2015-11-12 UTC--2015-12-10 UTC)
+
+(CFMU) AIRAC 406, a.k.a. [AIRAC](https://ansperformance.eu/acronym/airac/) `1512`,
+spans the 28-day interval 2015-11-12 UTC--2015-12-10 UTC.
 
 If you need polygons in different AIRAC's that the one in the package and have access
 to EUROCONTROL DB, you can have a look at the scripts in the `data-raw` directory. 
