@@ -32,6 +32,15 @@ plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 
 <img src="man/figures/README-lf-fir-1.png" width="50%" /><img src="man/figures/README-lf-fir-2.png" width="50%" />
 
+Or EUROCONTROL’s Member States FIR area:
+
+``` r
+ms <- "E.|L.|UD|UG|GM|UK|GC"
+plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
+```
+
+<img src="man/figures/README-euctrl-ms-1.png" width="80%" />
+
 Lower level functions or datasets include for example `countries50m`,
 the Simple Feature for the whole world countries or `extent_fir()` to
 calculate the bounding box of a country FIR.
@@ -76,7 +85,7 @@ install_github("euctrl-pru/pruatlas")
 # To Do’s
 
   - [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
-    Sectors (ES’s) in order to be able to plot ACC’s
+    Sectors (ES’s) in order to be able to plot single ES or ACC’s
   - [ ] include `export_<airspace_type>` in the package API rather than
     as scripts for the package datasets
   - [ ] extract style from plot functions and make it a better theme

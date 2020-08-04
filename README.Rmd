@@ -39,6 +39,12 @@ plot_country_fir("ED", "Germany", fl = fl)
 plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 ```
 
+Or EUROCONTROL's Member States FIR area:
+```{r euctrl-ms,out.width="80%"}
+ms <- "E.|L.|UD|UG|GM|UK|GC"
+plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
+```
+
 Lower level functions or datasets include for example `countries50m`, the Simple Feature
 for the whole world countries or `extent_fir()` to calculate the bounding box of
 a country FIR.
