@@ -80,7 +80,7 @@ install_github("euctrl-pru/pruatlas")
 # To Do's
 
 - [ ] implement similar facilities as FIR's/ANSP's for Elementaty Sectors (ES's)
-  in order to be able to plot ACC's
+  in order to be able to plot single ES or ACC's
 - [ ] include `export_<airspace_type>` in the package API rather than as scripts
   for the package datasets
 - [ ] extract style from plot functions and make it a better theme
