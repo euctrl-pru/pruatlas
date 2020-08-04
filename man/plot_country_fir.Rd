@@ -40,5 +40,10 @@ uk_continental <- firs_nm_406 \%>\%
 dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) \%>\%
   dplyr::filter(!(id \%in\% c("EGGXFIR", "EGGX")))
 plot_country_fir("EG", "United Kingdom (continental)", firs = uk_continental)
+# EUROCONTROL
+plot_country_fir(icao_id = "E.|L.|UD|UG|GM|UK|GC",
+                 "EUROCONTROL Member States",
+                 buffer = 350,
+                 fl = 200)
 }
 }

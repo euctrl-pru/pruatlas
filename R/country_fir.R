@@ -10,7 +10,10 @@
 #' @return An Simple Feature for the relevant country FIR.
 #' @examples
 #' \dontrun{
+#' # France
 #' country_fir(pruatlas::firs_nm_406, "LF")
+#' # EUROCONTROL's Member States
+#' country_fir(pruatlas::fir_nm_406, icao_id = "E.|L.|UD|UG|GM|UK|GC")
 #' }
 country_fir <- function(firs, icao_id = "LI", fl = 0) {
   firs %>%
