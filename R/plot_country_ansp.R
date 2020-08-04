@@ -1,10 +1,8 @@
 #' Plot country and relevant ANSP.
 #'
-#' @param ansp_id the ANSP ID for the country, "ENAV" for Italy.
+#' @inheritParams country_ansp
 #' @param name    The name used to title the plot.
-#' @param fl      Flight level at which to plot the map
 #' @param buffer  Buffer around ANSP (km)
-#' @param ansps    ANSP polygons to be used (sf object)
 #'
 #' @return A ggplot object with country and relevant ANSP.
 #' @export

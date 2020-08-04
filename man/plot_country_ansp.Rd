@@ -13,15 +13,17 @@ plot_country_ansp(
 )
 }
 \arguments{
-\item{ansp_id}{the ANSP ID for the country, "ENAV" for Italy.}
+\item{ansp_id}{optional, the ANSP ID of the relevant country, "ENAV" otherwise.
+It can be a regular expression, i.e. "DFS|ENAV" for matching Germany and Italy.}
 
 \item{name}{The name used to title the plot.}
 
-\item{fl}{Flight level at which to plot the map}
+\item{fl}{the flight level of interest}
 
 \item{buffer}{Buffer around ANSP (km)}
 
-\item{ansps}{ANSP polygons to be used (sf object)}
+\item{ansps}{the \code{sf} holding the ANSP polygons, i.e.
+\code{pruatlas::ansps_ace_406}}
 }
 \value{
 A ggplot object with country and relevant ANSP.

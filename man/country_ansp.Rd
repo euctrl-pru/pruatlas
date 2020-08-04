@@ -10,12 +10,13 @@ country_ansp(ansps, ansp_id = "ENAV", fl = 300)
 \item{ansps}{the \code{sf} holding the ANSP polygons, i.e.
 \code{pruatlas::ansps_ace_406}}
 
-\item{ansp_id}{the ID of the ANSP, i.e. "DFS"}
+\item{ansp_id}{optional, the ANSP ID of the relevant country, "ENAV" otherwise.
+It can be a regular expression, i.e. "DFS|ENAV" for matching Germany and Italy.}
 
 \item{fl}{the flight level of interest}
 }
 \value{
-a polygon for the ANSP
+a polygon for the ANSP(s)
 }
 \description{
 Extract ANSP polygon at defined flight level
