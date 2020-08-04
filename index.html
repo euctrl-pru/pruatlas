@@ -83,6 +83,10 @@
 <span class="fu"><a href="reference/plot_country_fir.html">plot_country_fir</a></span>(<span class="st">"ED"</span>, <span class="st">"Germany"</span>, <span class="kw">fl</span> <span class="kw">=</span> <span class="no">fl</span>)
 <span class="fu"><a href="reference/plot_country_ansp.html">plot_country_ansp</a></span>(<span class="st">"DFS"</span>, <span class="st">"DFS, Germany"</span>, <span class="kw">fl</span> <span class="kw">=</span> <span class="no">fl</span>)</pre></div>
 <p><img src="reference/figures/README-lf-fir-1.png" width="50%"><img src="reference/figures/README-lf-fir-2.png" width="50%"></p>
+<p>Or EUROCONTROL’s Member States FIR area:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="no">ms</span> <span class="kw">&lt;-</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>
+<span class="fu"><a href="reference/plot_country_fir.html">plot_country_fir</a></span>(<span class="kw">icao_id</span> <span class="kw">=</span> <span class="no">ms</span>, <span class="st">"EUROCONTROL Member States"</span>, <span class="kw">buffer</span> <span class="kw">=</span> <span class="fl">350</span>, <span class="kw">fl</span> <span class="kw">=</span> <span class="fl">200</span>)</pre></div>
+<p><img src="reference/figures/README-euctrl-ms-1.png" width="80%"></p>
 <p>Lower level functions or datasets include for example <code>countries50m</code>, the Simple Feature for the whole world countries or <code><a href="reference/extent_fir.html">extent_fir()</a></code> to calculate the bounding box of a country FIR.</p>
 <p>Useful functions are:</p>
 <ul>
@@ -104,7 +108,7 @@
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p><code>Pruatlas</code> is still in early development and it is only available on GitHub. It relies and uses the functionality from the <code>sf</code> package and this relies on a working installation of GDAL, see the <code>sf</code> installation instructions for directions.</p>
 <p>In order to install <code>pruatlas</code> you need to run:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">remotes</span>)
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">remotes</span>)
 <span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"euctrl-pru/pruatlas"</span>)</pre></div>
 </div>
 <div id="to-dos" class="section level1">
@@ -113,7 +117,7 @@
 <ul>
 <li>
 <input type="checkbox" disabled>
-implement similar facilities as FIR’s/ANSP’s for Elementaty Sectors (ES’s) in order to be able to plot ACC’s</li>
+implement similar facilities as FIR’s/ANSP’s for Elementaty Sectors (ES’s) in order to be able to plot single ES or ACC’s</li>
 <li>
 <input type="checkbox" disabled>
 include <code>export_&lt;airspace_type&gt;</code> in the package API rather than as scripts for the package datasets</li>

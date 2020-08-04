@@ -130,7 +130,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>icao_id</th>
-      <td><p>the ICAO code for the country, "LI" for Italy.</p></td>
+      <td><p>optional, the ICAO ID of the relevant country, "LI" otherwise.
+It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p></td>
     </tr>
     <tr>
       <th>name</th>
@@ -138,7 +139,7 @@
     </tr>
     <tr>
       <th>fl</th>
-      <td><p>Flight level at which to plot the map</p></td>
+      <td><p>flight level at which assemble the composing polygons.</p></td>
     </tr>
     <tr>
       <th>buffer</th>
@@ -146,7 +147,7 @@
     </tr>
     <tr>
       <th>firs</th>
-      <td><p>FIRs to be used (sf object)</p></td>
+      <td><p>the relevant NM FIRs.</p></td>
     </tr>
     </table>
 
