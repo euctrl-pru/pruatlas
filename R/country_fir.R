@@ -3,6 +3,7 @@
 #' @importFrom magrittr %>%
 #' @param firs    the relevant NM FIRs.
 #' @param icao_id optional, the ICAO ID of the relevant country, "LI" otherwise.
+#'                It can be a regular expression, i.e. "LI|LF" for matching France and Italy.
 #' @param fl      flight level at which assemble the composing polygons.
 #'
 #' @export
@@ -13,7 +14,7 @@
 #' }
 country_fir <- function(firs, icao_id = "LI", fl = 0) {
   firs %>%
-    dplyr::filter(.$icao == icao_id & .$min_fl <= fl & fl <= .$max_fl) %>%
+    dplyr::filter(stringr::str_detect(.$icao, icao_id) & .$min_fl <= fl & fl <= .$max_fl) %>%
     sf::st_as_sf() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = ., id = stringr::str_c(icao_id, "FIR"))

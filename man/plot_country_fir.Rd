@@ -13,15 +13,16 @@ plot_country_fir(
 )
 }
 \arguments{
-\item{icao_id}{the ICAO code for the country, "LI" for Italy.}
+\item{icao_id}{optional, the ICAO ID of the relevant country, "LI" otherwise.
+It can be a regular expression, i.e. "LI|LF" for matching France and Italy.}
 
 \item{name}{The name used to title the plot.}
 
-\item{fl}{Flight level at which to plot the map}
+\item{fl}{flight level at which assemble the composing polygons.}
 
 \item{buffer}{Buffer around FIR (km)}
 
-\item{firs}{FIRs to be used (sf object)}
+\item{firs}{the relevant NM FIRs.}
 }
 \value{
 A ggplot object with country and relevant FIR.

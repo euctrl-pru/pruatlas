@@ -9,7 +9,8 @@ country_fir(firs, icao_id = "LI", fl = 0)
 \arguments{
 \item{firs}{the relevant NM FIRs.}
 
-\item{icao_id}{optional, the ICAO ID of the relevant country, "LI" otherwise.}
+\item{icao_id}{optional, the ICAO ID of the relevant country, "LI" otherwise.
+It can be a regular expression, i.e. "LI|LF" for matching France and Italy.}
 
 \item{fl}{flight level at which assemble the composing polygons.}
 }

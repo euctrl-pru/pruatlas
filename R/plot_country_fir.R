@@ -1,10 +1,8 @@
 #' Plot country and relevant FIR.
 #'
-#' @param icao_id the ICAO code for the country, "LI" for Italy.
+#' @inheritParams country_fir
 #' @param name    The name used to title the plot.
-#' @param fl      Flight level at which to plot the map
 #' @param buffer  Buffer around FIR (km)
-#' @param firs    FIRs to be used (sf object)
 #'
 #' @return A ggplot object with country and relevant FIR.
 #' @export
