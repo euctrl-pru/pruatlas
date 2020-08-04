@@ -165,6 +165,11 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
 <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>icao</span> <span class='kw'>==</span> <span class='st'>"EG"</span>, <span class='no'>min_fl</span> <span class='kw'>&lt;=</span> <span class='fl'>0</span>, <span class='fl'>0</span> <span class='kw'>&lt;=</span> <span class='no'>max_fl</span>) <span class='kw'>%&gt;%</span>
   <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(!(<span class='no'>id</span> <span class='kw'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"EGGXFIR"</span>, <span class='st'>"EGGX"</span>)))
 <span class='fu'>plot_country_fir</span>(<span class='st'>"EG"</span>, <span class='st'>"United Kingdom (continental)"</span>, <span class='kw'>firs</span> <span class='kw'>=</span> <span class='no'>uk_continental</span>)
+<span class='co'># EUROCONTROL</span>
+<span class='fu'>plot_country_fir</span>(<span class='kw'>icao_id</span> <span class='kw'>=</span> <span class='st'>"E.|L.|UD|UG|GM|UK|GC"</span>,
+                 <span class='st'>"EUROCONTROL Member States"</span>,
+                 <span class='kw'>buffer</span> <span class='kw'>=</span> <span class='fl'>350</span>,
+                 <span class='kw'>fl</span> <span class='kw'>=</span> <span class='fl'>200</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -130,7 +130,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>ansp_id</th>
-      <td><p>the ANSP ID for the country, "ENAV" for Italy.</p></td>
+      <td><p>optional, the ANSP ID of the relevant country, "ENAV" otherwise.
+It can be a regular expression, i.e. "DFS|ENAV" for matching Germany and Italy.</p></td>
     </tr>
     <tr>
       <th>name</th>
@@ -138,7 +139,7 @@
     </tr>
     <tr>
       <th>fl</th>
-      <td><p>Flight level at which to plot the map</p></td>
+      <td><p>the flight level of interest</p></td>
     </tr>
     <tr>
       <th>buffer</th>
@@ -146,7 +147,8 @@
     </tr>
     <tr>
       <th>ansps</th>
-      <td><p>ANSP polygons to be used (sf object)</p></td>
+      <td><p>the <code>sf</code> holding the ANSP polygons, i.e.
+<code><a href='ansps_ace_406.html'>pruatlas::ansps_ace_406</a></code></p></td>
     </tr>
     </table>
 
