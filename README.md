@@ -18,17 +18,19 @@ The `pruatlas` package provides helpers for generating maps of interest
 for PRU publications.
 
 There are both high and low level facilities. For an example of a high
-level helper, the code for plotting a map of the French country FIR is
-just a one-liner:
+level helper, the code for plotting a map of the Germany country FIR and
+ANSP is as follows:
 
 ``` r
 library(sf)
 #> Warning: package 'sf' was built under R version 3.6.3
 library(pruatlas)
-plot_country_fir("LF", "France")
+fl <- 300
+plot_country_fir("ED", "Germany", fl = fl)
+plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 ```
 
-![](man/figures/README-lf-fir-1.png)<!-- -->
+<img src="man/figures/README-lf-fir-1.png" width="50%" /><img src="man/figures/README-lf-fir-2.png" width="50%" />
 
 Lower level functions or datasets include for example `countries50m`,
 the Simple Feature for the whole world countries or `extent_fir()` to

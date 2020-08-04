@@ -29,9 +29,9 @@ The `pruatlas` package provides helpers for generating maps of interest for PRU 
 
 There are both high and low level facilities.
 For an example of a high level helper, the code for plotting a map of the
-French country FIR is just a one-liner:
+Germany country FIR and ANSP is as follows:
 
-```{r lf-fir, message=FALSE,fig.show="hold", out.width="50%"}
+```{r lf-fir,message=FALSE,fig.show="hold",out.width="50%"}
 library(sf)
 library(pruatlas)
 fl <- 300
