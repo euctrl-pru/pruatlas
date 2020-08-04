@@ -73,3 +73,17 @@
 #' parameter to \code{ggalt::coord_proj}. i.e. \code{coord_proj(us_laea_proj)}.
 #'
 "pru_laea_proj"
+
+#' EUROCONTROL's Member States
+#'
+#' A data frame with the following fields
+#' @format A Simple Feature dataset with airspace definitions for ANSPs:
+#' \describe{
+#'   \item{name}{the country name}
+#'   \item{icao}{the 2-letter ICAO code}
+#'   \item{iso2a}{the 2-letter ISO code}
+#'   \item{iso3n}{the 3-digits ISO code}
+#'   \item{iso_region}{the ISO region code, needed for Canary Islands}
+#' }
+"member_states"
+
