@@ -18,11 +18,11 @@ base_map <- function() {
   colour_fir_border <- "red"
   colour_backgroud  <- "#f5f5f2"
 
-  graticule <- sf::st_graticule(crs = pruatlas::pru_laea_proj)
+  graticule <- sf::st_graticule(crs = 3035)
 
   ggplot2::ggplot() +
     ggplot2::geom_sf(data = pruatlas::sphere_laea,  fill   = colour_sea) +
-    ggplot2::geom_sf(data = pruatlas::countries50m, fill   = colour_land) +
+    ggplot2::geom_sf(data = pruatlas::countries50m, fill   = colour_land, size = 0.2) +
     ggplot2::geom_sf(data = graticule,    colour = colour_graticule) +
     theme_map()
 }

@@ -20,17 +20,16 @@ Depends:
 Imports: 
     dplyr,
     ggplot2,
-    lifecycle,
     magrittr,
-    rnaturalearth,
     sf,
     stringr,
-    tibble
+    tibble,
+    units,
+    utils
 Suggests: 
-    bookdown,
-    here,
     knitr,
-    testthat
+    lifecycle,
+    pkgdown
 VignetteBuilder: 
     knitr
 RdMacros: 

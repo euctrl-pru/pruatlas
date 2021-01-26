@@ -9,7 +9,8 @@ plot_country_fir(
   name,
   fl = 0,
   buffer = 100,
-  firs = pruatlas::firs_nm_406
+  firs = pruatlas::firs_nm_406,
+  merge = TRUE
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.}
 \item{buffer}{Buffer around FIR (km)}
 
 \item{firs}{the relevant NM FIRs.}
+
+\item{merge}{Do you want to merge (default: TRUE)}
 }
 \value{
 A ggplot object with country and relevant FIR.

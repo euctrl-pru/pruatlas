@@ -1,4 +1,4 @@
-id,date,icao,iso2,name
+iso3n,date,icao,iso2c,name
 8,2002-04-01,LA,AL,Albania
 40,1993-05-01,LO,AT,Austria
 51,2006-03-01,UD,AM,Armenia

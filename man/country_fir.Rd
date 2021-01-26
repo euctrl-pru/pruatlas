@@ -4,7 +4,7 @@
 \alias{country_fir}
 \title{Return the country FIR for a EUROCONTROL's Member State.}
 \usage{
-country_fir(firs, icao_id = "LI", fl = 0)
+country_fir(firs, icao_id = "LI", fl = 0, merge = TRUE)
 }
 \arguments{
 \item{firs}{the relevant NM FIRs.}
@@ -13,6 +13,8 @@ country_fir(firs, icao_id = "LI", fl = 0)
 It can be a regular expression, i.e. "LI|LF" for matching France and Italy.}
 
 \item{fl}{flight level at which assemble the composing polygons.}
+
+\item{merge}{Do you want to merge? (Default: TRUE).}
 }
 \value{
 An Simple Feature for the relevant country FIR.
@@ -25,6 +27,6 @@ Return the country FIR for a EUROCONTROL's Member State.
 # France
 country_fir(pruatlas::firs_nm_406, "LF")
 # EUROCONTROL's Member States
-country_fir(pruatlas::fir_nm_406, icao_id = "E.|L.|UD|UG|GM|UK|GC")
+country_fir(pruatlas::firs_nm_406, icao_id = "E.|L.|UD|UG|GM|UK|GC")
 }
 }
