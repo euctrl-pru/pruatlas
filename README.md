@@ -23,7 +23,6 @@ ANSP is as follows:
 
 ``` r
 library(sf)
-#> Warning: package 'sf' was built under R version 3.6.3
 library(pruatlas)
 fl <- 300
 plot_country_fir("ED", "Germany", fl = fl)
@@ -37,6 +36,7 @@ Or EUROCONTROL’s Member States FIR area:
 ``` r
 ms <- "E.|L.|UD|UG|GM|UK|GC"
 plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
+#> although coordinates are longitude/latitude, st_union assumes that they are planar
 ```
 
 <img src="man/figures/README-euctrl-ms-1.png" width="80%" />
@@ -47,15 +47,15 @@ calculate the bounding box of a country FIR.
 
 Useful functions are:
 
-  - `plot_country_fir()`
-  - `plot_country_ansp()`
+-   `plot_country_fir()`
+-   `plot_country_ansp()`
 
 The package contains the following aviation GIS datasets (for CFMU AIRAC
 406, see below):
 
-  - `firs_nm_406`: the FIR’s as defined/used by EUROCONTROL’s Network
+-   `firs_nm_406`: the FIR’s as defined/used by EUROCONTROL’s Network
     Manager
-  - `ansps_ace_406`: the ANSP’s as defined/used in ACE Benchmarking
+-   `ansps_ace_406`: the ANSP’s as defined/used in ACE Benchmarking
     Report
 
 (CFMU) AIRAC 406, a.k.a.
@@ -84,8 +84,9 @@ install_github("euctrl-pru/pruatlas")
 
 # To Do’s
 
-  - [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
+-   [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
     Sectors (ES’s) in order to be able to plot single ES or ACC’s
-  - [ ] include `export_<airspace_type>` in the package API rather than
+-   [ ] include `export_<airspace_type>` in the package API rather than
     as scripts for the package datasets
-  - [ ] extract style from plot functions and make it a better theme
+-   [ ] extract style from plot functions and make it a better theme
+-   [ ] extend Member States dataset, see EUROCONTROL Atlas repo
