@@ -15,8 +15,9 @@
 #' # ...filling the hole, manually
 #' enav <- pruatlas::ansps_ace_406 %>%
 #'   country_ansp(ansp_id = "ENAV", fl = 355) %>%
+#'   dplyr::mutate(min_fl = 355, max_fl = 355, id = "ENAV") %>%
 #'   smoothr::fill_holes(units::set_units(10000, km^2))
-#' plot_country_ansp("ENAV", "Italy", firs = enav)
+#' plot_country_ansp(ansp_id = "ENAV", name = "Italy", fl = 355, ansps = enav)
 #' }
 plot_country_ansp <- function(ansp_id,
                              name,
