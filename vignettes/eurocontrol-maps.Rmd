@@ -19,6 +19,7 @@ library(pruatlas)
 library(dplyr)
 library(sf)
 library(ggplot2)
+library(stringr)
 ```
 
 ## Country FIR
@@ -54,5 +55,38 @@ plot_country_fir(icao_id = "E.|L.|UD|UG|GM|UK|GC",
                  "EUROCONTROL",
                  buffer = 350,
                  fl = 200)
+```
+
+## Member States
+
+```{r member-states}
+ms_code <- member_states %>% 
+  # filter out Germany (military, no specific FIR),
+  #   Luxembourg (managed by Belgium) and Monaco (managed by France)
+  filter(!icao %in% c("ET", "EL", "LN")) %>% 
+  pull(icao) %>% 
+  sort() %>% 
+  unique()
+
+ms_firs <- ms_code %>% 
+  purrr::map_dfr(~ suppressMessages(
+    country_fir(pruatlas::firs_nm_406, icao_id = .x))) %>% 
+  mutate(id = str_sub(id, 1, 2)) %>%
+  left_join(member_states, by = c("id" = "icao")) %>% 
+  mutate(
+    name = case_when(
+      id == "EB" ~ "Belgium and Luxemburg",
+      id == "LF" ~ "France and Monaco",
+      id == "EG" ~ "United Kingdom",
+      TRUE       ~ name))
+
+# project to Lambert azimuthal equal-area for Europe
+ms_firs <- ms_firs %>%
+  st_transform(crs = 3035)
+
+
+ms_firs %>%
+  ggplot() +
+  geom_sf()
 ```
 
