@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>pruatlas: A package for PRU maps generation. — pruatlas • pruatlas</title>
+<title>Parse CRCO Airspace Charging Zone format — parse_airspace_crco • pruatlas</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,31 @@
 
 
 
-<meta property="og:title" content="pruatlas: A package for PRU maps generation. — pruatlas" />
-<meta property="og:description" content="The pruatlas package provides function to plot country FIRs,
-access the underlying FIR or country spatial definitions." />
+<meta property="og:title" content="Parse CRCO Airspace Charging Zone format — parse_airspace_crco" />
+<meta property="og:description" content="parse_airspace_crco reads the airspace CRCO format and returns a tibble
+where each row describes an airspace.
+The airspace file can be found on EUROCONTROL website.
+Each airspace in CRCO format is described by:
+Airspace description (one row):
+nb_point the number of points
+latitude the latitude (of the label)
+longitude the longitude (of the label)
+flights
+bottom_level low level of the volume (flight level)
+top_level high level of the volume (flight level)
+surface
+sector_num
+flight time
+traffic density
+x mileage
+rte extens.
+value 1
+value 2
+name airspace name/code
+
+latitude longitude: coordinates (nb_point rows in minutes decimal)
+
+" />
 
 
 
@@ -109,39 +131,60 @@ access the underlying FIR or country spatial definitions." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>pruatlas: A package for PRU maps generation.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/euctrl-pru/pruatlas/blob/master/R/pruatlas.R'><code>R/pruatlas.R</code></a></small>
-    <div class="hidden name"><code>pruatlas.Rd</code></div>
+    <h1>Parse CRCO Airspace Charging Zone format</h1>
+    <small class="dont-index">Source: <a href='https://github.com/euctrl-pru/pruatlas/blob/master/R/parse_airspace.R'><code>R/parse_airspace.R</code></a></small>
+    <div class="hidden name"><code>parse_airspace_crco.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The pruatlas package provides function to plot country FIRs,
-access the underlying FIR or country spatial definitions.</p>
+    <p><code>parse_airspace_crco</code> reads the airspace CRCO format and returns a tibble
+where each row describes an airspace.
+The airspace file can be found on <a href='https://www.eurocontrol.int/publication/route-state-overflown-rso-distance-tool-area-boundary-model'>EUROCONTROL website</a>.</p>
+<p>Each airspace in CRCO format is described by:</p><ol>
+<li><p>Airspace description (one row):</p><ul>
+<li><p><code>nb_point</code> the number of points</p></li>
+<li><p><code>latitude</code> the latitude (of the label)</p></li>
+<li><p><code>longitude</code> the longitude (of the label)</p></li>
+<li><p><code>flights</code></p></li>
+<li><p><code>bottom_level</code> low level of the volume (flight level)</p></li>
+<li><p><code>top_level</code> high level of the volume (flight level)</p></li>
+<li><p><code>surface</code></p></li>
+<li><p><code>sector_num</code></p></li>
+<li><p><code>flight time</code></p></li>
+<li><p><code>traffic density</code></p></li>
+<li><p><code>x mileage</code></p></li>
+<li><p><code>rte extens.</code></p></li>
+<li><p><code>value 1</code></p></li>
+<li><p><code>value 2</code></p></li>
+<li><p><code>name</code> airspace name/code</p></li>
+</ul></li>
+<li><p><code>latitude</code> <code>longitude</code>: coordinates (<code>nb_point</code> rows in minutes decimal)</p></li>
+</ol>
+
     </div>
 
+    <pre class="usage"><span class='fu'>parse_airspace_crco</span><span class='op'>(</span><span class='va'>lines</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>lines</th>
+      <td><p>text lines of the PRISME airspace representation</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
+    <p>a tibble of airspaces (CRS = 4326)</p>
 
-<p>The pruatlas package provides three sets of functions, one for plottting,
-the second for accessing the underlying datasets and the last is about helper
-functions.
-For example <code>plot_coutry_fir</code> is an high level function that plots the FIR at
-the country level.</p>
-    <h2 class="hasAnchor" id="todos"><a class="anchor" href="#todos"></a>TODOs</h2>
-
-    
-
-<ul>
-<li><p>list/define the colours of the maps (currently hardcoded)</p></li>
-<li><p>provide FIRs for other AIRAC's (separate data packages? lazy-loading of data?)</p></li>
-<li><p>define a function to convert from CFMU AIRAC format to AIP format</p></li>
-<li><p>change <code>airacnm</code> to the AIP format</p></li>
-</ul>
-
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>bo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"sbm_bz_20200527.txt"</span>, package <span class='op'>=</span> <span class='st'>"pruatlas"</span><span class='op'>)</span>
+<span class='va'>crco</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'>read_lines</span><span class='op'>(</span><span class='va'>bo</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>parse_airspace_crco</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

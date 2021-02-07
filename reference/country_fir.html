@@ -117,7 +117,7 @@
     <p>Return the country FIR for a EUROCONTROL's Member State.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>country_fir</span><span class='op'>(</span><span class='va'>firs</span>, icao_id <span class='op'>=</span> <span class='st'>"LI"</span>, fl <span class='op'>=</span> <span class='fl'>0</span>, merge <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>country_fir</span><span class='op'>(</span><span class='va'>firs</span>, icao_id <span class='op'>=</span> <span class='st'>"LI"</span>, fl <span class='op'>=</span> <span class='fl'>0</span>, merge <span class='op'>=</span> <span class='cn'>TRUE</span>, exclude <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,6 +139,11 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
       <th>merge</th>
       <td><p>Do you want to merge? (Default: TRUE).</p></td>
     </tr>
+    <tr>
+      <th>exclude</th>
+      <td><p>List of IDs to filter out. It can be useful to use when only continental
+portion of FIR is of interest, i.e. exclude SANTA MARIA FIR for Portugal.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -151,6 +156,8 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
 <span class='fu'>country_fir</span><span class='op'>(</span><span class='fu'>pruatlas</span><span class='fu'>::</span><span class='va'><a href='firs_nm_406.html'>firs_nm_406</a></span>, <span class='st'>"LF"</span><span class='op'>)</span>
 <span class='co'># EUROCONTROL's Member States</span>
 <span class='fu'>country_fir</span><span class='op'>(</span><span class='fu'>pruatlas</span><span class='fu'>::</span><span class='va'><a href='firs_nm_406.html'>firs_nm_406</a></span>, icao_id <span class='op'>=</span> <span class='st'>"E.|L.|UD|UG|GM|UK|GC"</span><span class='op'>)</span>
+<span class='co'># Consider only continental portion of Portugal FIR</span>
+<span class='fu'>country_fir</span><span class='op'>(</span><span class='fu'>pruatlas</span><span class='fu'>::</span><span class='va'><a href='firs_nm_406.html'>firs_nm_406</a></span>, icao_id <span class='op'>=</span> <span class='st'>"LP"</span>, exclude <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"LPPOFIR"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
