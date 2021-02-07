@@ -1,0 +1,58 @@
+---
+title: "EUROCONTROL Maps"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{EUROCONTROL Maps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(pruatlas)
+library(dplyr)
+library(sf)
+library(ggplot2)
+```
+
+## Country FIR
+Let's plot Italian FIR at FL300
+
+```{r italy}
+plot_country_fir("LI", "Italy", fl = 300)
+```
+
+For UK, things are more complicated because it has also an Oceanic bit of volume
+```{r uk}
+plot_country_fir("EG", "UK (oceanic)", fl = 200)
+```
+
+So to plot the *continental* part only we need to split things:
+```{r uk-continental}
+uk_continental <- firs_nm_406 %>%
+  dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) %>%
+  dplyr::filter(!(id %in% c("EGGXFIR", "EGGX")))
+plot_country_fir(
+  "EG",
+  "UK (continental)",
+  firs = uk_continental,
+  fl = 200)
+```
+
+
+For plotting EUROCONTROL Member States' FIR area we can select and
+merge the various airspaces:
+
+```{r eurocontrol}
+plot_country_fir(icao_id = "E.|L.|UD|UG|GM|UK|GC",
+                 "EUROCONTROL",
+                 buffer = 350,
+                 fl = 200)
+```
+
