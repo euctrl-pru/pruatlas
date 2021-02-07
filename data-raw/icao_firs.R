@@ -1,4 +1,3 @@
-
 # remotes::install_github("yonghah/esri2sf")
 library(esri2sf)
 library(dplyr)
@@ -17,10 +16,15 @@ df <- esri2sf(url,
          centroid_lon = centlong, centroid_lat = centlat,
          region = REGION, supporting_region = SUPP_REGIO,
          responsible = RESP) %>%
-  janitor::clean_names()
+  janitor::clean_names() %>%
+  # make " " NA's
+  mutate(across(where(is.character), str_trim),
+         across(where(is.character), dplyr::na_if, ""))
 
 df %>%
-  write_sf("icao_fir.geojson")
+  write_sf("inst/extdata/icao_firs.geojson",
+           delete_dsn = TRUE,
+           delete_layer = TRUE)
 
 # df %>%
 #   filter(REGION == "EUR") %>%
