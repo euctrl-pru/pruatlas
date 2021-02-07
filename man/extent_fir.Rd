@@ -9,7 +9,7 @@ extent_fir(firs, crs)
 \arguments{
 \item{firs}{the relevant NM FIRs.}
 
-\item{crs}{the `proj` projection string.}
+\item{crs}{the \code{proj} projection string.}
 }
 \value{
 A data frame of the extent of the input data.

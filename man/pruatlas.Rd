@@ -20,10 +20,10 @@ the country level.
 \section{TODOs}{
 
 \itemize{
-  \item list/define the colours of the maps (currently hardcoded)
-  \item provide FIRs for other AIRAC's (separate data packages? lazy-loading of data?)
-  \item define a function to convert from CFMU AIRAC format to AIP format
-  \item change `airacnm` to the AIP format
+\item list/define the colours of the maps (currently hardcoded)
+\item provide FIRs for other AIRAC's (separate data packages? lazy-loading of data?)
+\item define a function to convert from CFMU AIRAC format to AIP format
+\item change \code{airacnm} to the AIP format
 }
 }
 

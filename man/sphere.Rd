@@ -7,7 +7,7 @@
 sphere(crs = pruatlas::pru_laea_proj)
 }
 \arguments{
-\item{crs}{a `proj` projection string}
+\item{crs}{a \code{proj} projection string}
 }
 \value{
 A Simple Feature representing the spherical contour of the Earch in the relevant projection.

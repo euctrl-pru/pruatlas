@@ -7,11 +7,11 @@
 \format{
 A Simple Feature dataset with airspace definitions for ANSPs:
 \describe{
-  \item{name}{the country name}
-  \item{icao}{the 2-letter ICAO code}
-  \item{iso2a}{the 2-letter ISO code}
-  \item{iso3n}{the 3-digits ISO code}
-  \item{iso_region}{the ISO region code, needed for Canary Islands}
+\item{name}{the country name}
+\item{icao}{the 2-letter ICAO code}
+\item{iso2a}{the 2-letter ISO code}
+\item{iso3n}{the 3-digits ISO code}
+\item{iso_region}{the ISO region code, needed for Canary Islands}
 }
 }
 \usage{
