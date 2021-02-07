@@ -87,6 +87,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/eurocontrol-maps.html">EUROCONTROL Maps</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -167,7 +179,7 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
 <span class='fu'>plot_country_fir</span><span class='op'>(</span><span class='st'>"EG"</span>, <span class='st'>"United Kingdom (oceanic)"</span><span class='op'>)</span>
 <span class='co'># decoupling oceanic, manually</span>
 <span class='va'>uk_continental</span> <span class='op'>&lt;-</span> <span class='va'>firs_nm_406</span> <span class='op'>%&gt;%</span>
-<span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>icao</span> <span class='op'>==</span> <span class='st'>"EG"</span>, <span class='va'>min_fl</span> <span class='op'>&lt;=</span> <span class='fl'>0</span>, <span class='fl'>0</span> <span class='op'>&lt;=</span> <span class='va'>max_fl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>icao</span> <span class='op'>==</span> <span class='st'>"EG"</span>, <span class='va'>min_fl</span> <span class='op'>&lt;=</span> <span class='fl'>0</span>, <span class='fl'>0</span> <span class='op'>&lt;=</span> <span class='va'>max_fl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='op'>(</span><span class='va'>id</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"EGGXFIR"</span>, <span class='st'>"EGGX"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>plot_country_fir</span><span class='op'>(</span><span class='st'>"EG"</span>, <span class='st'>"United Kingdom (continental)"</span>, firs <span class='op'>=</span> <span class='va'>uk_continental</span><span class='op'>)</span>
 <span class='co'># EUROCONTROL</span>
