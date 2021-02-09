@@ -21,6 +21,7 @@ library(sf)
 library(ggplot2)
 library(stringr)
 library(readr)
+library(purrr)
 ```
 
 ## Single Country FIR
