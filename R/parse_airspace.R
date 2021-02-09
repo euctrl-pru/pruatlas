@@ -52,8 +52,8 @@ parse_airspace_crco <- function(lines) {
       # parse the airspace header
       h <- stringr::str_split(l, " ") %>% `[[`(1)
       name <- h[15] # airspace name
-      fl_m <- h[5] %>% as.integer() # min FL
-      fl_M <- h[6] %>% as.integer() # Max FL
+      min_fl <- h[5] %>% as.integer() # min FL
+      max_fl <- h[6] %>% as.integer() # Max FL
       lon <- (h[3] %>% as.double()) / 60.0
       lat <- (h[2] %>% as.double()) / 60.0
       n <- h[1] %>% as.integer() # number of vertices
@@ -71,7 +71,8 @@ parse_airspace_crco <- function(lines) {
             {list(.)} %>%
             as.data.frame() %>%
             sf::st_as_sf(coords = c("X2", "X1"), crs = 4326) %>%
-            dplyr::summarise(unit = name, fl_min = fl_m, fl_max= fl_M,
+            dplyr::summarise(unit = name,
+                             min_fl = min_fl, max_fl = max_fl,
                              lon = lon, lat = lat,
                              geometry = sf::st_combine(.$geometry)) %>%
             sf::st_cast("POLYGON")
