@@ -152,11 +152,7 @@ plot_country_fir(icao_id = "ECAC_NW", name = "ECAC North West", firs = ecac_nw)
 ### ECAC Oceanic
 
 ```{r, ecac-oc}
-ecac_oc_codes <- c("BI", "EG", "EK", "EN", "LP")
-ecac_oc <- pruatlas::firs_nm_406 %>% 
-  dplyr::filter(icao %in% ecac_oc_codes, min_fl <= 0, 0 <= max_fl) %>%
-  # include oceanic: SHANWICK, BODO
-  dplyr::filter((id %in% c("EGGXFIR", "ENOBFIR", "LPPOFIR") | icao == "BI")) %>% 
+ecac_oc <- ecac_oceanic() %>% 
   sf::st_as_sf() %>%
   sf::st_union() %>%
   sf::st_sf(geometry = .,
