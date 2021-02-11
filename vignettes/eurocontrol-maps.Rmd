@@ -128,16 +128,7 @@ plot_country_fir(firs = crco,
 ### ECAC North West
 
 ```{r ecac-nw}
-ecac_nw_codes <- c("EB", "ED", "EG", "EH", "EI", "EK",
-             # "EL", <-- covered by Belgium
-             "LF",
-             # "LN", <-- covered by France
-             "LO", "LS")
-
-ecac_nw <- firs_nm_406 %>%
-  dplyr::filter(icao %in% ecac_nw_codes, min_fl <= 0, 0 <= max_fl) %>%
-  # exclude oceanic portion
-  dplyr::filter(!(id %in% c("EGGXFIR", "EGGX"))) %>% 
+ecac_nw <- ecac_northwest() %>% 
   sf::st_as_sf() %>%
   sf::st_union() %>%
   sf::st_sf(geometry = .,
@@ -168,15 +159,7 @@ plot_country_fir(icao_id = "ECAC_OC", name = "ECAC Oceanic", firs = ecac_oc)
 ### ECAC South West
 
 ```{r ecac-sw}
-ecac_sw_codes <- c("GC",
-             # "GE", <-- no specific FIR for Ceuta & Melilla
-             "LE", "LP",
-             # "LX", <-- no specific FIR for Gilbratar
-             NULL)
-ecac_sw <- pruatlas::firs_nm_406 %>% 
-  dplyr::filter(icao %in% ecac_sw_codes, min_fl <= 0, 0 <= max_fl) %>%
-  # exclude oceanic portion (Santa Maria)
-  dplyr::filter(!(id %in% c("LPPOFIR"))) %>% 
+ecac_sw <- ecac_southeast() %>% 
   sf::st_as_sf() %>%
   sf::st_union() %>%
   sf::st_sf(geometry = .,
@@ -192,12 +175,7 @@ plot_country_fir(icao_id = "ECAC_SW", name = "ECAC South West", firs = ecac_sw)
 ### ECAC North East
 
 ```{r, ecac-ne}
-ecac_ne_codes <- c("EE", "EF", "EN", "EP", "ES", "EV", "EY",
-             "LK", "LZ", "UK")
-ecac_ne <- pruatlas::firs_nm_406 %>% 
-  dplyr::filter(icao %in% ecac_ne_codes, min_fl <= 0, 0 <= max_fl) %>%
-  # exclude oceanic BODO
-  dplyr::filter(!(id %in% c("ENOBFIR"))) %>% 
+ecac_ne <- ecac_northeast() %>% 
   sf::st_as_sf() %>%
   sf::st_union() %>%
   sf::st_sf(geometry = .,
@@ -206,17 +184,15 @@ ecac_ne <- pruatlas::firs_nm_406 %>%
             icao = "ECAC_NE"
             ) %>% 
   mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_NE", name = "ECAC North East", firs = ecac_ne)
+plot_country_fir(icao_id = "ECAC_NE",
+                 name = "ECAC North East",
+                 firs = ecac_ne)
 ```
 
 ### ECAC South East
 
 ```{r, ecac-se}
-ecac_se <- c("LA", "LB", "LC", "LD", "LG", "LH", "LI",
-             "LJ", "LM", "LQ", "LR", "LT", "LU", "LW",
-             "LY", "UB", "UD", "UG") %>% 
-  purrr::map_dfr(~ suppressMessages(
-    country_fir(pruatlas::firs_nm_406, icao_id = .x))) %>% 
+ecac_se <- ecac_southeast() %>% 
     sf::st_as_sf() %>%
     sf::st_union() %>%
   sf::st_sf(geometry = .,

@@ -15,3 +15,8 @@ the subset of FIRs composing ECAC Oceanic
 \description{
 ECAC Oceanic FIRs
 }
+\examples{
+\dontrun{
+ecac_oceanic()
+}
+}
