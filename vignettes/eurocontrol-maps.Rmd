@@ -125,102 +125,70 @@ plot_country_fir(firs = crco,
 
 ## STATFOR Areas
 
-### ECAC North West
-
-```{r ecac-nw}
-ecac_nw <- ecac_northwest() %>% 
-  sf::st_as_sf() %>%
-  sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC_NW",
-            icao = "ECAC_NW",
-            name = "ECAC North West") %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_NW", name = "ECAC North West", firs = ecac_nw)
-```
-
-
 ### ECAC Oceanic
 
 ```{r, ecac-oc}
-ecac_oc <- ecac_oceanic() %>% 
-  sf::st_as_sf() %>%
-  sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC_OC",
-            name = "ECAC Oceanic",
-            icao = "ECAC_OC"
-            ) %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_OC", name = "ECAC Oceanic", firs = ecac_oc)
+ecac_oceanic() %>% 
+  plot_country_fir(icao_id = "ECAC_OC",
+                   name = "ECAC Oceanic",
+                   firs = .)
 ```
+
+
+### ECAC North West
+
+```{r ecac-nw}
+ecac_northwest() %>% 
+  plot_country_fir(icao_id = "ECAC_NW",
+                   name = "ECAC North West",
+                   firs = .)
+```
+
 
 
 ### ECAC South West
 
 ```{r ecac-sw}
-ecac_sw <- ecac_southeast() %>% 
-  sf::st_as_sf() %>%
-  sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC_SW",
-            name = "ECAC South West",
-            icao = "ECAC_SW"
-            ) %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_SW", name = "ECAC South West", firs = ecac_sw)
+ecac_southwest() %>% 
+  plot_country_fir(icao_id = "ECAC_SW",
+                   name = "ECAC South West",
+                   firs = .)
 ```
 
 
 ### ECAC North East
 
 ```{r, ecac-ne}
-ecac_ne <- ecac_northeast() %>% 
-  sf::st_as_sf() %>%
-  sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC_NE",
-            name = "ECAC North East",
-            icao = "ECAC_NE"
-            ) %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_NE",
-                 name = "ECAC North East",
-                 firs = ecac_ne)
+ecac_northeast() %>% 
+  plot_country_fir(icao_id = "ECAC_NE",
+                   name = "ECAC North East",
+                   firs = .)
 ```
 
 ### ECAC South East
 
 ```{r, ecac-se}
-ecac_se <- ecac_southeast() %>% 
-    sf::st_as_sf() %>%
-    sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC_SE",
-            name = "ECAC South East",
-            icao = "ECAC_SE"
-            ) %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC_SE", name = "ECAC South East", firs = ecac_se)
+ecac_southeast() %>% 
+  plot_country_fir(icao_id = "ECAC_SE",
+                   name = "ECAC South East",
+                   firs = .)
 ```
 
 ### Complete ECAC
 
 ```{r, ecac-whole}
-ecac <- list(ecac_oceanic(),
-             ecac_northwest(),
-             ecac_southhwest(),
-             ecac_southeast(),
-             ecac_northeast()
-             ) %>% 
-  purrr::map_dfr(.f = bind_rows) %>% 
-    sf::st_as_sf() %>%
-    sf::st_union() %>%
-  sf::st_sf(geometry = .,
-            id = "ECAC",
-            name = "ECAC",
-            icao = "ECAC"
-            ) %>% 
-  mutate(min_fl = 0, max_fl = 999)
-plot_country_fir(icao_id = "ECAC", name = "ECAC", firs = ecac)
+ecac_region() %>% 
+  plot_country_fir(icao_id = "ECAC",
+                   name = "ECAC",
+                   firs = .)
+```
+
+
+### North Atlantic
+
+```{r, ecac-whole, eval=FALSE, echo=FALSE}
+north_atlantic() %>% 
+  plot_country_fir(icao_id = "NOAT",
+                   name = "STATFOR North Atlantic",
+                   firs = .)
 ```
