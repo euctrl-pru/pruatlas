@@ -208,7 +208,7 @@ ecac_region <- function(firs = pruatlas::firs_nm_406) {
 #' north_atlantic()
 #' }
 north_atlantic <- function(firs = pruatlas::firs_nm_406) {
-  na <- firs %>%
+  noat <- firs %>%
     dplyr::filter(str_sub(icao, start = 1, end = 1) %in% c("C","K", "P"),
                   .$min_fl <= 0, 0 <= .$max_fl) %>%
     sf::st_as_sf() %>%
@@ -220,5 +220,5 @@ north_atlantic <- function(firs = pruatlas::firs_nm_406) {
     ) %>%
     mutate(min_fl = 0, max_fl = 999)
 
-  na
+  noat
 }

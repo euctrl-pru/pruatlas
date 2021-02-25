@@ -187,6 +187,8 @@ ecac_region() %>%
 ### North Atlantic
 
 ```{r, ecac-whole, eval=FALSE, echo=FALSE}
+firs <- read_sf(here::here("inst", "extdata","icao_firs.geojson")) %>% 
+  rename(icao = icao_code)
 north_atlantic() %>% 
   plot_country_fir(icao_id = "NOAT",
                    name = "STATFOR North Atlantic",
