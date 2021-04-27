@@ -292,6 +292,18 @@
 <h3 class="hasAnchor">
 <a href="#north-atlantic" class="anchor"></a>North Atlantic</h3>
 <p><code>st_segmentize</code> improved things but THIS IS still BAD!</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">firs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"icao_firs.geojson"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">read_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">icao_code</span><span class="op">)</span>
+<span class="fu"><a href="../reference/north_atlantic.html">north_atlantic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_segmentize</a></span><span class="op">(</span>dfMaxLength <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html">set_units</a></span><span class="op">(</span><span class="fl">50</span>, <span class="va">km</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"NOAT"</span>,
+                   name <span class="op">=</span> <span class="st">"STATFOR North Atlantic"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<p><img src="eurocontrol-maps_files/figure-html/north-atlantic-1.png" width="700"></p>
 </div>
 </div>
   </div>
