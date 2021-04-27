@@ -188,7 +188,7 @@ ecac_region() %>%
 
 `st_segmentize` improved things but THIS IS still BAD!
 
-```{r, north-atlantic, eval=FALSE, echo=FALSE}
+```{r, north-atlantic}
 firs <- read_sf(here::here("inst", "extdata","icao_firs.geojson")) %>% 
   rename(icao = icao_code)
 north_atlantic() %>% 
