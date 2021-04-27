@@ -20,6 +20,7 @@ Depends:
 Imports: 
     dplyr,
     ggplot2,
+    lwgeom,
     magrittr,
     sf,
     stringi,
@@ -29,12 +30,13 @@ Imports:
     utils
 Suggests: 
     knitr,
-    readr,
     purrr,
+    readr,
     rmarkdown
 VignetteBuilder: 
     knitr
 RdMacros: 
+    
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

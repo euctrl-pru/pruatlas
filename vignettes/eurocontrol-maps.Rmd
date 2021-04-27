@@ -193,7 +193,7 @@ firs <- system.file("extdata", "icao_firs.geojson", package = "pruatlas") %>%
   read_sf() %>% 
   rename(icao = icao_code)
 north_atlantic() %>% 
-  st_segmentize(dfMaxLength = units::set_units(50, km)) %>% 
+  sf::st_segmentize(dfMaxLength = units::set_units(50, km)) %>% 
   plot_country_fir(icao_id = "NOAT",
                    name = "STATFOR North Atlantic",
                    firs = .)
