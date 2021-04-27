@@ -28,10 +28,13 @@
     <loc>https://pruatlas.ansperformance.eu/reference/ecac_oceanic.html</loc>
   </url>
   <url>
+    <loc>https://pruatlas.ansperformance.eu/reference/ecac_region.html</loc>
+  </url>
+  <url>
     <loc>https://pruatlas.ansperformance.eu/reference/ecac_southeast.html</loc>
   </url>
   <url>
-    <loc>https://pruatlas.ansperformance.eu/reference/ecac_southhwest.html</loc>
+    <loc>https://pruatlas.ansperformance.eu/reference/ecac_southwest.html</loc>
   </url>
   <url>
     <loc>https://pruatlas.ansperformance.eu/reference/extent_fir.html</loc>
@@ -41,6 +44,9 @@
   </url>
   <url>
     <loc>https://pruatlas.ansperformance.eu/reference/member_states.html</loc>
+  </url>
+  <url>
+    <loc>https://pruatlas.ansperformance.eu/reference/north_atlantic.html</loc>
   </url>
   <url>
     <loc>https://pruatlas.ansperformance.eu/reference/parse_airspace_crco.html</loc>

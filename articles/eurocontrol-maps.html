@@ -211,56 +211,39 @@
 <div id="statfor-areas" class="section level2">
 <h2 class="hasAnchor">
 <a href="#statfor-areas" class="anchor"></a>STATFOR Areas</h2>
-<div id="ecac-north-west" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ecac-north-west" class="anchor"></a>ECAC North West</h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac_nw</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC_NW"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC_NW"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC North West"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC_NW"</span>, name <span class="op">=</span> <span class="st">"ECAC North West"</span>, firs <span class="op">=</span> <span class="va">ecac_nw</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" width="700"></p>
-</div>
 <div id="ecac-oceanic" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-oceanic" class="anchor"></a>ECAC Oceanic</h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac_oc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC_OC"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC_OC"</span>
-            <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC_OC"</span>, name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>, firs <span class="op">=</span> <span class="va">ecac_oc</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-oc-1.png" width="700"></p>
+</div>
+<div id="ecac-north-west" class="section level3">
+<h3 class="hasAnchor">
+<a href="#ecac-north-west" class="anchor"></a>ECAC North West</h3>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC North West"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" width="700"></p>
 </div>
 <div id="ecac-south-west" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-south-west" class="anchor"></a>ECAC South West</h3>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac_sw</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC_SW"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC South West"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC_SW"</span>
-            <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southwest.html">ecac_southwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC South West"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC_SW"</span>, name <span class="op">=</span> <span class="st">"ECAC South West"</span>, firs <span class="op">=</span> <span class="va">ecac_sw</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-sw-1.png" width="700"></p>
 </div>
@@ -268,19 +251,11 @@
 <h3 class="hasAnchor">
 <a href="#ecac-north-east" class="anchor"></a>ECAC North East</h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac_ne</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC_NE"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC_NE"</span>
-            <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC_NE"</span>,
-                 name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
-                 firs <span class="op">=</span> <span class="va">ecac_ne</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-ne-1.png" width="700"></p>
 </div>
@@ -288,17 +263,11 @@
 <h3 class="hasAnchor">
 <a href="#ecac-south-east" class="anchor"></a>ECAC South East</h3>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac_se</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-    <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC_SE"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC South East"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC_SE"</span>
-            <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC South East"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC_SE"</span>, name <span class="op">=</span> <span class="st">"ECAC South East"</span>, firs <span class="op">=</span> <span class="va">ecac_se</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-se-1.png" width="700"></p>
 </div>
@@ -306,25 +275,23 @@
 <h3 class="hasAnchor">
 <a href="#complete-ecac" class="anchor"></a>Complete ECAC</h3>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ecac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span>,
-             <span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span>,
-             <span class="fu"><a href="../reference/ecac_southhwest.html">ecac_southhwest</a></span><span class="op">(</span><span class="op">)</span>,
-             <span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span>,
-             <span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span>
-             <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span>.f <span class="op">=</span> <span class="va">bind_rows</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-    <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sf.html">st_sf</a></span><span class="op">(</span>geometry <span class="op">=</span> <span class="va">.</span>,
-            id <span class="op">=</span> <span class="st">"ECAC"</span>,
-            name <span class="op">=</span> <span class="st">"ECAC"</span>,
-            icao <span class="op">=</span> <span class="st">"ECAC"</span>
-            <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>min_fl <span class="op">=</span> <span class="fl">0</span>, max_fl <span class="op">=</span> <span class="fl">999</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_region.html">ecac_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,
+                   name <span class="op">=</span> <span class="st">"ECAC"</span>,
+                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>, name <span class="op">=</span> <span class="st">"ECAC"</span>, firs <span class="op">=</span> <span class="va">ecac</span><span class="op">)</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
+<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
 <span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-whole-1.png" width="700"></p>
+</div>
+<div id="north-atlantic" class="section level3">
+<h3 class="hasAnchor">
+<a href="#north-atlantic" class="anchor"></a>North Atlantic</h3>
+<p><code>st_segmentize</code> improved things but THIS IS still BAD!</p>
 </div>
 </div>
   </div>
