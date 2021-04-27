@@ -129,7 +129,7 @@ plot_country_fir(firs = crco,
 
 ```{r, ecac-oc}
 ecac_oceanic() %>% 
-  plot_country_fir(icao_id = "ECAC_OC",
+  plot_country_fir(icao_id = "ECOC",
                    name = "ECAC Oceanic",
                    firs = .)
 ```
@@ -139,7 +139,7 @@ ecac_oceanic() %>%
 
 ```{r ecac-nw}
 ecac_northwest() %>% 
-  plot_country_fir(icao_id = "ECAC_NW",
+  plot_country_fir(icao_id = "ECNW",
                    name = "ECAC North West",
                    firs = .)
 ```
@@ -150,7 +150,7 @@ ecac_northwest() %>%
 
 ```{r ecac-sw}
 ecac_southwest() %>% 
-  plot_country_fir(icao_id = "ECAC_SW",
+  plot_country_fir(icao_id = "ECSW",
                    name = "ECAC South West",
                    firs = .)
 ```
@@ -160,7 +160,7 @@ ecac_southwest() %>%
 
 ```{r, ecac-ne}
 ecac_northeast() %>% 
-  plot_country_fir(icao_id = "ECAC_NE",
+  plot_country_fir(icao_id = "ECNE",
                    name = "ECAC North East",
                    firs = .)
 ```
@@ -169,7 +169,7 @@ ecac_northeast() %>%
 
 ```{r, ecac-se}
 ecac_southeast() %>% 
-  plot_country_fir(icao_id = "ECAC_SE",
+  plot_country_fir(icao_id = "ECSE",
                    name = "ECAC South East",
                    firs = .)
 ```
@@ -186,10 +186,13 @@ ecac_region() %>%
 
 ### North Atlantic
 
-```{r, ecac-whole, eval=FALSE, echo=FALSE}
+`st_segmentize` improved things but THIS IS still BAD!
+
+```{r, north-atlantic, eval=FALSE, echo=FALSE}
 firs <- read_sf(here::here("inst", "extdata","icao_firs.geojson")) %>% 
   rename(icao = icao_code)
 north_atlantic() %>% 
+  st_segmentize(dfMaxLength = units::set_units(50, km)) %>% 
   plot_country_fir(icao_id = "NOAT",
                    name = "STATFOR North Atlantic",
                    firs = .)

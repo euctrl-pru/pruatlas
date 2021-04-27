@@ -24,7 +24,7 @@ ecac_oceanic <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC Oceanic",
               icao = "ECOC"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   ecac_oc
 }
@@ -59,7 +59,7 @@ ecac_northwest <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC North Wrst",
               icao = "ECNW"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   ecac_nw
 }
@@ -94,7 +94,7 @@ ecac_southwest <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC South West",
               icao = "ECSW"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   ecac_sw
 }
@@ -126,7 +126,7 @@ ecac_northeast <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC North East",
               icao = "ECNE"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   ecac_ne
 }
@@ -158,7 +158,7 @@ ecac_southeast <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC South East",
               icao = "ECSE"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   ecac_se
 }
@@ -182,7 +182,7 @@ ecac_region <- function(firs = pruatlas::firs_nm_406) {
                ecac_southeast(firs),
                ecac_northeast(firs)
   ) %>%
-    purrr::map_dfr(.f = bind_rows) %>%
+    purrr::map_dfr(.f = dplyr::bind_rows) %>%
     sf::st_as_sf() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
@@ -190,7 +190,7 @@ ecac_region <- function(firs = pruatlas::firs_nm_406) {
               name = "ECAC",
               icao = "ECAC"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
   ecac
 }
 
@@ -209,7 +209,7 @@ ecac_region <- function(firs = pruatlas::firs_nm_406) {
 #' }
 north_atlantic <- function(firs = pruatlas::firs_nm_406) {
   noat <- firs %>%
-    dplyr::filter(str_sub(icao, start = 1, end = 1) %in% c("C","K", "P"),
+    dplyr::filter(stringr::str_sub(.$icao, start = 1, end = 1) %in% c("C","K", "P"),
                   .$min_fl <= 0, 0 <= .$max_fl) %>%
     sf::st_as_sf() %>%
     sf::st_union() %>%
@@ -218,7 +218,7 @@ north_atlantic <- function(firs = pruatlas::firs_nm_406) {
               name = "North Atlantic",
               icao = "NOAT"
     ) %>%
-    mutate(min_fl = 0, max_fl = 999)
+    dplyr::mutate(min_fl = 0, max_fl = 999)
 
   noat
 }
