@@ -56,7 +56,7 @@ ecac_northwest <- function(firs = pruatlas::firs_nm_406) {
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "ECNW",
-              name = "ECAC North Wrst",
+              name = "ECAC North West",
               icao = "ECNW"
     ) %>%
     dplyr::mutate(min_fl = 0, max_fl = 999)
