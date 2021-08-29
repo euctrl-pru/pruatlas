@@ -30,6 +30,7 @@ country_fir <- function(firs, icao_id = "LI", fl = 0, merge = TRUE, exclude = NU
       else .
     } %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     {
       if (merge) {
         sf::st_union(.) %>%

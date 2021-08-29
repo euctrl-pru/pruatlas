@@ -18,6 +18,7 @@ ecac_oceanic <- function(firs = pruatlas::firs_nm_406) {
     dplyr::filter((.$id %in% c("EGGXFIR", "ENOBFIR", "LPPOFIR") |
                      .$icao == "BI")) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "ECOC",
@@ -53,6 +54,7 @@ ecac_northwest <- function(firs = pruatlas::firs_nm_406) {
     # exclude oceanic portion
     dplyr::filter(!(.$id %in% c("EGGXFIR", "EGGX"))) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "ECNW",
@@ -88,6 +90,7 @@ ecac_southwest <- function(firs = pruatlas::firs_nm_406) {
     # exclude oceanic portion (Santa Maria)
     dplyr::filter(!(.$id %in% c("LPPOFIR"))) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "ECSW",
@@ -120,6 +123,7 @@ ecac_northeast <- function(firs = pruatlas::firs_nm_406) {
     # exclude oceanic BODO
     dplyr::filter(!(.$id %in% c("ENOBFIR"))) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "ECNE",
@@ -152,7 +156,9 @@ ecac_southeast <- function(firs = pruatlas::firs_nm_406) {
     dplyr::filter(.$icao %in% ecac_se_codes,
                   .$min_fl <= 0, 0 <= .$max_fl) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
+    sf::st_make_valid() %>%
     sf::st_sf(geometry = .,
               id = "ECSE",
               name = "ECAC South East",
@@ -212,6 +218,7 @@ north_atlantic <- function(firs = pruatlas::firs_nm_406) {
     dplyr::filter(stringr::str_sub(.$icao, start = 1, end = 1) %in% c("C","K", "P"),
                   .$min_fl <= 0, 0 <= .$max_fl) %>%
     sf::st_as_sf() %>%
+    sf::st_make_valid() %>%
     sf::st_union() %>%
     sf::st_sf(geometry = .,
               id = "NOAT",
