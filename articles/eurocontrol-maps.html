@@ -101,7 +101,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     intersect, setdiff, setequal, union</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
-<span class="co">#&gt; Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1</span>
+<span class="co">#&gt; Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
@@ -112,12 +112,14 @@
 <p>Let’s plot Italian FIR at FL300</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span>, fl <span class="op">=</span> <span class="fl">300</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/italy-1.png" width="700"></p>
 <p>For UK, things are more complicated because it has also an Oceanic bit of volume</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"UK (oceanic)"</span>, fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/uk-1.png" width="700"></p>
 <p>So to plot the <em>continental</em> part only we need to split things:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -129,7 +131,8 @@
   <span class="st">"UK (continental)"</span>,
   firs <span class="op">=</span> <span class="va">uk_continental</span>,
   fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/uk-continental-1.png" width="700"></p>
 </div>
 <div id="eurocontrol" class="section level2">
@@ -144,7 +147,8 @@
                  <span class="st">"EUROCONTROL"</span>,
                  buffer <span class="op">=</span> <span class="fl">350</span>,
                  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/eurocontrol-1.png" width="700"></p>
 </div>
 <div id="all-member-states-firs" class="section level3">
@@ -180,7 +184,9 @@
                  name <span class="op">=</span> <span class="st">"EUROCONTROL"</span>,
                  merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =</span>
-<span class="co">#&gt; opts(pattern)): longer object length is not a multiple of shorter object length</span></code></pre></div>
+<span class="co">#&gt; opts(pattern)): longer object length is not a multiple of shorter object length</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/member-states-1.png" width="700"></p>
 </div>
 <div id="crco-charging-zones" class="section level3">
@@ -204,7 +210,9 @@
                  fl <span class="op">=</span> <span class="fl">200</span>,
                  icao_id <span class="op">=</span> <span class="va">codes</span>,
                  name <span class="op">=</span> <span class="st">"CRCO charging zones"</span>,
-                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/crco-1.png" width="700"></p>
 </div>
 </div>
@@ -219,8 +227,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-oc-1.png" width="700"></p>
 </div>
 <div id="ecac-north-west" class="section level3">
@@ -231,8 +239,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC North West"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" width="700"></p>
 </div>
 <div id="ecac-south-west" class="section level3">
@@ -243,8 +251,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC South West"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-sw-1.png" width="700"></p>
 </div>
 <div id="ecac-north-east" class="section level3">
@@ -255,8 +263,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-ne-1.png" width="700"></p>
 </div>
 <div id="ecac-south-east" class="section level3">
@@ -267,8 +275,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC South East"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-se-1.png" width="700"></p>
 </div>
 <div id="complete-ecac" class="section level3">
@@ -279,13 +287,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-whole-1.png" width="700"></p>
 </div>
 <div id="north-atlantic" class="section level3">
@@ -301,8 +304,8 @@
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"NOAT"</span>,
                    name <span class="op">=</span> <span class="st">"STATFOR North Atlantic"</span>,
                    firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span>
-<span class="co">#&gt; although coordinates are longitude/latitude, st_union assumes that they are planar</span></code></pre></div>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span>
+<span class="co">#&gt; old-style crs object detected; please recreate object with a recent sf::st_crs()</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/north-atlantic-1.png" width="700"></p>
 </div>
 </div>
