@@ -18,6 +18,6 @@ A data frame of the extent of the input data.
 Return the extent of a set of FIRs.
 }
 \examples{
-crs <- "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +datum=WGS84 +units=m +no_defs"
+crs <- st_crs("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +datum=WGS84 +units=m +no_defs")
 extent_fir(firs_nm_406, crs)
 }

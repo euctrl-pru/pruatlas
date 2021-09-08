@@ -70,7 +70,7 @@ parse_airspace_crco <- function(lines) {
             magrittr::divide_by(60.0) %>%
             {list(.)} %>%
             as.data.frame() %>%
-            sf::st_as_sf(coords = c("X2", "X1"), crs = 4326) %>%
+            sf::st_as_sf(coords = c("X2", "X1"), crs = st_crs(4326)) %>%
             dplyr::summarise(unit = name,
                              min_fl = min_fl, max_fl = max_fl,
                              lon = lon, lat = lat,

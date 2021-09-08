@@ -4,7 +4,33 @@
 \alias{base_map}
 \title{Provide base country layer for PRU maps.}
 \usage{
-base_map()
+base_map(
+  colour_sea = "#D8F4FF",
+  colour_land = "grey89",
+  colour_border = "#A9A9A9",
+  colour_graticule = "#D3D3D3",
+  colour_fir = "blue",
+  colour_fir_border = "red",
+  colour_backgroud = "#f5f5f2",
+  border_size = 0.2
+)
+}
+\arguments{
+\item{colour_sea}{colour of the sea}
+
+\item{colour_land}{colour of the land}
+
+\item{colour_border}{colour of the country border}
+
+\item{colour_graticule}{colour of the graticule}
+
+\item{colour_fir}{colour of the FIR}
+
+\item{colour_fir_border}{colour of the FIR border}
+
+\item{colour_backgroud}{background colour}
+
+\item{border_size}{thickness of the border line}
 }
 \value{
 a ggplot2 object with world countries in LAEA projection.

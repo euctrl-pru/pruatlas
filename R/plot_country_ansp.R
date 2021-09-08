@@ -31,7 +31,7 @@ plot_country_ansp <- function(ansp_id,
   buffer_m          <- buffer * 1e3 # 100 km
 
   ansp_ctry <- country_ansp(ansps, ansp_id = ansp_id, fl = fl) %>%
-    sf::st_transform(crs = 3035)
+    sf::st_transform(crs = st_crs(3035))
 
   # get buffered bounding box (pick right UTM)
   bbox <- ansp_ctry %>%
