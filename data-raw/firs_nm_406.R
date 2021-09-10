@@ -1,5 +1,6 @@
 library(sf)
 library(magrittr)
+library(fs)
 
 # extract [FU]IR from PRISME
 system('export_nm_fir_geojson.R 406')
