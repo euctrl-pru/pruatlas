@@ -4,8 +4,6 @@
 #' @param colour_land colour of the land
 #' @param colour_border colour of the country border
 #' @param colour_graticule colour of the graticule
-#' @param colour_fir colour of the FIR
-#' @param colour_fir_border colour of the FIR border
 #' @param colour_backgroud background colour
 #' @param border_size thickness of the border line
 #'
