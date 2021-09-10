@@ -9,8 +9,6 @@ base_map(
   colour_land = "grey89",
   colour_border = "#A9A9A9",
   colour_graticule = "#D3D3D3",
-  colour_fir = "blue",
-  colour_fir_border = "red",
   colour_backgroud = "#f5f5f2",
   border_size = 0.2
 )
@@ -23,10 +21,6 @@ base_map(
 \item{colour_border}{colour of the country border}
 
 \item{colour_graticule}{colour of the graticule}
-
-\item{colour_fir}{colour of the FIR}
-
-\item{colour_fir_border}{colour of the FIR border}
 
 \item{colour_backgroud}{background colour}
 
