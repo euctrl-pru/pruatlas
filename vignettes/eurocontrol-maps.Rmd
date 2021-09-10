@@ -24,7 +24,10 @@ library(readr)
 library(purrr)
 ```
 
-## Single Country FIR
+## Single Country
+
+### FIR
+
 Let's plot Italian FIR at FL300
 
 ```{r italy}
@@ -48,6 +51,56 @@ plot_country_fir(
   fl = 200)
 ```
 
+### Aiport location in FIR
+
+```{r country-airport}
+# some airports
+apts <- tibble::tribble(
+   ~ICAO_CODE, ~IATA_CODE,               ~LON,    ~LAT,           ~NAME,
+       "EDDF",      "FRA",   8.5706, 50.0333,               "Frankfurt",
+       "EHAM",      "AMS",   4.7642, 52.3080,               "Amsterdam",
+       "LFPG",      "CDG",   2.5478, 49.0097, "Paris/Charles-De-Gaulle",
+       "EGLL",      "LHR", -0.46139, 51.4775,         "London/Heathrow"
+   )
+
+# transform to sf
+apts_sf <- apts %>%
+   st_as_sf(coords = c("LON", "LAT"), crs = 4326)
+
+# keep only EGLL
+apt <- apts_sf %>%
+      filter(ICAO_CODE == "EGLL")
+
+
+# single country (FIR)
+uk_continental <- firs_nm_406 %>%
+   dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) %>%
+   dplyr::filter(!(id %in% c("EGGXFIR", "EGGX")))
+
+bbox <- uk_continental %>%
+   st_transform(crs = st_crs(3035)) %>%
+   st_bbox()
+
+plot_country_fir(
+  "EG",
+  "UK (continental)",
+  firs = uk_continental,
+  fl = 200) +
+  ggplot2::geom_sf(
+    data = apt,
+    shape = 10,
+    size = 3) +
+  ggplot2::geom_sf_text(
+    data = apt,
+    aes(label = ICAO_CODE),
+    vjust = -0.5) +
+  # (re-)zoom to the correct bounding box
+  ggplot2::coord_sf(xlim = bbox[c(1, 3)], ylim = bbox[c(2, 4)]) +
+  # (re-)define the title and subtitle (`plot_country_fir()` adds its own)
+  ggtitle(label = str_glue("{name} ({icao})", name = apt$NAME, icao = apt$ICAO_CODE),
+          subtitle = "United Kingdom FIR (continental) at FL200")
+
+```
 
 
 ## EUROCONTROL
