@@ -106,9 +106,12 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span></code></pre></div>
-<div id="single-country-fir" class="section level2">
+<div id="single-country" class="section level2">
 <h2 class="hasAnchor">
-<a href="#single-country-fir" class="anchor"></a>Single Country FIR</h2>
+<a href="#single-country" class="anchor"></a>Single Country</h2>
+<div id="fir" class="section level3">
+<h3 class="hasAnchor">
+<a href="#fir" class="anchor"></a>FIR</h3>
 <p>Let’s plot Italian FIR at FL300</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span>, fl <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></code></pre></div>
@@ -129,6 +132,59 @@
   fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/uk-continental-1.png" width="700"></p>
 </div>
+<div id="aiport-location-in-fir" class="section level3">
+<h3 class="hasAnchor">
+<a href="#aiport-location-in-fir" class="anchor"></a>Aiport location in FIR</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># some airports</span>
+<span class="va">apts</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+   <span class="op">~</span><span class="va">ICAO_CODE</span>, <span class="op">~</span><span class="va">IATA_CODE</span>,               <span class="op">~</span><span class="va">LON</span>,    <span class="op">~</span><span class="va">LAT</span>,           <span class="op">~</span><span class="va">NAME</span>,
+       <span class="st">"EDDF"</span>,      <span class="st">"FRA"</span>,   <span class="fl">8.5706</span>, <span class="fl">50.0333</span>,               <span class="st">"Frankfurt"</span>,
+       <span class="st">"EHAM"</span>,      <span class="st">"AMS"</span>,   <span class="fl">4.7642</span>, <span class="fl">52.3080</span>,               <span class="st">"Amsterdam"</span>,
+       <span class="st">"LFPG"</span>,      <span class="st">"CDG"</span>,   <span class="fl">2.5478</span>, <span class="fl">49.0097</span>, <span class="st">"Paris/Charles-De-Gaulle"</span>,
+       <span class="st">"EGLL"</span>,      <span class="st">"LHR"</span>, <span class="op">-</span><span class="fl">0.46139</span>, <span class="fl">51.4775</span>,         <span class="st">"London/Heathrow"</span>
+   <span class="op">)</span>
+
+<span class="co"># transform to sf</span>
+<span class="va">apts_sf</span> <span class="op">&lt;-</span> <span class="va">apts</span> <span class="op">%&gt;%</span>
+   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LON"</span>, <span class="st">"LAT"</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span>
+
+<span class="co"># keep only EGLL</span>
+<span class="va">apt</span> <span class="op">&lt;-</span> <span class="va">apts_sf</span> <span class="op">%&gt;%</span>
+      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ICAO_CODE</span> <span class="op">==</span> <span class="st">"EGLL"</span><span class="op">)</span>
+
+
+<span class="co"># single country (FIR)</span>
+<span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op">%&gt;%</span>
+   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">bbox</span> <span class="op">&lt;-</span> <span class="va">uk_continental</span> <span class="op">%&gt;%</span>
+   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="fl">3035</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_bbox.html">st_bbox</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>
+  <span class="st">"EG"</span>,
+  <span class="st">"UK (continental)"</span>,
+  firs <span class="op">=</span> <span class="va">uk_continental</span>,
+  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">apt</span>,
+    shape <span class="op">=</span> <span class="fl">10</span>,
+    size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf_text</a></span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">apt</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">ICAO_CODE</span><span class="op">)</span>,
+    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># (re-)zoom to the correct bounding box</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span>, ylim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># (re-)define the title and subtitle (`plot_country_fir()` adds its own)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_glue.html">str_glue</a></span><span class="op">(</span><span class="st">"{name} ({icao})"</span>, name <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">NAME</span>, icao <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">ICAO_CODE</span><span class="op">)</span>,
+          subtitle <span class="op">=</span> <span class="st">"United Kingdom FIR (continental) at FL200"</span><span class="op">)</span>
+<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></code></pre></div>
+<p><img src="eurocontrol-maps_files/figure-html/country-airport-1.png" width="700"></p>
+</div>
+</div>
 <div id="eurocontrol" class="section level2">
 <h2 class="hasAnchor">
 <a href="#eurocontrol" class="anchor"></a>EUROCONTROL</h2>
@@ -136,7 +192,7 @@
 <h3 class="hasAnchor">
 <a href="#merged-member-states-firs" class="anchor"></a>Merged Member States FIRs</h3>
 <p>For plotting EUROCONTROL Member States’ FIR area we can select and merge the various airspaces:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>,
                  <span class="st">"EUROCONTROL"</span>,
                  buffer <span class="op">=</span> <span class="fl">350</span>,
@@ -146,7 +202,7 @@
 <div id="all-member-states-firs" class="section level3">
 <h3 class="hasAnchor">
 <a href="#all-member-states-firs" class="anchor"></a>All Member States FIRs</h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ms_codes</span> <span class="op">&lt;-</span> <span class="va">member_states</span> <span class="op">%&gt;%</span> 
   <span class="co"># filter out Germany (military, no specific FIR),</span>
   <span class="co">#   Luxembourg (managed by Belgium) and Monaco (managed by France)</span>
@@ -183,7 +239,7 @@
 <h3 class="hasAnchor">
 <a href="#crco-charging-zones" class="anchor"></a>CRCO Charging Zones</h3>
 <p>You can get the CRCO charging zones boundaries from <a href="https://www.eurocontrol.int/publication/route-state-overflown-rso-distance-tool-area-boundary-model">EUROCONTROL web site</a>. This package stores a real file as an example.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sbm_bz_20200527.txt"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span>
 <span class="va">crco</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="va">bo</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/parse_airspace_crco.html">parse_airspace_crco</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -210,7 +266,7 @@
 <div id="ecac-oceanic" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-oceanic" class="anchor"></a>ECAC Oceanic</h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,
@@ -220,7 +276,7 @@
 <div id="ecac-north-west" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-north-west" class="anchor"></a>ECAC North West</h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC North West"</span>,
@@ -230,7 +286,7 @@
 <div id="ecac-south-west" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-south-west" class="anchor"></a>ECAC South West</h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southwest.html">ecac_southwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC South West"</span>,
@@ -240,7 +296,7 @@
 <div id="ecac-north-east" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-north-east" class="anchor"></a>ECAC North East</h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
@@ -250,7 +306,7 @@
 <div id="ecac-south-east" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ecac-south-east" class="anchor"></a>ECAC South East</h3>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC South East"</span>,
@@ -260,7 +316,7 @@
 <div id="complete-ecac" class="section level3">
 <h3 class="hasAnchor">
 <a href="#complete-ecac" class="anchor"></a>Complete ECAC</h3>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/ecac_region.html">ecac_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,
                    name <span class="op">=</span> <span class="st">"ECAC"</span>,
@@ -271,7 +327,7 @@
 <h3 class="hasAnchor">
 <a href="#north-atlantic" class="anchor"></a>North Atlantic</h3>
 <p><code>st_segmentize</code> improved things but THIS IS still BAD!</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">firs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"icao_firs.geojson"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">read_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">icao_code</span><span class="op">)</span>
