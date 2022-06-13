@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://pruatlas.ansperformance.eu/404.html</loc>
+  </url>
+  <url>
+    <loc>https://pruatlas.ansperformance.eu/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://pruatlas.ansperformance.eu/articles/eurocontrol-maps.html</loc>
+  </url>
+  <url>
+    <loc>https://pruatlas.ansperformance.eu/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pruatlas.ansperformance.eu/authors.html</loc>
+  </url>
+  <url>
     <loc>https://pruatlas.ansperformance.eu/index.html</loc>
   </url>
   <url>
@@ -43,6 +58,9 @@
     <loc>https://pruatlas.ansperformance.eu/reference/firs_nm_406.html</loc>
   </url>
   <url>
+    <loc>https://pruatlas.ansperformance.eu/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://pruatlas.ansperformance.eu/reference/member_states.html</loc>
   </url>
   <url>
@@ -74,8 +92,5 @@
   </url>
   <url>
     <loc>https://pruatlas.ansperformance.eu/reference/theme_map.html</loc>
-  </url>
-  <url>
-    <loc>https://pruatlas.ansperformance.eu/articles/eurocontrol-maps.html</loc>
   </url>
 </urlset>
