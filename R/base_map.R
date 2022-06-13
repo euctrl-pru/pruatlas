@@ -25,7 +25,7 @@ base_map <- function(
   border_size       = 0.2
 ) {
 
-  graticule <- sf::st_graticule(crs = st_crs(3035))
+  graticule <- sf::st_graticule(crs = sf::st_crs(3035))
 
   ggplot2::ggplot() +
     ggplot2::geom_sf(data = pruatlas::sphere_laea,  fill   = colour_sea) +

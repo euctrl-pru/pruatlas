@@ -78,7 +78,7 @@ uk_continental <- firs_nm_406 %>%
    dplyr::filter(!(id %in% c("EGGXFIR", "EGGX")))
 
 bbox <- uk_continental %>%
-   st_transform(crs = st_crs(3035)) %>%
+   st_transform(crs = sf::st_crs(3035)) %>%
    st_bbox()
 
 plot_country_fir(

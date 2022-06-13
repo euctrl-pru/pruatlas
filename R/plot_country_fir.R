@@ -37,7 +37,7 @@ plot_country_fir <- function(icao_id,
   buffer_m          <- buffer * 1e3 # 100 km
 
   fir_ctry <- country_fir(firs, icao_id = icao_id, fl = fl, merge = merge) %>%
-    sf::st_transform(crs = st_crs(3035))
+    sf::st_transform(crs = sf::st_crs(3035))
 
   bbox <- fir_ctry %>%
     sf::st_convex_hull() %>%
