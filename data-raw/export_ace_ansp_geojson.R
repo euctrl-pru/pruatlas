@@ -127,7 +127,8 @@ data <- data %>%
   # filter(ACE_CODE != '') %>%
   rename(
     airac_cfmu    = AC_ID,
-    id            = CODE,
+    id            = AV_AIRSPACE_ID,
+    code          = CODE,
     min_fl        = MIN_FLIGHT_LEVEL,
     max_fl        = MAX_FLIGHT_LEVEL,
     name          = NAME,
@@ -135,6 +136,6 @@ data <- data %>%
     airspace_type = AIRSPACE_TYPE,
     NULL
   ) %>%
-  select(airac_cfmu, id, name, ace_code, min_fl, max_fl, airspace_type) %>%
+  select(airac_cfmu, id, code, name, ace_code, min_fl, max_fl, airspace_type) %>%
   # save as GeoJSON
   st_write(opts$output, driver = "GeoJSON", delete_dsn = TRUE, quiet = TRUE)
