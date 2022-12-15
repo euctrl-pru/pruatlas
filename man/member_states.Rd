@@ -5,19 +5,22 @@
 \alias{member_states}
 \title{EUROCONTROL's Member States}
 \format{
-A Simple Feature dataset with airspace definitions for ANSPs:
-\describe{
-\item{name}{the country name}
-\item{icao}{the 2-letter ICAO code}
-\item{iso2a}{the 2-letter ISO code}
-\item{iso3n}{the 3-digits ISO code}
-\item{iso_region}{the ISO region code, needed for Canary Islands}
-}
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 45 rows and 7 columns.
 }
 \usage{
 member_states
 }
 \description{
 A data frame with the following fields
+\describe{
+\item{name}{the country name}
+\item{iso3c}{the 3-letter ISO code}
+\item{iso2c}{the 2-letter ISO code}
+\item{icao}{the 2-letter ICAO code}
+\item{iso3n}{the 3-digits ISO code}
+\item{date}{the data of \code{status} code}
+\item{status}{the status code, \code{M} Member State, \code{C} Comprehensive Agreement State, \code{T} Transitional State}
+}
+These are useful to grab the right spatial polygons in case of need.
 }
 \keyword{datasets}
