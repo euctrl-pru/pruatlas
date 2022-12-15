@@ -1,46 +1,46 @@
-name,icao,iso2a,iso3n,iso_region
-Albania,LA,AL,8,
-Armenia,UD,AM,51,
-Austria,LO,AT,40,
-Belgium,EB,BE,56,
-Bosnia and Herzegovina,LQ,BA,70,
-Bulgaria,LB,BG,100,
-Croatia,LD,HR,191,
-Cyprus,LC,CY,196,
-Czech Republic,LK,CZ,203,
-Denmark,EK,DK,208,
-Estonia,EE,EE,233,
-Finland,EF,FI,246,
-France,LF,FR,250,
-Georgia,UG,GE,268,
-Germany,ED,DE,276,
-Germany,ET,DE,276,
-Greece,LG,GR,300,
-Hungary,LH,HU,348,
-Ireland,EI,IE,372,
-Israel,LL,IL,376,
-Italy,LI,IT,380,
-Latvia,EV,LV,428,
-Lithuania,EY,LT,440,
-Luxembourg,EL,LU,442,
-Malta,LM,MT,470,
-Moldova,LU,MD,498,
-Monaco,LN,MC,492,
-Montenegro,LY,ME,499,
-Morocco,GM,MA,504,
-Netherlands,EH,NL,528,
-Norway,EN,NO,578,
-Poland,EP,PL,616,
-Portugal,LP,PT,620,
-Romania,LR,RO,642,
-Serbia,LY,RS,688,
-Slovakia,LZ,SK,703,
-Slovenia,LJ,SI,705,
-Spain,LE,ES,724,
-Sweden,ES,SE,752,
-Switzerland,LS,CH,756,
-Canary Islands,GC,ES,724,ES-CN
-North Macedonia,LW,MK,807,
-Türkiye,LT,TR,792,
-Ukraine,UK,UA,804,
-United Kingdom of Great Britain and Northern Ireland,EG,GB,826,
+iso3c,iso3n,date,icao,iso2c,name,status
+ALB,008,2002-04-01,LA,AL,Albania,M
+AUT,040,1993-05-01,LO,AT,Austria,M
+ARM,051,2006-03-01,UD,AM,Armenia,M
+BEL,056,1960-12-13,EB,BE,Belgium,M
+BIH,070,2004-03-01,LQ,BA,Bosnia and Herzegovina,M
+BGR,100,1997-06-01,LB,BG,Bulgaria,M
+HRV,191,1997-03-01,LD,HR,Croatia,M
+CYP,196,1991-01-01,LC,CY,Cyprus,M
+CZE,203,1996-01-01,LK,CZ,Czech Republic,M
+DNK,208,1994-08-01,EK,DK,Denmark,M
+EST,233,2015-01-01,EE,EE,Estonia,M
+FIN,246,2001-01-01,EF,FI,Finland,M
+FRA,250,1960-12-13,LF,FR,France,M
+GEO,268,2014-01-01,UG,GE,Georgia,M
+DEU,276,1960-12-13,ED,DE,Germany,M
+GRC,300,1988-09-01,LG,GR,Greece,M
+HUN,348,1992-07-01,LH,HU,Hungary,M
+ISL,352,2022-09-15,BI,IS,Iceland,T
+IRL,372,1965-01-01,EI,IE,Ireland,M
+ISR,376,2016-04-29,LL,IL,Israel,M
+ITA,380,1996-04-01,LI,IT,Italy,M
+LVA,428,2011-01-01,EV,LV,Latvia,M
+LTU,440,2006-09-01,EY,LT,Lithuania,M
+LUX,442,1960-12-13,EL,LU,Luxembourg,M
+MLT,470,1989-07-01,LM,MT,Malta,M
+MCO,492,1997-12-01,LN,MC,Monaco,M
+MDA,498,2000-03-01,LU,MD,Moldova,M
+MNE,499,2007-07-01,LY,ME,Montenegro,M
+MAR,504,2016-06-02,GM,MA,Morocco,C
+NLD,528,1960-12-13,EH,NL,Netherlands,M
+NOR,578,1994-03-01,EN,NO,Norway,M
+POL,616,2004-09-01,EP,PL,Poland,M
+PRT,620,1986-01-01,LP,PT,Portugal,M
+ROU,642,1996-09-01,LR,RO,Romania,M
+SRB,688,2005-07-01,LY,RS,Serbia,M
+SVK,703,1997-01-01,LZ,SK,Slovakia,M
+SVN,705,1995-10-01,LJ,SI,Slovenia,M
+ESP,724,1997-01-01,LE,ES,Spain,M
+SWE,752,1995-12-01,ES,SE,Sweden,M
+CHE,756,1992-07-01,LS,CH,Switzerland,M
+TUR,792,1989-03-01,LT,TR,Türkiye,M
+UKR,804,2004-05-01,UK,UA,Ukraine,M
+MKD,807,1998-11-01,LW,MK,North Macedonia,M
+GBR,826,1960-12-13,EG,GB,United Kingdom,M
+KOS,900,NA,BK,XK,Kosovo,NA
