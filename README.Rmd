@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/euctrl-pru/pruatlas/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
 [![pkgdown](https://github.com/euctrl-pru/pruatlas/workflows/pkgdown/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
+[![R-CMD-check](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 This is still **Work In Progress** but we value constructive feedback: please check

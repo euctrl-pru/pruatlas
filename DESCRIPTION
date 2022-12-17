@@ -20,14 +20,12 @@ Depends:
 Imports: 
     dplyr,
     ggplot2,
-    lwgeom,
     magrittr,
     sf,
     stringi,
     stringr,
     tibble,
-    units,
-    utils
+    units
 Suggests: 
     knitr,
     purrr,
