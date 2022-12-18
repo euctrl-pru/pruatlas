@@ -72,7 +72,7 @@
 
       
 
-      </header><script src="eurocontrol-maps_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>EUROCONTROL Maps</h1>
@@ -86,22 +86,22 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/euctrl-pru/pruatlas" class="external-link">pruatlas</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
-<span class="co">#&gt; Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org" class="external-link">purrr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/euctrl-pru/pruatlas" class="external-link">pruatlas</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="single-country">Single Country<a class="anchor" aria-label="anchor" href="#single-country"></a>
 </h2>
@@ -110,74 +110,77 @@
 </h3>
 <p>Let’s plot Italian FIR at FL300</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span>, fl <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span>, fl <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/italy-1.png" width="700"></p>
-<p>For UK, things are more complicated because it has also an Oceanic bit of volume</p>
+<p>For UK, things are more complicated because it has also an Oceanic
+bit of volume</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"UK (oceanic)"</span>, fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"UK (oceanic)"</span>, fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/uk-1.png" width="700"></p>
-<p>So to plot the <em>continental</em> part only we need to split things:</p>
+<p>So to plot the <em>continental</em> part only we need to split
+things:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>
-  <span class="st">"EG"</span>,
-  <span class="st">"UK (continental)"</span>,
-  firs <span class="op">=</span> <span class="va">uk_continental</span>,
-  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span></span>
+<span>  <span class="st">"EG"</span>,</span>
+<span>  <span class="st">"UK (continental)"</span>,</span>
+<span>  firs <span class="op">=</span> <span class="va">uk_continental</span>,</span>
+<span>  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/uk-continental-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="aiport-location-in-fir">Aiport location in FIR<a class="anchor" aria-label="anchor" href="#aiport-location-in-fir"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># some airports</span>
-<span class="va">apts</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span>
-   <span class="op">~</span><span class="va">ICAO_CODE</span>, <span class="op">~</span><span class="va">IATA_CODE</span>,               <span class="op">~</span><span class="va">LON</span>,    <span class="op">~</span><span class="va">LAT</span>,           <span class="op">~</span><span class="va">NAME</span>,
-       <span class="st">"EDDF"</span>,      <span class="st">"FRA"</span>,   <span class="fl">8.5706</span>, <span class="fl">50.0333</span>,               <span class="st">"Frankfurt"</span>,
-       <span class="st">"EHAM"</span>,      <span class="st">"AMS"</span>,   <span class="fl">4.7642</span>, <span class="fl">52.3080</span>,               <span class="st">"Amsterdam"</span>,
-       <span class="st">"LFPG"</span>,      <span class="st">"CDG"</span>,   <span class="fl">2.5478</span>, <span class="fl">49.0097</span>, <span class="st">"Paris/Charles-De-Gaulle"</span>,
-       <span class="st">"EGLL"</span>,      <span class="st">"LHR"</span>, <span class="op">-</span><span class="fl">0.46139</span>, <span class="fl">51.4775</span>,         <span class="st">"London/Heathrow"</span>
-   <span class="op">)</span>
-
-<span class="co"># transform to sf</span>
-<span class="va">apts_sf</span> <span class="op">&lt;-</span> <span class="va">apts</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"LON"</span>, <span class="st">"LAT"</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span>
-
-<span class="co"># keep only EGLL</span>
-<span class="va">apt</span> <span class="op">&lt;-</span> <span class="va">apts_sf</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ICAO_CODE</span> <span class="op">==</span> <span class="st">"EGLL"</span><span class="op">)</span>
-
-
-<span class="co"># single country (FIR)</span>
-<span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">bbox</span> <span class="op">&lt;-</span> <span class="va">uk_continental</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">st_transform</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="fl">3035</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_bbox.html" class="external-link">st_bbox</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>
-  <span class="st">"EG"</span>,
-  <span class="st">"UK (continental)"</span>,
-  firs <span class="op">=</span> <span class="va">uk_continental</span>,
-  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>
-    data <span class="op">=</span> <span class="va">apt</span>,
-    shape <span class="op">=</span> <span class="fl">10</span>,
-    size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf_text</a></span><span class="op">(</span>
-    data <span class="op">=</span> <span class="va">apt</span>,
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">ICAO_CODE</span><span class="op">)</span>,
-    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="co"># (re-)zoom to the correct bounding box</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span>, ylim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
-  <span class="co"># (re-)define the title and subtitle (`plot_country_fir()` adds its own)</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_glue.html" class="external-link">str_glue</a></span><span class="op">(</span><span class="st">"{name} ({icao})"</span>, name <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">NAME</span>, icao <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">ICAO_CODE</span><span class="op">)</span>,
-          subtitle <span class="op">=</span> <span class="st">"United Kingdom FIR (continental) at FL200"</span><span class="op">)</span>
-<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># some airports</span></span>
+<span><span class="va">apts</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
+<span>   <span class="op">~</span><span class="va">ICAO_CODE</span>, <span class="op">~</span><span class="va">IATA_CODE</span>,               <span class="op">~</span><span class="va">LON</span>,    <span class="op">~</span><span class="va">LAT</span>,           <span class="op">~</span><span class="va">NAME</span>,</span>
+<span>       <span class="st">"EDDF"</span>,      <span class="st">"FRA"</span>,   <span class="fl">8.5706</span>, <span class="fl">50.0333</span>,               <span class="st">"Frankfurt"</span>,</span>
+<span>       <span class="st">"EHAM"</span>,      <span class="st">"AMS"</span>,   <span class="fl">4.7642</span>, <span class="fl">52.3080</span>,               <span class="st">"Amsterdam"</span>,</span>
+<span>       <span class="st">"LFPG"</span>,      <span class="st">"CDG"</span>,   <span class="fl">2.5478</span>, <span class="fl">49.0097</span>, <span class="st">"Paris/Charles-De-Gaulle"</span>,</span>
+<span>       <span class="st">"EGLL"</span>,      <span class="st">"LHR"</span>, <span class="op">-</span><span class="fl">0.46139</span>, <span class="fl">51.4775</span>,         <span class="st">"London/Heathrow"</span></span>
+<span>   <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># transform to sf</span></span>
+<span><span class="va">apts_sf</span> <span class="op">&lt;-</span> <span class="va">apts</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"LON"</span>, <span class="st">"LAT"</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># keep only EGLL</span></span>
+<span><span class="va">apt</span> <span class="op">&lt;-</span> <span class="va">apts_sf</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ICAO_CODE</span> <span class="op">==</span> <span class="st">"EGLL"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># single country (FIR)</span></span>
+<span><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">bbox</span> <span class="op">&lt;-</span> <span class="va">uk_continental</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">st_transform</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="fl">3035</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_bbox.html" class="external-link">st_bbox</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span></span>
+<span>  <span class="st">"EG"</span>,</span>
+<span>  <span class="st">"UK (continental)"</span>,</span>
+<span>  firs <span class="op">=</span> <span class="va">uk_continental</span>,</span>
+<span>  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">apt</span>,</span>
+<span>    shape <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf_text</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">apt</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">ICAO_CODE</span><span class="op">)</span>,</span>
+<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># (re-)zoom to the correct bounding box</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span>, ylim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># (re-)define the title and subtitle (`plot_country_fir()` adds its own)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_glue.html" class="external-link">str_glue</a></span><span class="op">(</span><span class="st">"{name} ({icao})"</span>, name <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">NAME</span>, icao <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">ICAO_CODE</span><span class="op">)</span>,</span>
+<span>          subtitle <span class="op">=</span> <span class="st">"United Kingdom FIR (continental) at FL200"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will</span></span>
+<span><span class="co">#&gt; replace the existing one.</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/country-airport-1.png" width="700"></p>
 </div>
 </div>
@@ -187,72 +190,74 @@
 <div class="section level3">
 <h3 id="merged-member-states-firs">Merged Member States FIRs<a class="anchor" aria-label="anchor" href="#merged-member-states-firs"></a>
 </h3>
-<p>For plotting EUROCONTROL Member States’ FIR area we can select and merge the various airspaces:</p>
+<p>For plotting EUROCONTROL Member States’ FIR area we can select and
+merge the various airspaces:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>,
-                 <span class="st">"EUROCONTROL"</span>,
-                 buffer <span class="op">=</span> <span class="fl">350</span>,
-                 fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>,</span>
+<span>                 <span class="st">"EUROCONTROL"</span>,</span>
+<span>                 buffer <span class="op">=</span> <span class="fl">350</span>,</span>
+<span>                 fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/eurocontrol-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="all-member-states-firs">All Member States FIRs<a class="anchor" aria-label="anchor" href="#all-member-states-firs"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ms_codes</span> <span class="op">&lt;-</span> <span class="va">member_states</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="co"># filter out Germany (military, no specific FIR),</span>
-  <span class="co">#   Luxembourg (managed by Belgium) and Monaco (managed by France)</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">icao</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ET"</span>, <span class="st">"EL"</span>, <span class="st">"LN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">ms_firs</span> <span class="op">&lt;-</span> <span class="va">ms_codes</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span>
-    <span class="fu"><a href="../reference/country_fir.html">country_fir</a></span><span class="op">(</span><span class="fu">pruatlas</span><span class="fu">::</span><span class="va"><a href="../reference/firs_nm_406.html">firs_nm_406</a></span>, icao_id <span class="op">=</span> <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html" class="external-link">str_sub</a></span><span class="op">(</span><span class="va">id</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">member_states</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span> <span class="op">=</span> <span class="st">"icao"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>
-    name <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span>
-      <span class="va">id</span> <span class="op">==</span> <span class="st">"EB"</span> <span class="op">~</span> <span class="st">"Belgium and Luxemburg"</span>,
-      <span class="va">id</span> <span class="op">==</span> <span class="st">"LF"</span> <span class="op">~</span> <span class="st">"France and Monaco"</span>,
-      <span class="va">id</span> <span class="op">==</span> <span class="st">"EG"</span> <span class="op">~</span> <span class="st">"United Kingdom"</span>,
-      <span class="cn">TRUE</span>       <span class="op">~</span> <span class="va">name</span><span class="op">)</span>,
-    icao <span class="op">=</span> <span class="va">id</span>,
-    min_fl <span class="op">=</span> <span class="fl">200</span>,
-    max_fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>firs <span class="op">=</span> <span class="va">ms_firs</span>,
-                 icao_id <span class="op">=</span> <span class="va">ms_codes</span>,
-                 fl <span class="op">=</span> <span class="fl">200</span>,
-                 name <span class="op">=</span> <span class="st">"EUROCONTROL"</span>,
-                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =</span>
-<span class="co">#&gt; opts(pattern)): longer object length is not a multiple of shorter object length</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ms_codes</span> <span class="op">&lt;-</span> <span class="va">member_states</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="co"># filter out Germany (military, no specific FIR),</span></span>
+<span>  <span class="co">#   Luxembourg (managed by Belgium) and Monaco (managed by France)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">icao</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ET"</span>, <span class="st">"EL"</span>, <span class="st">"LN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">ms_firs</span> <span class="op">&lt;-</span> <span class="va">ms_codes</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/country_fir.html">country_fir</a></span><span class="op">(</span><span class="fu">pruatlas</span><span class="fu">::</span><span class="va"><a href="../reference/firs_nm_406.html">firs_nm_406</a></span>, icao_id <span class="op">=</span> <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html" class="external-link">str_sub</a></span><span class="op">(</span><span class="va">id</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">member_states</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">icao</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ET"</span>, <span class="st">"EL"</span>, <span class="st">"LN"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">icao</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>            by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span> <span class="op">=</span> <span class="st">"icao"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    name <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
+<span>      <span class="va">id</span> <span class="op">==</span> <span class="st">"EB"</span> <span class="op">~</span> <span class="st">"Belgium and Luxemburg"</span>,</span>
+<span>      <span class="va">id</span> <span class="op">==</span> <span class="st">"LF"</span> <span class="op">~</span> <span class="st">"France and Monaco"</span>,</span>
+<span>      <span class="va">id</span> <span class="op">==</span> <span class="st">"LY"</span> <span class="op">~</span> <span class="st">"Serbia and Montenegro"</span>,</span>
+<span>      <span class="va">id</span> <span class="op">==</span> <span class="st">"EG"</span> <span class="op">~</span> <span class="st">"United Kingdom"</span>,</span>
+<span>      <span class="cn">TRUE</span>       <span class="op">~</span> <span class="va">name</span><span class="op">)</span>,</span>
+<span>    icao <span class="op">=</span> <span class="va">id</span>,</span>
+<span>    min_fl <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>    max_fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>firs <span class="op">=</span> <span class="va">ms_firs</span>,</span>
+<span>                 icao_id <span class="op">=</span> <span class="va">ms_codes</span>,</span>
+<span>                 fl <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>                 name <span class="op">=</span> <span class="st">"EUROCONTROL"</span>,</span>
+<span>                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/member-states-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="crco-charging-zones">CRCO Charging Zones<a class="anchor" aria-label="anchor" href="#crco-charging-zones"></a>
 </h3>
-<p>You can get the CRCO charging zones boundaries from <a href="https://www.eurocontrol.int/publication/route-state-overflown-rso-distance-tool-area-boundary-model" class="external-link">EUROCONTROL web site</a>. This package stores a real file as an example.</p>
+<p>You can get the CRCO charging zones boundaries from <a href="https://www.eurocontrol.int/publication/route-state-overflown-rso-distance-tool-area-boundary-model" class="external-link">EUROCONTROL
+web site</a>. This package stores a real file as an example.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sbm_bz_20200527.txt"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span>
-<span class="va">crco</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html" class="external-link">read_lines</a></span><span class="op">(</span><span class="va">bo</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/parse_airspace_crco.html">parse_airspace_crco</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">unit</span><span class="op">)</span>
-<span class="va">codes</span> <span class="op">&lt;-</span> <span class="va">crco</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="co"># country_fir(firs = crco,</span>
-<span class="co">#             icao_id = "E.|L.|UD|UG|GM|UK|GC",</span>
-<span class="co">#             fl = 200, merge = FALSE)</span>
-<span class="co"># </span>
-<span class="co"># ggplot(crco) + geom_sf()</span>
-
-<span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>firs <span class="op">=</span> <span class="va">crco</span>,
-                 fl <span class="op">=</span> <span class="fl">200</span>,
-                 icao_id <span class="op">=</span> <span class="va">codes</span>,
-                 name <span class="op">=</span> <span class="st">"CRCO charging zones"</span>,
-                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">bo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sbm_bz_20200527.txt"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span></span>
+<span><span class="va">crco</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html" class="external-link">read_lines</a></span><span class="op">(</span><span class="va">bo</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/parse_airspace_crco.html">parse_airspace_crco</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">unit</span><span class="op">)</span></span>
+<span><span class="va">codes</span> <span class="op">&lt;-</span> <span class="va">crco</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># country_fir(firs = crco,</span></span>
+<span><span class="co">#             icao_id = "E.|L.|UD|UG|GM|UK|GC",</span></span>
+<span><span class="co">#             fl = 200, merge = FALSE)</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co"># ggplot(crco) + geom_sf()</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>firs <span class="op">=</span> <span class="va">crco</span>,</span>
+<span>                 fl <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>                 icao_id <span class="op">=</span> <span class="va">codes</span>,</span>
+<span>                 name <span class="op">=</span> <span class="st">"CRCO charging zones"</span>,</span>
+<span>                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/crco-1.png" width="700"></p>
 </div>
 </div>
@@ -263,60 +268,60 @@
 <h3 id="ecac-oceanic">ECAC Oceanic<a class="anchor" aria-label="anchor" href="#ecac-oceanic"></a>
 </h3>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_oceanic.html">ecac_oceanic</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-oc-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-north-west">ECAC North West<a class="anchor" aria-label="anchor" href="#ecac-north-west"></a>
 </h3>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC North West"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_northwest.html">ecac_northwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC North West"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-south-west">ECAC South West<a class="anchor" aria-label="anchor" href="#ecac-south-west"></a>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southwest.html">ecac_southwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC South West"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_southwest.html">ecac_southwest</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC South West"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-sw-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-north-east">ECAC North East<a class="anchor" aria-label="anchor" href="#ecac-north-east"></a>
 </h3>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC North East"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_northeast.html">ecac_northeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC North East"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-ne-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-south-east">ECAC South East<a class="anchor" aria-label="anchor" href="#ecac-south-east"></a>
 </h3>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC South East"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_southeast.html">ecac_southeast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC South East"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-se-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="complete-ecac">Complete ECAC<a class="anchor" aria-label="anchor" href="#complete-ecac"></a>
 </h3>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ecac_region.html">ecac_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,
-                   name <span class="op">=</span> <span class="st">"ECAC"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ecac_region.html">ecac_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"ECAC"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/ecac-whole-1.png" width="700"></p>
 </div>
 <div class="section level3">
@@ -324,14 +329,14 @@
 </h3>
 <p><code>st_segmentize</code> improved things but THIS IS still BAD!</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">firs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"icao_firs.geojson"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">read_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">icao_code</span><span class="op">)</span>
-<span class="fu"><a href="../reference/north_atlantic.html">north_atlantic</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_segmentize</a></span><span class="op">(</span>dfMaxLength <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">set_units</a></span><span class="op">(</span><span class="fl">50</span>, <span class="va">km</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"NOAT"</span>,
-                   name <span class="op">=</span> <span class="st">"STATFOR North Atlantic"</span>,
-                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">firs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"icao_firs.geojson"</span>, package <span class="op">=</span> <span class="st">"pruatlas"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">read_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">icao_code</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/north_atlantic.html">north_atlantic</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_segmentize</a></span><span class="op">(</span>dfMaxLength <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">set_units</a></span><span class="op">(</span><span class="fl">50</span>, <span class="va">km</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"NOAT"</span>,</span>
+<span>                   name <span class="op">=</span> <span class="st">"STATFOR North Atlantic"</span>,</span>
+<span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="eurocontrol-maps_files/figure-html/north-atlantic-1.png" width="700"></p>
 </div>
 </div>
@@ -354,7 +359,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

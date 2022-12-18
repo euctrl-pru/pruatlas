@@ -60,14 +60,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">plot_country_fir</span><span class="op">(</span>
-  <span class="va">icao_id</span>,
-  <span class="va">name</span>,
-  fl <span class="op">=</span> <span class="fl">0</span>,
-  buffer <span class="op">=</span> <span class="fl">100</span>,
-  firs <span class="op">=</span> <span class="fu">pruatlas</span><span class="fu">::</span><span class="va"><a href="firs_nm_406.html">firs_nm_406</a></span>,
-  merge <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_country_fir</span><span class="op">(</span></span>
+<span>  <span class="va">icao_id</span>,</span>
+<span>  <span class="va">name</span>,</span>
+<span>  fl <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  buffer <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  firs <span class="op">=</span> <span class="fu">pruatlas</span><span class="fu">::</span><span class="va"><a href="firs_nm_406.html">firs_nm_406</a></span>,</span>
+<span>  merge <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -106,21 +106,21 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># UK and Portugal have oceanic part...</span></span>
-<span class="r-in"><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"United Kingdom (oceanic)"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># decoupling oceanic, manually</span></span>
-<span class="r-in"><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"United Kingdom (continental)"</span>, firs <span class="op">=</span> <span class="va">uk_continental</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># EUROCONTROL</span></span>
-<span class="r-in"><span class="fu">plot_country_fir</span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>,</span>
-<span class="r-in">                 <span class="st">"EUROCONTROL Member States"</span>,</span>
-<span class="r-in">                 buffer <span class="op">=</span> <span class="fl">350</span>,</span>
-<span class="r-in">                 fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># UK and Portugal have oceanic part...</span></span></span>
+<span class="r-in"><span><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"United Kingdom (oceanic)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># decoupling oceanic, manually</span></span></span>
+<span class="r-in"><span><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_country_fir</span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"United Kingdom (continental)"</span>, firs <span class="op">=</span> <span class="va">uk_continental</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># EUROCONTROL</span></span></span>
+<span class="r-in"><span><span class="fu">plot_country_fir</span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"E.|L.|UD|UG|GM|UK|GC"</span>,</span></span>
+<span class="r-in"><span>                 <span class="st">"EUROCONTROL Member States"</span>,</span></span>
+<span class="r-in"><span>                 buffer <span class="op">=</span> <span class="fl">350</span>,</span></span>
+<span class="r-in"><span>                 fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -135,7 +135,7 @@ It can be a regular expression, i.e. "LI|LF" for matching France and Italy.</p><
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
