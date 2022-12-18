@@ -1,4 +1,4 @@
-# EUROCONTROL Member States
+# EUROCONTROL Member States (+ Kosovo)
 # Name, ICAO code, ISO 2 letter code, ISO #, ISO region
 
 library(readr)
