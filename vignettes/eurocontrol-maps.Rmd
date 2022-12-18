@@ -124,19 +124,21 @@ ms_codes <- member_states %>%
   # filter out Germany (military, no specific FIR),
   #   Luxembourg (managed by Belgium) and Monaco (managed by France)
   filter(!icao %in% c("ET", "EL", "LN")) %>% 
-  pull(icao) %>% 
-  sort() %>% 
-  unique()
+  distinct(icao) %>%
+  pull(icao)
+
 
 ms_firs <- ms_codes %>% 
   purrr::map_dfr(~ suppressMessages(
     country_fir(pruatlas::firs_nm_406, icao_id = .x))) %>% 
   mutate(id = str_sub(id, 1, 2)) %>%
-  left_join(member_states, by = c("id" = "icao")) %>% 
+  left_join(member_states %>% filter(!icao %in% c("ET", "EL", "LN")) %>% distinct(icao, .keep_all = TRUE),
+            by = c("id" = "icao")) %>% 
   mutate(
     name = case_when(
       id == "EB" ~ "Belgium and Luxemburg",
       id == "LF" ~ "France and Monaco",
+      id == "LY" ~ "Serbia and Montenegro",
       id == "EG" ~ "United Kingdom",
       TRUE       ~ name),
     icao = id,
