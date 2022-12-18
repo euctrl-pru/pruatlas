@@ -28,6 +28,7 @@ Imports:
     units
 Suggests: 
     knitr,
+    lwgeom,
     purrr,
     readr,
     rmarkdown
