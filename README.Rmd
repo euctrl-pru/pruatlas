@@ -91,4 +91,4 @@ install_github("euctrl-pru/pruatlas")
 - [ ] include `export_<airspace_type>` in the package API rather than as scripts
   for the package datasets
 - [ ] extract style from plot functions and make it a better theme
-- [ ] extend Member States dataset, see EUROCONTROL Atlas repo
+- [x] extend Member States dataset

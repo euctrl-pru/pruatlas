@@ -7,6 +7,7 @@
 
 [![R-CMD-check](https://github.com/euctrl-pru/pruatlas/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
 [![pkgdown](https://github.com/euctrl-pru/pruatlas/workflows/pkgdown/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
+[![R-CMD-check](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 This is still **Work In Progress** but we value constructive feedback:
@@ -23,6 +24,7 @@ ANSP is as follows:
 
 ``` r
 library(sf)
+#> Warning: package 'sf' was built under R version 4.2.2
 library(pruatlas)
 fl <- 300
 plot_country_fir("ED", "Germany", fl = fl)
@@ -36,7 +38,6 @@ Or EUROCONTROL’s Member States FIR area:
 ``` r
 ms <- "E.|L.|UD|UG|GM|UK|GC"
 plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
-#> although coordinates are longitude/latitude, st_union assumes that they are planar
 ```
 
 <img src="man/figures/README-euctrl-ms-1.png" width="80%" />
@@ -89,4 +90,4 @@ install_github("euctrl-pru/pruatlas")
 -   [ ] include `export_<airspace_type>` in the package API rather than
     as scripts for the package datasets
 -   [ ] extract style from plot functions and make it a better theme
--   [ ] extend Member States dataset, see EUROCONTROL Atlas repo
+-   [x] extend Member States dataset
