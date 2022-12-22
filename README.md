@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # PRU Atlas
@@ -22,23 +21,18 @@ There are both high and low level facilities. For an example of a high
 level helper, the code for plotting a map of the Germany country FIR and
 ANSP is as follows:
 
-``` r
-library(sf)
-#> Warning: package 'sf' was built under R version 4.2.2
-library(pruatlas)
-fl <- 300
-plot_country_fir("ED", "Germany", fl = fl)
-plot_country_ansp("DFS", "DFS, Germany", fl = fl)
-```
+    library(sf)
+    library(pruatlas)
+    fl <- 300
+    plot_country_fir("ED", "Germany", fl = fl)
+    plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 
 <img src="man/figures/README-lf-fir-1.png" width="50%" /><img src="man/figures/README-lf-fir-2.png" width="50%" />
 
 Or EUROCONTROL’s Member States FIR area:
 
-``` r
-ms <- "E.|L.|UD|UG|GM|UK|GC"
-plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
-```
+    ms <- "E.|L.|UD|UG|GM|UK|GC"
+    plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
 
 <img src="man/figures/README-euctrl-ms-1.png" width="80%" />
 
@@ -78,16 +72,14 @@ instructions for directions.
 
 In order to install `pruatlas` you need to run:
 
-``` r
-library(remotes)
-install_github("euctrl-pru/pruatlas")
-```
+    library(remotes)
+    install_github("euctrl-pru/pruatlas")
 
 # To Do’s
 
--   [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
+-   ☐ implement similar facilities as FIR’s/ANSP’s for Elementaty
     Sectors (ES’s) in order to be able to plot single ES or ACC’s
--   [ ] include `export_<airspace_type>` in the package API rather than
-    as scripts for the package datasets
--   [ ] extract style from plot functions and make it a better theme
--   [x] extend Member States dataset
+-   ☐ include `export_<airspace_type>` in the package API rather than as
+    scripts for the package datasets
+-   ☐ extract style from plot functions and make it a better theme
+-   ☒ extend Member States dataset
