@@ -1,4 +1,4 @@
-#' NM FIRs for AIRAC 406.
+#' NM FIRs for AIRAC 406 and 481.
 #'
 #' A dataset containing the definition of the FIRs as used by the
 #' \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
@@ -16,8 +16,9 @@
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
 "firs_nm_406"
+"firs_nm_481"
 
-#' ACE ANSPs for AIRAC 406.
+#' ACE ANSPs for AIRAC 406 and 481.
 #'
 #' A dataset containing the definition of the
 #' \href{https://ansperformance.eu/acronym/ansp/}{ANSP}s as
@@ -38,6 +39,9 @@
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "ansps_ace_406"
+"ansps_ace_481"
+
+
 
 #' World countries at 50m scale.
 #'

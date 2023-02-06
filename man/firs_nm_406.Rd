@@ -3,7 +3,7 @@
 \docType{data}
 \name{firs_nm_406}
 \alias{firs_nm_406}
-\title{NM FIRs for AIRAC 406.}
+\title{NM FIRs for AIRAC 406 and 481.}
 \format{
 A Simple Feature dataset with 111 FIRs and 9 variables:
 \describe{

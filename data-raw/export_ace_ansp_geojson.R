@@ -2,7 +2,7 @@
 
 "Export (ACE) ANSPs to GeoJSON file.
 
-Usage: export-ace-ansp-geojson [-h] [-o FILE] <cfmu_airac>
+Usage: export_ace_ansp_geojson [-h] [-o FILE] <cfmu_airac>
 
   -o FILE, --output FILE   name of output GeoJSON file [default: ansp_ace_<cfmu_airac>.geojson]
   -h --help                show this help text

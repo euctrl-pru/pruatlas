@@ -3,7 +3,7 @@
 \docType{data}
 \name{ansps_ace_406}
 \alias{ansps_ace_406}
-\title{ACE ANSPs for AIRAC 406.}
+\title{ACE ANSPs for AIRAC 406 and 481.}
 \format{
 A Simple Feature dataset with airspace definitions for ANSPs:
 \describe{
