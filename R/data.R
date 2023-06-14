@@ -1,4 +1,4 @@
-#' NM FIRs for AIRAC 406 and 481.
+#' NM FIRs for AIRAC 406.
 #'
 #' A dataset containing the definition of the FIRs as used by the
 #' \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
@@ -16,6 +16,24 @@
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
 "firs_nm_406"
+
+#' NM FIRs for AIRAC 481.
+#'
+#' A dataset containing the definition of the FIRs as used by the
+#' \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
+#'
+#'
+#' @format A Simple Feature dataset with 111 FIRs and 9 variables:
+#' \describe{
+#'   \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+#'   \item{icao}{the ICAO region code for the FIR}
+#'   \item{id}{the ID for the FIR}
+#'   \item{min_fl}{the minimum flight level of the FIR}
+#'   \item{max_fl}{the maximum flight level of the FIR}
+#'   \item{name}{the name of the FIR}
+#'   \item{airspace_type}{the type of the airspace (FIR)}
+#'   \item{geometry}{the Simple Feature describing the FIR}
+#' }
 "firs_nm_481"
 
 #' ACE ANSPs for AIRAC 406 and 481.
@@ -66,22 +84,4 @@
 #'
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "sphere_laea"
-
-
-#' EUROCONTROL's Member States
-#'
-#' A data frame with the following fields
-#' \describe{
-#'   \item{name}{the country name, e.g. "Italy"}
-#'   \item{iso3c}{the 3-letter ISO code, e.g. "ITA"}
-#'   \item{iso2c}{the 2-letter ISO code, e.g. "IT"}
-#'   \item{icao}{the 2-letter ICAO code, e.g. "LI"}
-#'   \item{iso3n}{the 3-digits ISO code, e.g. "380"}
-#'   \item{date}{the date of `status` code, e.g. 1996-04-01}
-#'   \item{status}{the status code, e.g. "M"
-#'   (`M` Member State, `C` Comprehensive Agreement State, `T` Transitional State)}
-#' }
-#' These are useful to grab the right spatial polygons in case of need.
-#' Note: Kosovo is also included in the list.
-"member_states"
 

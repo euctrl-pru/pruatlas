@@ -120,7 +120,7 @@ plot_country_fir(icao_id = "E.|L.|UD|UG|GM|UK|GC",
 ### All Member States FIRs
 
 ```{r member-states}
-ms_codes <- member_states %>% 
+ms_codes <- eurocontrol::member_states %>% 
   # filter out Germany (military, no specific FIR),
   #   Luxembourg (managed by Belgium) and Monaco (managed by France)
   filter(!icao %in% c("ET", "EL", "LN")) %>% 
@@ -132,7 +132,9 @@ ms_firs <- ms_codes %>%
   purrr::map_dfr(~ suppressMessages(
     country_fir(pruatlas::firs_nm_406, icao_id = .x))) %>% 
   mutate(id = str_sub(id, 1, 2)) %>%
-  left_join(member_states %>% filter(!icao %in% c("ET", "EL", "LN")) %>% distinct(icao, .keep_all = TRUE),
+  left_join(eurocontrol::member_states %>%
+              filter(!icao %in% c("ET", "EL", "LN")) %>%
+              distinct(icao, .keep_all = TRUE),
             by = c("id" = "icao")) %>% 
   mutate(
     name = case_when(
