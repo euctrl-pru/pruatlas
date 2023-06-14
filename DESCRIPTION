@@ -27,7 +27,6 @@ Imports:
     tibble,
     units
 Suggests: 
-    eurocontrol,
     knitr,
     lwgeom,
     purrr,
