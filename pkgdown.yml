@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   eurocontrol-maps: eurocontrol-maps.html
-last_built: 2023-06-14T16:18Z
+last_built: 2024-01-18T16:33Z
 urls:
   reference: https://pruatlas.ansperformance.eu/reference
   article: https://pruatlas.ansperformance.eu/articles
