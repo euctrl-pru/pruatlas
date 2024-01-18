@@ -77,7 +77,7 @@ retrieve_data <- function(usr, pwd, dbn, cfmu_airac) {
   AIRSPACE_NAMES
   AS
   (
-    SELECT DISTINCT AIRSPACE_ID, AV_TYPE AS AIRSPACE_TYPE, NAME, CODE
+    SELECT DISTINCT AIRSPACE_ID, AV_TYPE AS AIRSPACE_TYPE, NAME, CODE, A.ID AS ID
     FROM ENV_SP.AIRSPACE_VOLUME A, PRU_CFMU_FIR P
     WHERE
     A.AIRSPACE_ID = P.CODE
@@ -98,6 +98,7 @@ retrieve_data <- function(usr, pwd, dbn, cfmu_airac) {
   || '\"MAX_FLIGHT_LEVEL\": '    || A.MAX_FLIGHT_LEVEL      || ', '
   || '\"NAME\": \"'              || AIRSPACE_NAMES.NAME     || '\", '
   || '\"CODE\": \"'              || AIRSPACE_NAMES.CODE     || '\", '
+  || '\"ID\": \"'                || AIRSPACE_NAMES.ID       || '\", '
   || '\"AIRSPACE_TYPE\": \"'     || A.AV_TYPE         || '\"'
   || '}}' || ',' || chr(13)),',' || chr(13)) || ']}'
   FROM ENV_SP.AIRSPACE_VOLUME A
@@ -127,14 +128,15 @@ data <- data %>%
   read_sf(quiet = TRUE) %>%
   rename(
     airac_cfmu    = AC_ID,
-    id            = CODE,
+    code          = CODE,
+    id            = ID,
     min_fl        = MIN_FLIGHT_LEVEL,
     max_fl        = MAX_FLIGHT_LEVEL,
     name          = NAME,
     airspace_type = AIRSPACE_TYPE,
     NULL
   ) %>%
-  mutate(icao = stringr::str_sub(id, start = 1, end = 2)) %>%
-  select(airac_cfmu, icao, id, name, min_fl, max_fl, airspace_type) %>%
+  mutate(icao = stringr::str_sub(code, start = 1, end = 2)) %>%
+  select(airac_cfmu, icao, id, code, name, min_fl, max_fl, airspace_type) %>%
   # save as GeoJSON
   st_write(opts$output, driver = "GeoJSON", delete_dsn = TRUE, quiet = TRUE)
