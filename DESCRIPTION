@@ -13,7 +13,7 @@ Maintainer: Enrico Spinielli <enrico.spinielli@eurocontrol.int>
 Description: A set of utilities for creation of map as used in
     PRU documents and portal.
 License: GPL-2 | MIT + file LICENSE
-URL: https://github.com/euctrl-pru/pruatlas
+URL: https://pruatlas.ansperformance.eu, https://github.com/euctrl-pru/pruatlas
 BugReports: https://github.com/euctrl-pru/pruatlas/issues
 Depends: 
     R (>= 3.4.0)
