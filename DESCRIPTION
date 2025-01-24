@@ -1,6 +1,6 @@
 Package: pruatlas
 Title: The Atlas and Utilities for PRU Maps
-Version: 0.0.1.9000
+Version: 0.0.2.0
 Authors@R: 
     c(person(given = "Enrico",
              family = "Spinielli",
@@ -16,7 +16,7 @@ License: GPL-2 | MIT + file LICENSE
 URL: https://pruatlas.ansperformance.eu, https://github.com/euctrl-pru/pruatlas
 BugReports: https://github.com/euctrl-pru/pruatlas/issues
 Depends: 
-    R (>= 3.4.0)
+    R (>= 3.5)
 Imports: 
     dplyr,
     ggplot2,
@@ -38,4 +38,4 @@ RdMacros:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2

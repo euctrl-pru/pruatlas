@@ -111,7 +111,7 @@ For plotting EUROCONTROL Member States' FIR area we can select and
 merge the various airspaces:
 
 ```{r eurocontrol}
-plot_country_fir(icao_id = "E.|L.|UD|UG|GM|UK|GC",
+plot_country_fir(icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
                  "EUROCONTROL",
                  buffer = 350,
                  fl = 200)
@@ -168,7 +168,7 @@ crco <- readr::read_lines(bo) %>%
 codes <- crco %>% pull(icao) %>% unique()
 
 # country_fir(firs = crco,
-#             icao_id = "E.|L.|UD|UG|GM|UK|GC",
+#             icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
 #             fl = 200, merge = FALSE)
 # 
 # ggplot(crco) + geom_sf()

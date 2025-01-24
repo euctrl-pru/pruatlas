@@ -1,3 +1,12 @@
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
+NULL
+
+
+
 #' pruatlas: A package for PRU maps generation.
 #'
 #' The pruatlas package provides function to plot country FIRs,
@@ -18,6 +27,5 @@
 #'   \item change `airacnm` to the AIP format
 #' }
 #'
-#' @docType package
 #' @name pruatlas
 NULL
