@@ -31,9 +31,11 @@ process_and_save_parquet <- function(dataset_name) {
 
 process_and_save_parquet("ansps_ace_406")
 process_and_save_parquet("ansps_ace_481")
+process_and_save_parquet("ansps_ace_524")
 process_and_save_parquet("countries50m")
 process_and_save_parquet("firs_nm_406")
 process_and_save_parquet("firs_nm_481")
+process_and_save_parquet("firs_nm_524")
 process_and_save_parquet("sphere_laea")
 
 load('data/member_states.rda')
