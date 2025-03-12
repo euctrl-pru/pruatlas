@@ -36,7 +36,26 @@
 #' }
 "firs_nm_481"
 
-#' ACE ANSPs for AIRAC 406 and 481.
+#' NM FIRs for AIRAC 524.
+#'
+#' A dataset containing the definition of the FIRs as used by the
+#' \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
+#'
+#'
+#' @format A Simple Feature dataset with 111 FIRs and 9 variables:
+#' \describe{
+#'   \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+#'   \item{icao}{the ICAO region code for the FIR}
+#'   \item{id}{the ID for the FIR}
+#'   \item{min_fl}{the minimum flight level of the FIR}
+#'   \item{max_fl}{the maximum flight level of the FIR}
+#'   \item{name}{the name of the FIR}
+#'   \item{airspace_type}{the type of the airspace (FIR)}
+#'   \item{geometry}{the Simple Feature describing the FIR}
+#' }
+"firs_nm_524"
+
+#' ACE ANSPs for AIRAC 406.
 #'
 #' A dataset containing the definition of the
 #' \href{https://ansperformance.eu/acronym/ansp/}{ANSP}s as
@@ -57,8 +76,50 @@
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "ansps_ace_406"
+
+#' ACE ANSPs for AIRAC 481.
+#'
+#' A dataset containing the definition of the
+#' \href{https://ansperformance.eu/acronym/ansp/}{ANSP}s as
+#' used in the \href{https://ansperformance.eu/acronym/ace/}{ACE}
+#' Benchmarking Report.
+#'
+#'
+#' @format A Simple Feature dataset with airspace definitions for ANSPs:
+#' \describe{
+#'   \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+#'   \item{id}{the ID for the ANSP}
+#'   \item{name}{the name of the ANSP}
+#'   \item{ace_code}{the code of the ANSP used in ACE}
+#'   \item{min_fl}{the minimum flight level of the ANSP}
+#'   \item{max_fl}{the maximum flight level of the ANSP}
+#'   \item{airspace_type}{the type of the airspace (ANSP)}
+#'   \item{geometry}{the Simple Feature describing the ANSP}
+#' }
+#' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "ansps_ace_481"
 
+#' ACE ANSPs for AIRAC 524.
+#'
+#' A dataset containing the definition of the
+#' \href{https://ansperformance.eu/acronym/ansp/}{ANSP}s as
+#' used in the \href{https://ansperformance.eu/acronym/ace/}{ACE}
+#' Benchmarking Report.
+#'
+#'
+#' @format A Simple Feature dataset with airspace definitions for ANSPs:
+#' \describe{
+#'   \item{airac_cfmu}{the AIRAC cycle number in CFMU format}
+#'   \item{id}{the ID for the ANSP}
+#'   \item{name}{the name of the ANSP}
+#'   \item{ace_code}{the code of the ANSP used in ACE}
+#'   \item{min_fl}{the minimum flight level of the ANSP}
+#'   \item{max_fl}{the maximum flight level of the ANSP}
+#'   \item{airspace_type}{the type of the airspace (ANSP)}
+#'   \item{geometry}{the Simple Feature describing the ANSP}
+#' }
+#' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+"ansps_ace_524"
 
 
 #' World countries at 50m scale.
