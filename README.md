@@ -7,7 +7,6 @@
 
 [![R-CMD-check](https://github.com/euctrl-pru/pruatlas/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
 [![pkgdown](https://github.com/euctrl-pru/pruatlas/workflows/pkgdown/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions)
-[![R-CMD-check](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/euctrl-pru/pruatlas/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 This is still **Work In Progress** but we value constructive feedback:
@@ -24,24 +23,22 @@ ANSP is as follows:
 
 ``` r
 library(sf)
-#> Warning: package 'sf' was built under R version 4.3.3
 library(pruatlas)
-#> Warning: package 'pruatlas' was built under R version 4.3.1
 fl <- 300
 plot_country_fir("ED", "Germany", fl = fl)
 plot_country_ansp("DFS", "DFS, Germany", fl = fl)
 ```
 
-<img src="man/figures/README-lf-fir-1.png" width="50%" /><img src="man/figures/README-lf-fir-2.png" width="50%" />
+<img src="man/figures/README-lf-fir-1.png" alt="A map of Germany's FIR's area at flight level 300" width="50%" /><img src="man/figures/README-lf-fir-2.png" alt="A map of Germany's ANSP's area at flight level 300" width="50%" />
 
 Or EUROCONTROL’s Member States FIR area:
 
 ``` r
-ms <- "E.|L.|UD|UG|GM|UK|GC"
+ms <- "BI|E.|L.|UD|UG|GM|UK|GC"
 plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
 ```
 
-<img src="man/figures/README-euctrl-ms-1.png" width="80%" />
+<img src="man/figures/README-euctrl-ms-1.png" alt="A map of all EUROCONTROL Member States' merged FIR's at flight level 200" width="80%" />
 
 Lower level functions or datasets include for example `countries50m`,
 the Simple Feature for the whole world countries or `extent_fir()` to

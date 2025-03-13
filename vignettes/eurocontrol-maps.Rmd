@@ -10,7 +10,9 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
@@ -30,20 +32,20 @@ library(purrr)
 
 Let's plot Italian FIR at FL300
 
-```{r italy}
+```{r italy, fig.alt="A map of Italy's Country FIR at flight level 300"}
 plot_country_fir("LI", "Italy", fl = 300)
 ```
 
 For UK, things are more complicated because it has also an Oceanic bit of volume
-```{r uk}
+```{r uk, fig.alt="A map of UK's Country FIR, including oceanic part, at flight level 200"}
 plot_country_fir("EG", "UK (oceanic)", fl = 200)
 ```
 
 So to plot the *continental* part only we need to split things:
-```{r uk-continental}
+```{r uk-continental, fig.alt="A map of UK's Country FIR, excluding the oceanic part, at flight level 200"}
 uk_continental <- firs_nm_406 %>%
   dplyr::filter(icao == "EG", min_fl <= 0, 0 <= max_fl) %>%
-  dplyr::filter(!(id %in% c("EGGXFIR", "EGGX")))
+  dplyr::filter(!(code %in% c("EGGXFIR", "EGGX")))
 plot_country_fir(
   "EG",
   "UK (continental)",
@@ -53,7 +55,7 @@ plot_country_fir(
 
 ### Aiport location in FIR
 
-```{r country-airport}
+```{r country-airport, fig.alt="A map of UK's Country FIR, including oceanic part, at flight level 200 with the location of EGLL airport (Heathrow)"}
 # some airports
 apts <- tibble::tribble(
    ~ICAO_CODE, ~IATA_CODE,               ~LON,    ~LAT,           ~NAME,
@@ -110,7 +112,7 @@ plot_country_fir(
 For plotting EUROCONTROL Member States' FIR area we can select and
 merge the various airspaces:
 
-```{r eurocontrol}
+```{r eurocontrol,fig.alt="A map of all EUROCONTROL Member States' merged FIRs at flight level 200"}
 plot_country_fir(icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
                  "EUROCONTROL",
                  buffer = 350,
@@ -119,7 +121,7 @@ plot_country_fir(icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
 
 ### All Member States FIRs
 
-```{r member-states}
+```{r member-statesfig.alt="A map of all EUROCONTROL Member States' FIRs at flight level 200"}
 ms_codes <- member_states %>% 
   # filter out Germany (military, no specific FIR),
   #   Luxembourg (managed by Belgium) and Monaco (managed by France)
@@ -160,18 +162,12 @@ You can get the CRCO charging zones boundaries from
 [EUROCONTROL web site](https://www.eurocontrol.int/publication/route-state-overflown-rso-distance-tool-area-boundary-model).
 This package stores a real file as an example.
 
-```{r, crco}
+```{r, crco, fig.alt="A map of all EUROCONTROL Member States' CRCO charging zones at flight level 200"}
 bo <- system.file("extdata", "sbm_bz_20200527.txt", package = "pruatlas")
 crco <- readr::read_lines(bo) %>%
   parse_airspace_crco() %>% 
   mutate(icao = unit)
 codes <- crco %>% pull(icao) %>% unique()
-
-# country_fir(firs = crco,
-#             icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
-#             fl = 200, merge = FALSE)
-# 
-# ggplot(crco) + geom_sf()
 
 plot_country_fir(firs = crco,
                  fl = 200,
@@ -184,7 +180,7 @@ plot_country_fir(firs = crco,
 
 ### ECAC Oceanic
 
-```{r, ecac-oc}
+```{r, ecac-oc,fig.alt="A map of STATFOR's ECAC Oceaning area"}
 ecac_oceanic() %>% 
   plot_country_fir(icao_id = "ECOC",
                    name = "ECAC Oceanic",
@@ -194,7 +190,7 @@ ecac_oceanic() %>%
 
 ### ECAC North West
 
-```{r ecac-nw}
+```{r ecac-nw,fig.alt="A map of STATFOR's ECAC North West area"}
 ecac_northwest() %>% 
   plot_country_fir(icao_id = "ECNW",
                    name = "ECAC North West",
@@ -205,7 +201,7 @@ ecac_northwest() %>%
 
 ### ECAC South West
 
-```{r ecac-sw}
+```{r ecac-sw,fig.alt="A map of STATFOR's ECAC South West area"}
 ecac_southwest() %>% 
   plot_country_fir(icao_id = "ECSW",
                    name = "ECAC South West",
@@ -215,7 +211,7 @@ ecac_southwest() %>%
 
 ### ECAC North East
 
-```{r, ecac-ne}
+```{r, ecac-ne,fig.alt="A map of STATFOR's ECAC North East area"}
 ecac_northeast() %>% 
   plot_country_fir(icao_id = "ECNE",
                    name = "ECAC North East",
@@ -224,7 +220,7 @@ ecac_northeast() %>%
 
 ### ECAC South East
 
-```{r, ecac-se}
+```{r, ecac-se,fig.alt="A map of STATFOR's ECAC South East area"}
 ecac_southeast() %>% 
   plot_country_fir(icao_id = "ECSE",
                    name = "ECAC South East",
@@ -233,7 +229,7 @@ ecac_southeast() %>%
 
 ### Complete ECAC
 
-```{r, ecac-whole}
+```{r, ecac-whole,fig.alt="A map of STATFOR's whole ECAC area"}
 ecac_region() %>% 
   plot_country_fir(icao_id = "ECAC",
                    name = "ECAC",
@@ -245,7 +241,7 @@ ecac_region() %>%
 
 `st_segmentize` improved things but THIS IS still BAD!
 
-```{r, north-atlantic}
+```{r, north-atlantic,fig.alt="A map of STATFOR's North Atlantic area"}
 firs <- system.file("extdata", "icao_firs.geojson", package = "pruatlas") %>% 
   read_sf() %>% 
   rename(icao = icao_code)
