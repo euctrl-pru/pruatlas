@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # PRU Atlas
@@ -21,18 +22,24 @@ There are both high and low level facilities. For an example of a high
 level helper, the code for plotting a map of the Germany country FIR and
 ANSP is as follows:
 
-    library(sf)
-    library(pruatlas)
-    fl <- 300
-    plot_country_fir("ED", "Germany", fl = fl)
-    plot_country_ansp("DFS", "DFS, Germany", fl = fl)
+``` r
+library(sf)
+#> Warning: package 'sf' was built under R version 4.3.3
+library(pruatlas)
+#> Warning: package 'pruatlas' was built under R version 4.3.1
+fl <- 300
+plot_country_fir("ED", "Germany", fl = fl)
+plot_country_ansp("DFS", "DFS, Germany", fl = fl)
+```
 
 <img src="man/figures/README-lf-fir-1.png" width="50%" /><img src="man/figures/README-lf-fir-2.png" width="50%" />
 
 Or EUROCONTROL’s Member States FIR area:
 
-    ms <- "E.|L.|UD|UG|GM|UK|GC"
-    plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
+``` r
+ms <- "E.|L.|UD|UG|GM|UK|GC"
+plot_country_fir(icao_id = ms, "EUROCONTROL Member States", buffer = 350, fl = 200)
+```
 
 <img src="man/figures/README-euctrl-ms-1.png" width="80%" />
 
@@ -42,16 +49,15 @@ calculate the bounding box of a country FIR.
 
 Useful functions are:
 
--   `plot_country_fir()`
--   `plot_country_ansp()`
+- `plot_country_fir()`
+- `plot_country_ansp()`
 
 The package contains the following aviation GIS datasets (for CFMU AIRAC
 406, see below):
 
--   `firs_nm_406`: the FIR’s as defined/used by EUROCONTROL’s Network
-    Manager
--   `ansps_ace_406`: the ANSP’s as defined/used in ACE Benchmarking
-    Report
+- `firs_nm_406`: the FIR’s as defined/used by EUROCONTROL’s Network
+  Manager
+- `ansps_ace_406`: the ANSP’s as defined/used in ACE Benchmarking Report
 
 (CFMU) AIRAC 406, a.k.a.
 [AIRAC](https://ansperformance.eu/acronym/airac/) `1512`, spans the
@@ -72,14 +78,31 @@ instructions for directions.
 
 In order to install `pruatlas` you need to run:
 
-    library(remotes)
-    install_github("euctrl-pru/pruatlas")
+``` r
+library(remotes)
+install_github("euctrl-pru/pruatlas")
+```
 
 # To Do’s
 
--   ☐ implement similar facilities as FIR’s/ANSP’s for Elementaty
-    Sectors (ES’s) in order to be able to plot single ES or ACC’s
--   ☐ include `export_<airspace_type>` in the package API rather than as
-    scripts for the package datasets
--   ☐ extract style from plot functions and make it a better theme
--   ☒ extend Member States dataset
+- [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
+  Sectors (ES’s) in order to be able to plot single ES or ACC’s
+- [ ] include `export_<airspace_type>` in the package API rather than as
+  scripts for the package datasets
+- [ ] extract style from plot functions and make it a better theme
+- [x] extend Member States dataset
+
+# Development
+
+In order to build the relevant `pkgdown` web pages, execute the
+following code:
+
+``` r
+
+# How to build the pkgdown from behind proxied Internet
+library(withr)
+library(pkgdown)
+
+with_options(list(pkgdown.internet = FALSE),
+             build_site())
+```
