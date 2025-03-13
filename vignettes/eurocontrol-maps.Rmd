@@ -121,7 +121,7 @@ plot_country_fir(icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",
 
 ### All Member States FIRs
 
-```{r member-statesfig.alt="A map of all EUROCONTROL Member States' FIRs at flight level 200"}
+```{r member-states, fig.alt="A map of all EUROCONTROL Member States' FIRs at flight level 200"}
 ms_codes <- member_states %>% 
   # filter out Germany (military, no specific FIR),
   #   Luxembourg (managed by Belgium) and Monaco (managed by France)
