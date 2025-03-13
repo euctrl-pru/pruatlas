@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">pruatlas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.0.3.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,16 +67,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pruatlas.ansperformance.eu">pruatlas</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
@@ -90,24 +81,24 @@
 <p>Let’s plot Italian FIR at FL300</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"LI"</span>, <span class="st">"Italy"</span>, fl <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/italy-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/italy-1.png" alt="A map of Italy's Country FIR at flight level 300" width="700"></p>
 <p>For UK, things are more complicated because it has also an Oceanic
 bit of volume</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span><span class="st">"EG"</span>, <span class="st">"UK (oceanic)"</span>, fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/uk-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/uk-1.png" alt="A map of UK's Country FIR, including oceanic part, at flight level 200" width="700"></p>
 <p>So to plot the <em>continental</em> part only we need to split
 things:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">uk_continental</span> <span class="op">&lt;-</span> <span class="va">firs_nm_406</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">icao</span> <span class="op">==</span> <span class="st">"EG"</span>, <span class="va">min_fl</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="fl">0</span> <span class="op">&lt;=</span> <span class="va">max_fl</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">id</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">code</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"EGGXFIR"</span>, <span class="st">"EGGX"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span></span>
 <span>  <span class="st">"EG"</span>,</span>
 <span>  <span class="st">"UK (continental)"</span>,</span>
 <span>  firs <span class="op">=</span> <span class="va">uk_continental</span>,</span>
 <span>  fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/uk-continental-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/uk-continental-1.png" alt="A map of UK's Country FIR, excluding the oceanic part, at flight level 200" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="aiport-location-in-fir">Aiport location in FIR<a class="anchor" aria-label="anchor" href="#aiport-location-in-fir"></a>
@@ -157,10 +148,8 @@ things:</p>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span>, ylim <span class="op">=</span> <span class="va">bbox</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># (re-)define the title and subtitle (`plot_country_fir()` adds its own)</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_glue.html" class="external-link">str_glue</a></span><span class="op">(</span><span class="st">"{name} ({icao})"</span>, name <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">NAME</span>, icao <span class="op">=</span> <span class="va">apt</span><span class="op">$</span><span class="va">ICAO_CODE</span><span class="op">)</span>,</span>
-<span>          subtitle <span class="op">=</span> <span class="st">"United Kingdom FIR (continental) at FL200"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will</span></span>
-<span><span class="co">#&gt; replace the existing one.</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/country-airport-1.png" width="700"></p>
+<span>          subtitle <span class="op">=</span> <span class="st">"United Kingdom FIR (continental) at FL200"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="eurocontrol-maps_files/figure-html/country-airport-1.png" alt="A map of UK's Country FIR, including oceanic part, at flight level 200 with the location of EGLL airport (Heathrow)" width="700"></p>
 </div>
 </div>
 <div class="section level2">
@@ -176,7 +165,7 @@ merge the various airspaces:</p>
 <span>                 <span class="st">"EUROCONTROL"</span>,</span>
 <span>                 buffer <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>                 fl <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/eurocontrol-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/eurocontrol-1.png" alt="A map of all EUROCONTROL Member States' merged FIRs at flight level 200" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="all-member-states-firs">All Member States FIRs<a class="anchor" aria-label="anchor" href="#all-member-states-firs"></a>
@@ -214,7 +203,7 @@ merge the various airspaces:</p>
 <span>                 fl <span class="op">=</span> <span class="fl">200</span>,</span>
 <span>                 name <span class="op">=</span> <span class="st">"EUROCONTROL"</span>,</span>
 <span>                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/member-states-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/member-states-1.png" alt="A map of all EUROCONTROL Member States' FIRs at flight level 200" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="crco-charging-zones">CRCO Charging Zones<a class="anchor" aria-label="anchor" href="#crco-charging-zones"></a>
@@ -228,18 +217,12 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>icao <span class="op">=</span> <span class="va">unit</span><span class="op">)</span></span>
 <span><span class="va">codes</span> <span class="op">&lt;-</span> <span class="va">crco</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">icao</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># country_fir(firs = crco,</span></span>
-<span><span class="co">#             icao_id = "BI|E.|L.|UD|UG|GM|UK|GC",</span></span>
-<span><span class="co">#             fl = 200, merge = FALSE)</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># ggplot(crco) + geom_sf()</span></span>
-<span></span>
 <span><span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>firs <span class="op">=</span> <span class="va">crco</span>,</span>
 <span>                 fl <span class="op">=</span> <span class="fl">200</span>,</span>
 <span>                 icao_id <span class="op">=</span> <span class="va">codes</span>,</span>
 <span>                 name <span class="op">=</span> <span class="st">"CRCO charging zones"</span>,</span>
 <span>                 merge <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/crco-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/crco-1.png" alt="A map of all EUROCONTROL Member States' CRCO charging zones at flight level 200" width="700"></p>
 </div>
 </div>
 <div class="section level2">
@@ -253,7 +236,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECOC"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC Oceanic"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-oc-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-oc-1.png" alt="A map of STATFOR's ECAC Oceaning area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-north-west">ECAC North West<a class="anchor" aria-label="anchor" href="#ecac-north-west"></a>
@@ -263,7 +246,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNW"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC North West"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-nw-1.png" alt="A map of STATFOR's ECAC North West area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-south-west">ECAC South West<a class="anchor" aria-label="anchor" href="#ecac-south-west"></a>
@@ -273,7 +256,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSW"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC South West"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-sw-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-sw-1.png" alt="A map of STATFOR's ECAC South West area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-north-east">ECAC North East<a class="anchor" aria-label="anchor" href="#ecac-north-east"></a>
@@ -283,7 +266,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECNE"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC North East"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-ne-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-ne-1.png" alt="A map of STATFOR's ECAC North East area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="ecac-south-east">ECAC South East<a class="anchor" aria-label="anchor" href="#ecac-south-east"></a>
@@ -293,7 +276,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECSE"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC South East"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-se-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-se-1.png" alt="A map of STATFOR's ECAC South East area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="complete-ecac">Complete ECAC<a class="anchor" aria-label="anchor" href="#complete-ecac"></a>
@@ -303,7 +286,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"ECAC"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"ECAC"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/ecac-whole-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/ecac-whole-1.png" alt="A map of STATFOR's whole ECAC area" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="north-atlantic">North Atlantic<a class="anchor" aria-label="anchor" href="#north-atlantic"></a>
@@ -318,7 +301,7 @@ web site</a>. This package stores a real file as an example.</p>
 <span>  <span class="fu"><a href="../reference/plot_country_fir.html">plot_country_fir</a></span><span class="op">(</span>icao_id <span class="op">=</span> <span class="st">"NOAT"</span>,</span>
 <span>                   name <span class="op">=</span> <span class="st">"STATFOR North Atlantic"</span>,</span>
 <span>                   firs <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="eurocontrol-maps_files/figure-html/north-atlantic-1.png" width="700"></p>
+<p><img src="eurocontrol-maps_files/figure-html/north-atlantic-1.png" alt="A map of STATFOR's North Atlantic area" width="700"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
