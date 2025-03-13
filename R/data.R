@@ -146,6 +146,12 @@
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
 "sphere_laea"
 
+#' The Lambert Azimuthal Equal-Area projection used in the package.
+#'
+#'@seealso \url{https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection}
+#'
+"pru_laea_proj"
+
 #' EUROCONTROL's Member States
 #'
 #' A data frame with the following fields
