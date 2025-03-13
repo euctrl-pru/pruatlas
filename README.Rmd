@@ -92,3 +92,18 @@ install_github("euctrl-pru/pruatlas")
   for the package datasets
 - [ ] extract style from plot functions and make it a better theme
 - [x] extend Member States dataset
+
+
+# Development
+
+In order to build the relevant `pkgdown` web pages, execute the following code:
+
+```{r, eval=FALSE}
+
+# How to build the pkgdown from behind proxied Internet
+library(withr)
+library(pkgdown)
+
+with_options(list(pkgdown.internet = FALSE),
+             build_site())
+
