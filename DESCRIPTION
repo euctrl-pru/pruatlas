@@ -1,6 +1,6 @@
 Package: pruatlas
 Title: The Atlas and Utilities for PRU Maps
-Version: 0.0.3.1
+Version: 0.0.3.2
 Authors@R: 
     c(person(given = "Enrico",
              family = "Spinielli",
