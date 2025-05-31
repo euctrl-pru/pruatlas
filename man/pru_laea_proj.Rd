@@ -16,4 +16,4 @@ The Lambert Azimuthal Equal-Area projection used in the package.
 \seealso{
 \url{https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection}
 }
-\keyword{datasets}
+\keyword{dataset}

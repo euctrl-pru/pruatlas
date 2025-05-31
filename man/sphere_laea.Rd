@@ -19,4 +19,4 @@ A special object to represent the spherical Earth in a given projection.
 \seealso{
 \url{http://stackoverflow.com/q/43207947/963575}
 }
-\keyword{datasets}
+\keyword{dataset}

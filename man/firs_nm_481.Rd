@@ -24,4 +24,4 @@ firs_nm_481
 A dataset containing the definition of the FIRs as used by the
 \href{http://ansperformance.eu/references/acronym/nm-cfmu.html}{Network Manager}.
 }
-\keyword{datasets}
+\keyword{dataset}

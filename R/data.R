@@ -15,6 +15,7 @@
 #'   \item{airspace_type}{the type of the airspace (FIR)}
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
+#' @keywords dataset
 "firs_nm_406"
 
 #' NM FIRs for AIRAC 481.
@@ -34,6 +35,7 @@
 #'   \item{airspace_type}{the type of the airspace (FIR)}
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
+#' @keywords dataset
 "firs_nm_481"
 
 #' NM FIRs for AIRAC 524.
@@ -53,6 +55,7 @@
 #'   \item{airspace_type}{the type of the airspace (FIR)}
 #'   \item{geometry}{the Simple Feature describing the FIR}
 #' }
+#' @keywords dataset
 "firs_nm_524"
 
 #' ACE ANSPs for AIRAC 406.
@@ -75,6 +78,7 @@
 #'   \item{geometry}{the Simple Feature describing the ANSP}
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+#' @keywords dataset
 "ansps_ace_406"
 
 #' ACE ANSPs for AIRAC 481.
@@ -97,6 +101,7 @@
 #'   \item{geometry}{the Simple Feature describing the ANSP}
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+#' @keywords dataset
 "ansps_ace_481"
 
 #' ACE ANSPs for AIRAC 524.
@@ -119,6 +124,7 @@
 #'   \item{geometry}{the Simple Feature describing the ANSP}
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+#' @keywords dataset
 "ansps_ace_524"
 
 
@@ -137,6 +143,7 @@
 #'   \item{geometry}{the Simple Feature describing the country}
 #' }
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+#' @keywords dataset
 "countries50m"
 
 #' A special object to represent the spherical Earth in a given projection.
@@ -144,11 +151,13 @@
 #'@seealso \url{http://stackoverflow.com/q/43207947/963575}
 #'
 #' @source \url{https://github.com/euctrl-pru/eurocontrol-atlas}
+#' @keywords dataset
 "sphere_laea"
 
 #' The Lambert Azimuthal Equal-Area projection used in the package.
 #'
 #'@seealso \url{https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection}
+#' @keywords dataset
 #'
 "pru_laea_proj"
 
@@ -167,5 +176,5 @@
 #' }
 #' These are useful to grab the right spatial polygons in case of need.
 #' Note: Kosovo is also included in the list.
+#' @keywords dataset
 "member_states"
-

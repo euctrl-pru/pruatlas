@@ -22,3 +22,41 @@ toc:
 # https://pkgdown.r-lib.org/reference/build_articles.html?q=output%20_%20format#yaml-config
 pkgdown:
 as_is: true
+
+
+reference:
+- title: "Functions for countries and regions"
+  desc: >
+    Functions to return `sf` representations for Airspaces of countries
+    or () ECAC regions.
+  contents:
+  - starts_with("country_")
+  - starts_with("ecac_")
+  - north_atlantic
+
+- title: "Plot functions"
+  desc: >
+    Plotting functions for airspaces et al.
+  contents:
+  - base_map
+  - starts_with("plot_")
+  - pru_colours
+  - theme_map
+
+- title: "Helper functions"
+  desc: >
+    Various helper functions
+  contents:
+  - extent_fir
+  - parse_airspace_crco
+  - sphere
+
+- title: "Data sets"
+  desc: >
+    Airspaces and boundaries from various entities such as
+    Flight Information Regions (FIR),
+    Air Navigation Services Providers polygons (ANSP) and world countries.
+    Helper datasets for [Lambert azimuthal equal-area (LAEA) projection](https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection),
+    and EUROCONTROL Member States' details.
+  contents:
+  - has_keyword("dataset")

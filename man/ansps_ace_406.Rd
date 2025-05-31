@@ -29,4 +29,4 @@ A dataset containing the definition of the
 used in the \href{https://ansperformance.eu/acronym/ace/}{ACE}
 Benchmarking Report.
 }
-\keyword{datasets}
+\keyword{dataset}

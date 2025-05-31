@@ -24,4 +24,4 @@ countries50m
 \description{
 A dataset containing the definition of the world countries.
 }
-\keyword{datasets}
+\keyword{dataset}

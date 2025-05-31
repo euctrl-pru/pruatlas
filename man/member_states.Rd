@@ -25,4 +25,4 @@ A data frame with the following fields
 These are useful to grab the right spatial polygons in case of need.
 Note: Kosovo is also included in the list.
 }
-\keyword{datasets}
+\keyword{dataset}
