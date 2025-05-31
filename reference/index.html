@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">pruatlas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.0.3.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="functions-for-countries-and-regions">Functions for countries and regions<a class="anchor" aria-label="anchor" href="#functions-for-countries-and-regions"></a></h2>
 
-
+      <div class="section-desc"><p>Functions to return <code>sf</code> representations for Airspaces of countries or () ECAC regions.</p></div>
 
 
     </div><div class="section level2">
@@ -46,36 +46,6 @@
 
 
       <dl><dt>
-
-          <code><a href="ansps_ace_406.html">ansps_ace_406</a></code>
-
-        </dt>
-        <dd>ACE ANSPs for AIRAC 406.</dd>
-      </dl><dl><dt>
-
-          <code><a href="ansps_ace_481.html">ansps_ace_481</a></code>
-
-        </dt>
-        <dd>ACE ANSPs for AIRAC 481.</dd>
-      </dl><dl><dt>
-
-          <code><a href="ansps_ace_524.html">ansps_ace_524</a></code>
-
-        </dt>
-        <dd>ACE ANSPs for AIRAC 524.</dd>
-      </dl><dl><dt>
-
-          <code><a href="base_map.html">base_map()</a></code>
-
-        </dt>
-        <dd>Provide base country layer for PRU maps.</dd>
-      </dl><dl><dt>
-
-          <code><a href="countries50m.html">countries50m</a></code>
-
-        </dt>
-        <dd>World countries at 50m scale.</dd>
-      </dl><dl><dt>
 
           <code><a href="country_ansp.html">country_ansp()</a></code>
 
@@ -125,10 +95,115 @@
         <dd>STATFOR ECAC South West region</dd>
       </dl><dl><dt>
 
+          <code><a href="north_atlantic.html">north_atlantic()</a></code>
+
+        </dt>
+        <dd>STATFOR North Atlantic region</dd>
+      </dl></div><div class="section level2">
+      <h2 id="plot-functions">Plot functions<a class="anchor" aria-label="anchor" href="#plot-functions"></a></h2>
+
+      <div class="section-desc"><p>Plotting functions for airspaces et al.</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="base_map.html">base_map()</a></code>
+
+        </dt>
+        <dd>Provide base country layer for PRU maps.</dd>
+      </dl><dl><dt>
+
+          <code><a href="plot_country_ansp.html">plot_country_ansp()</a></code>
+
+        </dt>
+        <dd>Plot country and relevant ANSP.</dd>
+      </dl><dl><dt>
+
+          <code><a href="plot_country_fir.html">plot_country_fir()</a></code>
+
+        </dt>
+        <dd>Plot country and relevant FIR.</dd>
+      </dl><dl><dt>
+
+          <code><a href="pru_colours.html">pru_colours()</a></code>
+
+        </dt>
+        <dd>Default colours for PRU maps.</dd>
+      </dl><dl><dt>
+
+          <code><a href="theme_map.html">theme_map()</a></code>
+
+        </dt>
+        <dd>PRU theme for maps.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="helper-functions">Helper functions<a class="anchor" aria-label="anchor" href="#helper-functions"></a></h2>
+
+      <div class="section-desc"><p>Various helper functions</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
           <code><a href="extent_fir.html">extent_fir()</a></code>
 
         </dt>
         <dd>Return the extent of a set of FIRs.</dd>
+      </dl><dl><dt>
+
+          <code><a href="parse_airspace_crco.html">parse_airspace_crco()</a></code>
+
+        </dt>
+        <dd>Parse CRCO Airspace Charging Zone format</dd>
+      </dl><dl><dt>
+
+          <code><a href="sphere.html">sphere()</a></code>
+
+        </dt>
+        <dd>Return the polygon represent the spherical Earth.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="data-sets">Data sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
+
+      <div class="section-desc"><p>Airspaces and boundaries from various entities such as Flight Information Regions (FIR), Air Navigation Services Providers polygons (ANSP) and world countries. Helper datasets for <a href="https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection" class="external-link">Lambert azimuthal equal-area (LAEA) projection</a>, and EUROCONTROL Member States’ details.</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="ansps_ace_406.html">ansps_ace_406</a></code>
+
+        </dt>
+        <dd>ACE ANSPs for AIRAC 406.</dd>
+      </dl><dl><dt>
+
+          <code><a href="ansps_ace_481.html">ansps_ace_481</a></code>
+
+        </dt>
+        <dd>ACE ANSPs for AIRAC 481.</dd>
+      </dl><dl><dt>
+
+          <code><a href="ansps_ace_524.html">ansps_ace_524</a></code>
+
+        </dt>
+        <dd>ACE ANSPs for AIRAC 524.</dd>
+      </dl><dl><dt>
+
+          <code><a href="countries50m.html">countries50m</a></code>
+
+        </dt>
+        <dd>World countries at 50m scale.</dd>
       </dl><dl><dt>
 
           <code><a href="firs_nm_406.html">firs_nm_406</a></code>
@@ -155,66 +230,19 @@
         <dd>EUROCONTROL's Member States</dd>
       </dl><dl><dt>
 
-          <code><a href="north_atlantic.html">north_atlantic()</a></code>
-
-        </dt>
-        <dd>STATFOR North Atlantic region</dd>
-      </dl><dl><dt>
-
-          <code><a href="parse_airspace_crco.html">parse_airspace_crco()</a></code>
-
-        </dt>
-        <dd>Parse CRCO Airspace Charging Zone format</dd>
-      </dl><dl><dt>
-
-          <code><a href="plot_country_ansp.html">plot_country_ansp()</a></code>
-
-        </dt>
-        <dd>Plot country and relevant ANSP.</dd>
-      </dl><dl><dt>
-
-          <code><a href="plot_country_fir.html">plot_country_fir()</a></code>
-
-        </dt>
-        <dd>Plot country and relevant FIR.</dd>
-      </dl><dl><dt>
-
-          <code><a href="pru_colours.html">pru_colours()</a></code>
-
-        </dt>
-        <dd>Default colours for PRU maps.</dd>
-      </dl><dl><dt>
-
           <code><a href="pru_laea_proj.html">pru_laea_proj</a></code>
 
         </dt>
         <dd>The Lambert Azimuthal Equal-Area projection used in the package.</dd>
       </dl><dl><dt>
 
-          <code><a href="pruatlas.html">pruatlas</a></code>
-
-        </dt>
-        <dd>pruatlas: A package for PRU maps generation.</dd>
-      </dl><dl><dt>
-
-          <code><a href="sphere.html">sphere()</a></code>
-
-        </dt>
-        <dd>Return the polygon represent the spherical Earth.</dd>
-      </dl><dl><dt>
-
           <code><a href="sphere_laea.html">sphere_laea</a></code>
 
         </dt>
         <dd>A special object to represent the spherical Earth in a given projection.</dd>
-      </dl><dl><dt>
-
-          <code><a href="theme_map.html">theme_map()</a></code>
-
-        </dt>
-        <dd>PRU theme for maps.</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
@@ -222,7 +250,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>
