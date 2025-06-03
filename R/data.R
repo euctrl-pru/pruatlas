@@ -135,7 +135,7 @@
 #'
 #' @format A Simple Feature dataset with 240 countries and 4 variables:
 #' \describe{
-#'   \item{iso_a3}{\href{https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3}{ISO 3166-1 alpha-3}
+#'   \item{adm0_a3}{\href{https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3}{ISO 3166-1 alpha-3}
 #'   three-letter country code}
 #'   \item{iso_n3}{\href{https://en.wikipedia.org/wiki/ISO_3166-1_numeric}{ISO 3166-1 numeric}
 #'   three digits country code}

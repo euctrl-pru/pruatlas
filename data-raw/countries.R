@@ -8,9 +8,9 @@ countries50m <- ne_countries(
   type = "countries",
   returnclass = "sf"
 ) %>%
-  select(iso_a3, iso_n3, admin) |>
+  select(admin0_a3, iso_n3, admin) |>
   mutate(
-    iso_a3 = if_else(admin == "Kosovo", "XKX", iso_a3),
+    admin0_a3 = if_else(admin == "Kosovo", "XKX", admin0_a3),
     iso_n3 = if_else(admin == "Kosovo", "926", iso_n3)
   )
 
