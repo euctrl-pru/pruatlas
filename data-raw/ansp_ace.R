@@ -14,7 +14,7 @@ prepare_ansp_data <- function(cfmu_airac) {
   ansps_ace <- read_sf(here("data-raw", fn)) |>
     sf::st_make_valid()
   ansps_ace |>
-    sf::st_write(here("inst", "extdata", fn), delete_dsn=TRUE)
+    sf::st_write(here("inst", "extdata", fn), delete_dsn = TRUE)
   fs::file_delete(here("data-raw", fn))
 
   fn <- fs::path_ext_set(fn, "parquet")
@@ -31,16 +31,41 @@ ansps_ace_406 <- prepare_ansp_data(406)
 usethis::use_data(
   ansps_ace_406,
   compress = "bzip2",
-  overwrite = TRUE)
+  overwrite = TRUE
+)
 
 ansps_ace_481 <- prepare_ansp_data(481)
 usethis::use_data(
   ansps_ace_481,
   compress = "bzip2",
-  overwrite = TRUE)
+  overwrite = TRUE
+)
 
 ansps_ace_524 <- prepare_ansp_data(524)
 usethis::use_data(
   ansps_ace_524,
   compress = "bzip2",
-  overwrite = TRUE)
+  overwrite = TRUE
+)
+
+# Prepare Upper Airspace for Balint
+# fl_u <- 300
+# ansps_ace_540 <- prepare_ansp_data(540)
+#
+# ansps_u <- ansps_ace_540 |>
+#   # upper airspace
+#   dplyr::filter(
+#     min_fl <= fl_u & fl_u <= max_fl,
+#     str_detect(name, "Oceanic", negate = TRUE)
+#   ) |>
+#   dplyr::filter(code != "NAVEP_SM")
+#
+# enav_u <- ansps_u |>
+#   filter(code == "ENAV") |>
+#   smoothr::fill_holes(units::set_units(10000, km^2))
+#
+# ansps_u <- ansps_u |>
+#   filter(code != "ENAV") |>
+#   bind_rows(enav_u)
+#
+# ansps_u |> geojsonio::topojson_write(file = "ansps_upper_540.json")

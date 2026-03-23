@@ -16,16 +16,8 @@ suppressMessages(library(docopt))
 # retrieve the command-line arguments
 opts <- docopt(doc)
 
-usr <- Sys.getenv("PRU_DEV_USR")
-pwd <- Sys.getenv("PRU_DEV_PWD")
-dbn <- Sys.getenv("PRU_DEV_DBNAME")
-
-if (usr == "") {
-  cat("Error: you should at least set your DB user via PRU_DEV_USR")
-  q(status = -1)
-}
-
 suppressMessages(library('ROracle'))
+suppressMessages(library(eurocontrol))
 suppressMessages(library(stringr))
 suppressMessages(library(dplyr))
 suppressMessages(library(readr))
@@ -38,47 +30,46 @@ opts["--output"] <- opts$output
 
 # NOTE: to be set before you create your ROracle connection!
 # See http://www.oralytics.com/2015/05/r-roracle-and-oracle-date-formats_27.html
-tz <- "UDT"
-Sys.setenv("TZ" = tz)
-Sys.setenv("ORA_SDTZ" = "UTC")
 
-drv <- dbDriver("Oracle")
-con <- dbConnect(drv, usr, pwd, dbname = 'porape5')
+withr::local_envvar(c(TZ = "UTC", ORA_SDTZ = "UTC", NLS_LANG = ".AL32UTF8"))
+con <- withr::local_db_connection(eurocontrol::db_connection("PRU_DEV"))
 
-sqlq <- "WITH
-AIRSPACE_NAMES
-AS
-(
-  SELECT
-      DISTINCT AIRSPACE_ID, P.PRU_ATC_TYPE AS AIRSPACE_TYPE, NAME, CODE
-    FROM ENV_SP.AIRSPACE A, PRU_STAT_AUA P
+
+sqlq <- "
+WITH
+  AIRSPACE_NAMES AS (
+    SELECT
+      ID,
+      CODE,
+      NAME,
+      PRU_ATC_TYPE AS AIRSPACE_TYPE
+    FROM
+      PRU_STAT_AUA
     WHERE
-      A.AIRSPACE_ID = P.ID
-      AND A.AIRSPACE_TYPE = 'UNIT'
-      AND A.AIRSPACE_KIND = 'STAT_AUA'
-      AND AC_ID = ?CFMU_AIRAC
-)
-SELECT '{ \"type\": \"FeatureCollection\", \"features\": [' ||
-rtrim(SWH_MAP.clobagg('{ \"type\": \"Feature\", \"geometry\": '
-|| SWH_MAP.SDO2GEOJSON(SHAPE,3,0,0)
-|| ', \"properties\": {'
-|| '\"AC_ID\": '               || A.AC_ID                 || ', '
-|| '\"AV_AIRSPACE_ID\": \"'    || A.AIRSPACE_ID           || '\", '
-|| '\"MIN_FLIGHT_LEVEL\": '    || A.MIN_FLIGHT_LEVEL      || ', '
-|| '\"MAX_FLIGHT_LEVEL\": '    || A.MAX_FLIGHT_LEVEL      || ', '
-|| '\"NAME\": \"'              || AIRSPACE_NAMES.NAME     || '\", '
-|| '\"CODE\": \"'              || AIRSPACE_NAMES.CODE     || '\", '
-|| '\"AIRSPACE_TYPE\": \"'     || AIRSPACE_NAMES.AIRSPACE_TYPE         || '\"'
-|| '}}' || ',' || chr(13)),',' || chr(13)) || ']}'
-FROM ENV_SP.AIRSPACE A
-LEFT JOIN AIRSPACE_NAMES
-ON
-  A.AIRSPACE_ID = AIRSPACE_NAMES.AIRSPACE_ID
-  AND A.AIRSPACE_TYPE = AIRSPACE_NAMES.AIRSPACE_TYPE
+      PRU_ATC_TYPE IN ('ACC', 'OAC')
+  )
+SELECT
+  '{ \"type\": \"FeatureCollection\", \"features\": [' ||
+  rtrim(SWH_MAP.clobagg('{ \"type\": \"Feature\", \"geometry\": '
+  || SWH_MAP.SDO2GEOJSON(SHAPE,3,0,0)
+  || ', \"properties\": {'
+  || '\"AC_ID\": '               || A.AC_ID                 || ', '
+  || '\"AV_AIRSPACE_ID\": \"'    || A.AIRSPACE_ID           || '\", '
+  || '\"MIN_FLIGHT_LEVEL\": '    || A.MIN_FLIGHT_LEVEL      || ', '
+  || '\"MAX_FLIGHT_LEVEL\": '    || A.MAX_FLIGHT_LEVEL      || ', '
+  || '\"NAME\": \"'              || B.NAME                  || '\", '
+  || '\"CODE\": \"'              || B.CODE                  || '\", '
+  || '\"AIRSPACE_TYPE\": \"'     || B.AIRSPACE_TYPE         || '\"'
+  || '}}' || ',' || chr(13)),',' || chr(13))                || ']}'
+FROM
+  ENV_SP.AIRSPACE A
+  INNER JOIN AIRSPACE_NAMES B
+    ON (
+      A.AIRSPACE_ID = B.AIRSPACE_ID
+      AND AIRSPACE_KIND = 'STAT_AUA'
+    )
 WHERE
   A.AC_ID = ?CFMU_AIRAC
-  AND A.AIRSPACE_TYPE = 'UNIT'
-  AND A.AIRSPACE_KIND = 'STAT_AUA'
   AND A.SHAPE IS NOT NULL
 "
 
@@ -86,10 +77,6 @@ WHERE
 query <- DBI::sqlInterpolate(con, sqlq, CFMU_AIRAC = cfmu_airac)
 flt <- DBI::dbSendQuery(con, query)
 data <- DBI::fetch(flt, n = -1)
-
-DBI::dbDisconnect(con)
-Sys.unsetenv("TZ")
-Sys.unsetenv("ORA_SDTZ")
 
 data %>%
   dplyr::first() %>%
