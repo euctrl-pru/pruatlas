@@ -1,0 +1,4 @@
+# License
+
+    YEAR: 2017
+    COPYRIGHT HOLDER: European Organisation for the Safety of Air Navigation (EUROCONTROL)
