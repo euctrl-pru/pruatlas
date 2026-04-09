@@ -87,7 +87,7 @@ plot_country_fir(
   ggplot2::geom_sf(
     data = apt,
     shape = 10,
-    size = 3) +
+    linewidth = 3) +
   ggplot2::geom_sf_text(
     data = apt,
     aes(label = ICAO_CODE),

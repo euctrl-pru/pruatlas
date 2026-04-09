@@ -12,7 +12,7 @@ countries50m
 
 A Simple Feature dataset with 240 countries and 4 variables:
 
-- iso_a3:
+- adm0_a3:
 
   [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
   three-letter country code
