@@ -17,22 +17,23 @@
 #' bm <- base_map()
 #' }
 base_map <- function(
-  colour_sea        = "#D8F4FF",
-  colour_land       = "grey89",
-  colour_border     = "#A9A9A9",
-  colour_graticule  = "#D3D3D3",
-  colour_backgroud  = "#f5f5f2",
-  border_size       = 0.2
+  colour_sea = "#D8F4FF",
+  colour_land = "grey89",
+  colour_border = "#A9A9A9",
+  colour_graticule = "#D3D3D3",
+  colour_backgroud = "#f5f5f2",
+  border_size = 0.2
 ) {
-
   graticule <- sf::st_graticule(crs = sf::st_crs(3035))
 
   ggplot2::ggplot() +
-    ggplot2::geom_sf(data = pruatlas::sphere_laea,  fill   = colour_sea) +
-    ggplot2::geom_sf(data = pruatlas::countries50m,
-                     fill   = colour_land,
-                     colour = colour_border,
-                     size = border_size) +
-    ggplot2::geom_sf(data = graticule,    colour = colour_graticule) +
+    ggplot2::geom_sf(data = pruatlas::sphere_laea, fill = colour_sea) +
+    ggplot2::geom_sf(
+      data = pruatlas::countries50m,
+      fill = colour_land,
+      colour = colour_border,
+      linewidth = border_size
+    ) +
+    ggplot2::geom_sf(data = graticule, colour = colour_graticule) +
     theme_map()
 }
