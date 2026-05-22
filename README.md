@@ -60,11 +60,12 @@ The package contains the following aviation GIS datasets (for CFMU AIRAC
 [AIRAC](https://ansperformance.eu/acronym/airac/) `1512`, spans the
 28-day interval 2015-11-12 UTC–2015-12-10 UTC.
 
-If you need polygons in different AIRAC’s that the one in the package
-and have access to EUROCONTROL DB, you can have a look at the scripts in
-the `data-raw` directory. For example `export_nm_fir_geojson.R` or
-`export_ace_ansp_geojson.R` allow for exporting FIR’s or ANSP’s to
-GeoJSON which can be read as {`sf`} features via `sf::read_sf()`.
+If you need polygons in different AIRAC’s than the ones in the package
+and have access to EUROCONTROL DB, you can use the
+[`eurocontrol`](https://github.com/eurocontrol/eurocontrol) package
+which provides functions like `fir_sf()`, `ansp_sf()`, `acc_sf()`, and
+`es_sf()` to retrieve airspace geometries as {`sf`} features for any
+CFMU AIRAC cycle.
 
 # Installation
 
@@ -84,8 +85,8 @@ install_github("euctrl-pru/pruatlas")
 
 - [ ] implement similar facilities as FIR’s/ANSP’s for Elementaty
   Sectors (ES’s) in order to be able to plot single ES or ACC’s
-- [ ] include `export_<airspace_type>` in the package API rather than as
-  scripts for the package datasets
+- [x] move `export_<airspace_type>` scripts to the `eurocontrol`
+  package as proper API functions
 - [ ] extract style from plot functions and make it a better theme
 - [x] extend Member States dataset
 

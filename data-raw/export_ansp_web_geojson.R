@@ -4,14 +4,15 @@ library(pruatlas)
 library(glue)
 library(here)
 library(smoothr)
+library(eurocontrol)
 
 fl_u <- 300
 fl_l <- 200
 
 airac <- 481
 
-# FIRST export using export_ace_ansp_geojson.R
-ansps <- read_sf(here("data-raw", glue("ansp_ace_{airac}.geojson")))
+conn <- eurocontrol::db_connection("PRU_DEV")
+ansps <- eurocontrol::ansp_sf(conn = conn, cfmu_airac = airac)
 
 # upper airspace
 ansps_u <- ansps %>%

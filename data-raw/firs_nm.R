@@ -4,19 +4,17 @@ library(fs)
 library(here)
 library(tidyverse)
 library(arrow)
+library(eurocontrol)
 
-# extract [FU]IR from PRISME
-# data-raw/$ ./export_nm_fir_geojson.R 406
-# data-raw/$ ./export_nm_fir_geojson.R 481
-# data-raw/$ ./export_nm_fir_geojson.R 524
+conn <- eurocontrol::db_connection("PRU_DEV")
 
-prepare_firs_data <- function(cfmu_airac) {
-  fn <- str_glue("ir-{cfmu_airac}.geojson")
-  df <- read_sf(here("data-raw", fn)) |>
+prepare_firs_data <- function(cfmu_airac, conn) {
+  df <- eurocontrol::fir_sf(conn = conn, cfmu_airac = cfmu_airac) |>
     sf::st_make_valid()
+
+  fn <- str_glue("ir-{cfmu_airac}.geojson")
   df |>
-    sf::st_write(here("inst", "extdata", fn), delete_dsn=TRUE)
-  fs::file_delete(here("data-raw", fn))
+    sf::st_write(here("inst", "extdata", fn), delete_dsn = TRUE)
 
   fn <- str_glue("firs_nm_{cfmu_airac}.parquet")
   df |>
@@ -29,19 +27,19 @@ prepare_firs_data <- function(cfmu_airac) {
 }
 
 
-firs_nm_406 <- prepare_firs_data(406)
+firs_nm_406 <- prepare_firs_data(406, conn)
 usethis::use_data(
   firs_nm_406,
   compress = "bzip2",
   overwrite = TRUE)
 
-firs_nm_481 <- prepare_firs_data(481)
+firs_nm_481 <- prepare_firs_data(481, conn)
 usethis::use_data(
   firs_nm_481,
   compress = "bzip2",
   overwrite = TRUE)
 
-firs_nm_524 <- prepare_firs_data(524)
+firs_nm_524 <- prepare_firs_data(524, conn)
 usethis::use_data(
   firs_nm_524,
   compress = "bzip2",
