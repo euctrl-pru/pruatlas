@@ -11,7 +11,8 @@ fl_l <- 200
 
 airac <- 481
 
-ansps <- eurocontrol::ansp_sf(cfmu_airac = airac)
+conn <- eurocontrol::db_connection("PRU_DEV")
+ansps <- eurocontrol::ansp_sf(conn = conn, cfmu_airac = airac)
 
 # upper airspace
 ansps_u <- ansps %>%

@@ -7,8 +7,10 @@ library(stringr)
 library(fs)
 library(eurocontrol)
 
-prepare_ansp_data <- function(cfmu_airac) {
-  ansps_ace <- eurocontrol::ansp_sf(cfmu_airac = cfmu_airac) |>
+conn <- eurocontrol::db_connection("PRU_DEV")
+
+prepare_ansp_data <- function(cfmu_airac, conn) {
+  ansps_ace <- eurocontrol::ansp_sf(conn = conn, cfmu_airac = cfmu_airac) |>
     sf::st_make_valid()
 
   fn <- str_glue("ansps_ace_{cfmu_airac}.geojson")
@@ -25,21 +27,21 @@ prepare_ansp_data <- function(cfmu_airac) {
   ansps_ace
 }
 
-ansps_ace_406 <- prepare_ansp_data(406)
+ansps_ace_406 <- prepare_ansp_data(406, conn)
 usethis::use_data(
   ansps_ace_406,
   compress = "bzip2",
   overwrite = TRUE
 )
 
-ansps_ace_481 <- prepare_ansp_data(481)
+ansps_ace_481 <- prepare_ansp_data(481, conn)
 usethis::use_data(
   ansps_ace_481,
   compress = "bzip2",
   overwrite = TRUE
 )
 
-ansps_ace_524 <- prepare_ansp_data(524)
+ansps_ace_524 <- prepare_ansp_data(524, conn)
 usethis::use_data(
   ansps_ace_524,
   compress = "bzip2",
