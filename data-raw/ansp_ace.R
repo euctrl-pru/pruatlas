@@ -1,4 +1,3 @@
-# calculate sphere in LAEA
 library(sf)
 library(magrittr)
 library(here)
@@ -6,16 +5,15 @@ library(arrow)
 library(dplyr)
 library(stringr)
 library(fs)
+library(eurocontrol)
 
-# To Be Run on the command line in data-raw/
-# $ system('export_ace_ansp_geojson.R  -o ansps_ace_406.geojson" 406')
 prepare_ansp_data <- function(cfmu_airac) {
-  fn <- str_glue("ansps_ace_{cfmu_airac}.geojson")
-  ansps_ace <- read_sf(here("data-raw", fn)) |>
+  ansps_ace <- eurocontrol::ansp_sf(cfmu_airac = cfmu_airac) |>
     sf::st_make_valid()
+
+  fn <- str_glue("ansps_ace_{cfmu_airac}.geojson")
   ansps_ace |>
     sf::st_write(here("inst", "extdata", fn), delete_dsn = TRUE)
-  fs::file_delete(here("data-raw", fn))
 
   fn <- fs::path_ext_set(fn, "parquet")
   ansps_ace |>

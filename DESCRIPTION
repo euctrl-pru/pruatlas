@@ -1,12 +1,17 @@
 Package: pruatlas
 Title: The Atlas and Utilities for PRU Maps
 Version: 0.0.3.6
-Authors@R: 
+Authors@R:
     c(person(given = "Enrico",
              family = "Spinielli",
              role = c("aut", "cre"),
              email = "enrico.spinielli@eurocontrol.int",
              comment = c(ORCID = "0000-0001-8584-9131")),
+      person(given = "Quinten",
+             family = "Goens",
+             role = "aut",
+             email = "quinten.goens@eurocontrol.int",
+             comment = c(ORCID = "0000-0003-2187-1924")),
       person(given = "EUROCONTROL",
              role = c("cph", "fnd")))
 Maintainer: Enrico Spinielli <enrico.spinielli@eurocontrol.int>
@@ -26,12 +31,15 @@ Imports:
     stringr,
     tibble,
     units
-Suggests: 
+Suggests:
+    eurocontrol,
     knitr,
     lwgeom,
     purrr,
     readr,
     rmarkdown
+Remotes:
+    eurocontrol/eurocontrol
 VignetteBuilder: 
     knitr
 RdMacros: 

@@ -4,19 +4,15 @@ library(fs)
 library(here)
 library(tidyverse)
 library(arrow)
-
-# extract [FU]IR from PRISME
-# data-raw/$ ./export_nm_fir_geojson.R 406
-# data-raw/$ ./export_nm_fir_geojson.R 481
-# data-raw/$ ./export_nm_fir_geojson.R 524
+library(eurocontrol)
 
 prepare_firs_data <- function(cfmu_airac) {
-  fn <- str_glue("ir-{cfmu_airac}.geojson")
-  df <- read_sf(here("data-raw", fn)) |>
+  df <- eurocontrol::fir_sf(cfmu_airac = cfmu_airac) |>
     sf::st_make_valid()
+
+  fn <- str_glue("ir-{cfmu_airac}.geojson")
   df |>
-    sf::st_write(here("inst", "extdata", fn), delete_dsn=TRUE)
-  fs::file_delete(here("data-raw", fn))
+    sf::st_write(here("inst", "extdata", fn), delete_dsn = TRUE)
 
   fn <- str_glue("firs_nm_{cfmu_airac}.parquet")
   df |>
